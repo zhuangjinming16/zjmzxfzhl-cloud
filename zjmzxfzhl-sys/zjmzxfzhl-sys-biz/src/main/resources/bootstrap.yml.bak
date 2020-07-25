@@ -1,0 +1,47 @@
+# Tomcat
+server:
+  port: 4001
+
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: zjmzxfzhl-sys
+  profiles:
+    # 环境配置
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/zjmzxfzhl?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  redis:
+    host: localhost
+    port: 6379
+    password:
+#打印mybatis-plussql，生产应关闭
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:com/**/mapper/xml/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.zjmzxfzhl.modules.*.entity
+async:
+  executor:
+    thread:
+      core-pool-size: 10
+      max-pool-size: 20
+      queue-capacity: 2000
+      name-prefix: async-service-
+      keep-alive-seconds: 60
+security:
+  oauth2:
+    client:
+      client-id: zjmzxfzhl
+      client-secret: 1
+      scope: admin
+    resource:
+      loadBalanced: true
+      token-info-uri: http://localhost:4000/oauth/check_token

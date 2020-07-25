@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.zjmzxfzhl.common.security.service.UserDetailsServiceImpl,\
+  com.zjmzxfzhl.common.security.feign.FeignConfig
