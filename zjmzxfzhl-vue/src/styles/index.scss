@@ -200,11 +200,13 @@ aside {
   max-width: calc(100% - 30px);
   display: flex;
   flex-direction: column;
+
   .el-dialog__body {
     padding: 5px 20px;
     overflow: auto;
   }
-  .el-dialog-body-custom-height{
+
+  .el-dialog-body-custom-height {
     height: calc(100vh - 214px);
   }
 }

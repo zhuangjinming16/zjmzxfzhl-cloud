@@ -4,8 +4,9 @@
             <el-tab-pane name="taskForm" label="任务表单" v-if="generateTaskFormVisible">
                 <fm-generate-form :data="taskFormJson" :value="taskFormData" ref="generateFormTask"></fm-generate-form>
             </el-tab-pane>
-            <el-tab-pane name="processInstanceForm" label="流程表单(只读)" >
-                <fm-generate-form v-if="generateStartFormVisible" :data="startFormJson" :value="processInstanceFormData" ref="generateFormStart"></fm-generate-form>
+            <el-tab-pane name="processInstanceForm" label="流程表单(只读)">
+                <fm-generate-form v-if="generateStartFormVisible" :data="startFormJson" :value="processInstanceFormData"
+                                  ref="generateFormStart"></fm-generate-form>
                 <el-form label-width="100px" v-if="showBusinessKey">
                     <el-form-item label="业务主键Key:">
                         <el-input v-model="businessKey" disabled/>
@@ -26,12 +27,15 @@
         <div slot="footer" class="dialog-footer" style="padding:0 15px 0 15px">
             <el-form label-width="100px">
                 <el-form-item label="意见:">
-                    <el-input v-model="message" :autosize="{ minRows: 2, maxRows: 3}" type="textarea" placeholder="请输入意见"/>
+                    <el-input v-model="message" :autosize="{ minRows: 2, maxRows: 3}" type="textarea"
+                              placeholder="请输入意见"/>
                 </el-form-item>
             </el-form>
             <el-button icon="el-icon-close" @click="dialogExcuteTaskVisibleInChild = false">取消</el-button>
             <el-button icon="el-icon-check" type="primary" @click="doComplete">提交</el-button>
-            <el-button v-if="$store.getters.sysUser.userId==='admin'||$store.getters.sysUser.userId===startUserId" icon="el-icon-close" type="primary" @click="doStop">终止</el-button>
+            <el-button v-if="$store.getters.sysUser.userId==='admin'||$store.getters.sysUser.userId===startUserId"
+                       icon="el-icon-close" type="primary" @click="doStop">终止
+            </el-button>
             <el-button v-if="!isInitiator" icon="el-icon-user" type="primary" @click="doAssign">转办</el-button>
             <el-button v-if="!isInitiator" icon="el-icon-user" type="primary" @click="doDelegate">委派</el-button>
             <el-button v-if="!isInitiator" icon="el-icon-back" type="primary" @click="doBack">退回</el-button>
@@ -121,7 +125,7 @@
                         }
                         this.generateTaskFormVisible = true
                     }
-                    if(this.generateTaskFormVisible){
+                    if (this.generateTaskFormVisible) {
                         this.activeName = 'taskForm'
                     }
                     // if (!this.generateStartFormVisible && !this.generateTaskFormVisible) {

@@ -73,7 +73,8 @@
         <!-- 执行任务 -->
         <execute-task v-if="dialogExcuteTaskVisible" :visible.sync="dialogExcuteTaskVisible"
                       :executeTaskId="executeTaskId" @executeTaskFinished="list"></execute-task>
-        <process-detail v-if="dialogViewVisible" :visible.sync="dialogViewVisible" :processInstanceId="processInstanceId"></process-detail>
+        <process-detail v-if="dialogViewVisible" :visible.sync="dialogViewVisible"
+                        :processInstanceId="processInstanceId"></process-detail>
     </div>
 </template>
 

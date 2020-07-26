@@ -29,7 +29,8 @@
                             <el-dropdown split-button type="primary" @click="btnQuery" class="filter-item">
                                 <i class="el-icon-search el-icon--left"></i>查询
                                 <el-dropdown-menu slot="dropdown">
-                                    <el-dropdown-item icon="el-icon-zoom-out" @click.native="btnReset">重置</el-dropdown-item>
+                                    <el-dropdown-item icon="el-icon-zoom-out" @click.native="btnReset">重置
+                                    </el-dropdown-item>
                                 </el-dropdown-menu>
                             </el-dropdown>
                         </div>
@@ -97,9 +98,9 @@
                 type: Boolean,
                 default: false
             },
-            type :{
-                type : String,
-                default : ''
+            type: {
+                type: String,
+                default: ''
             },
             appendToBody: {
                 type: Boolean,
@@ -154,7 +155,7 @@
                 return data.label.indexOf(value) !== -1
             },
             getTreeData() {
-                getAction('/sys/org/getSelectTreeData', {type:this.type}).then(res => {
+                getAction('/sys/org/getSelectTreeData', {type: this.type}).then(res => {
                     const {data} = res
                     this.treeData = data
                 })

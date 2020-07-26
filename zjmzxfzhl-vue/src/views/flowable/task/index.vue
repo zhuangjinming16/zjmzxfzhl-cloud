@@ -93,16 +93,21 @@
                         <span class="el-dropdown-link">操作<i class="el-icon-arrow-down el-icon--right"></i></span>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item icon="el-icon-view" @click.native="btnViewTask(row)">查看</el-dropdown-item>
-                            <el-dropdown-item icon="el-icon-view" divided @click.native="btnView(row.processInstanceId)">查看详情
+                            <el-dropdown-item icon="el-icon-view" divided
+                                              @click.native="btnView(row.processInstanceId)">查看详情
                             </el-dropdown-item>
-                            <el-dropdown-item v-permission="'flowable:task:execute'" v-if="row.endTime==null&&(row.assignee==null||row.assignee=='')" icon="el-icon-edit" divided
+                            <el-dropdown-item v-permission="'flowable:task:execute'"
+                                              v-if="row.endTime==null&&(row.assignee==null||row.assignee=='')"
+                                              icon="el-icon-edit" divided
                                               @click.native="btnClaim(row)">认领
                             </el-dropdown-item>
-                            <el-dropdown-item v-permission="'flowable:task:execute'" v-if="row.endTime==null&&row.assignee===$store.getters.sysUser.userId"
+                            <el-dropdown-item v-permission="'flowable:task:execute'"
+                                              v-if="row.endTime==null&&row.assignee===$store.getters.sysUser.userId"
                                               icon="el-icon-edit" divided @click.native="btnUnclaim(row)">取消认领
                             </el-dropdown-item>
-                            <el-dropdown-item v-if="row.endTime==null&&row.assignee!=null&&row.assignee===$store.getters.sysUser.userId"
-                                              icon="el-icon-edit" divided @click.native="btnExcuteTask(row)">执行
+                            <el-dropdown-item
+                                    v-if="row.endTime==null&&row.assignee!=null&&row.assignee===$store.getters.sysUser.userId"
+                                    icon="el-icon-edit" divided @click.native="btnExcuteTask(row)">执行
                             </el-dropdown-item>
                             <!-- TODO 回收任务 -->
                         </el-dropdown-menu>
@@ -118,7 +123,8 @@
         <!-- 执行任务 -->
         <execute-task v-if="dialogExcuteTaskVisible" :visible.sync="dialogExcuteTaskVisible"
                       :executeTaskId="executeTaskId" @executeTaskFinished="list"></execute-task>
-        <process-detail v-if="dialogViewVisible" :visible.sync="dialogViewVisible" :processInstanceId="processInstanceId"></process-detail>
+        <process-detail v-if="dialogViewVisible" :visible.sync="dialogViewVisible"
+                        :processInstanceId="processInstanceId"></process-detail>
     </div>
 </template>
 

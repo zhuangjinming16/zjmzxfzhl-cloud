@@ -9,11 +9,14 @@
                       class="filter-item" @keyup.enter.native="btnQuery"/>
             <el-date-picker v-model="listQuery.taskCreatedAfter" value-format="yyyy-MM-dd HH:mm:ss" placeholder="创建时间开始"
                             type="datetime" style="width: 200px;" class="filter-item"></el-date-picker>
-            <el-date-picker v-model="listQuery.taskCreatedBefore" value-format="yyyy-MM-dd HH:mm:ss" placeholder="创建时间结束"
+            <el-date-picker v-model="listQuery.taskCreatedBefore" value-format="yyyy-MM-dd HH:mm:ss"
+                            placeholder="创建时间结束"
                             type="datetime" style="width: 200px;" class="filter-item"></el-date-picker>
-            <el-date-picker v-model="listQuery.taskCompletedAfter" value-format="yyyy-MM-dd HH:mm:ss" placeholder="完成时间开始"
+            <el-date-picker v-model="listQuery.taskCompletedAfter" value-format="yyyy-MM-dd HH:mm:ss"
+                            placeholder="完成时间开始"
                             type="datetime" style="width: 200px;" class="filter-item"></el-date-picker>
-            <el-date-picker v-model="listQuery.taskCompletedBefore" value-format="yyyy-MM-dd HH:mm:ss" placeholder="完成时间结束"
+            <el-date-picker v-model="listQuery.taskCompletedBefore" value-format="yyyy-MM-dd HH:mm:ss"
+                            placeholder="完成时间结束"
                             type="datetime" style="width: 200px;" class="filter-item"></el-date-picker>
             <el-select v-model="listQuery.processFinished" placeholder="流程已完成" style="width: 200px;"
                        class="filter-item">
@@ -74,7 +77,8 @@
         <pagination v-show="total>0" :total="total" :current.sync="listQuery.current" :size.sync="listQuery.size"
                     @pagination="list"/>
 
-        <process-detail v-if="dialogViewVisible" :visible.sync="dialogViewVisible" :processInstanceId="processInstanceId"></process-detail>
+        <process-detail v-if="dialogViewVisible" :visible.sync="dialogViewVisible"
+                        :processInstanceId="processInstanceId"></process-detail>
     </div>
 </template>
 

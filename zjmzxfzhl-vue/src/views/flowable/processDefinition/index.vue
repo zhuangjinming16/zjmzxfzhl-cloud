@@ -23,7 +23,9 @@
                 </el-dropdown-menu>
             </el-dropdown>
             <el-button-group>
-                <el-button v-permission="'flowable:processDefinition:import'" icon="el-icon-plus" type="primary" @click="btnImport" class="filter-item">导入</el-button>
+                <el-button v-permission="'flowable:processDefinition:import'" icon="el-icon-plus" type="primary"
+                           @click="btnImport" class="filter-item">导入
+                </el-button>
             </el-button-group>
         </div>
         <el-table
@@ -65,17 +67,26 @@
                             </el-dropdown-item>
                             <el-dropdown-item icon="el-icon-view" divided @click.native="btnImage(row.id)">流程图
                             </el-dropdown-item>
-                            <el-dropdown-item v-permission="'flowable:processDefinitionIdentityLink:list'" icon="el-icon-edit" divided @click.native="btnProcessDefinitionIdentityLink(row)">流程授权
+                            <el-dropdown-item v-permission="'flowable:processDefinitionIdentityLink:list'"
+                                              icon="el-icon-edit" divided
+                                              @click.native="btnProcessDefinitionIdentityLink(row)">流程授权
                             </el-dropdown-item>
-                            <el-dropdown-item v-permission="'flowable:processDefinition:xml'" icon="el-icon-edit" divided @click.native="btnExport(row)">导出
+                            <el-dropdown-item v-permission="'flowable:processDefinition:xml'" icon="el-icon-edit"
+                                              divided @click.native="btnExport(row)">导出
                             </el-dropdown-item>
-                            <el-dropdown-item v-permission="'flowable:processDefinition:suspendOrActivate'" icon="el-icon-edit" divided @click.native="btnSuspendOrActivate(row.id,row.suspended)">{{row.suspended?'激活':'挂起' }}
+                            <el-dropdown-item v-permission="'flowable:processDefinition:suspendOrActivate'"
+                                              icon="el-icon-edit" divided
+                                              @click.native="btnSuspendOrActivate(row.id,row.suspended)">
+                                {{row.suspended?'激活':'挂起' }}
                             </el-dropdown-item>
-                            <el-dropdown-item v-permission="'flowable:processDefinition:delete'" icon="el-icon-delete" divided @click.native="btnDelete(row.id)">删除
+                            <el-dropdown-item v-permission="'flowable:processDefinition:delete'" icon="el-icon-delete"
+                                              divided @click.native="btnDelete(row.id)">删除
                             </el-dropdown-item>
-                            <el-dropdown-item v-permission="'flowable:processDefinition:delete'" icon="el-icon-delete" divided @click.native="btnDelete(row.id,true)">删除包含实例
+                            <el-dropdown-item v-permission="'flowable:processDefinition:delete'" icon="el-icon-delete"
+                                              divided @click.native="btnDelete(row.id,true)">删除包含实例
                             </el-dropdown-item>
-                            <el-dropdown-item v-permission="'flowable:processInstance:list'" icon="el-icon-view" divided @click.native="btnViewProcessInstanceList(row)">实例列表
+                            <el-dropdown-item v-permission="'flowable:processInstance:list'" icon="el-icon-view" divided
+                                              @click.native="btnViewProcessInstanceList(row)">实例列表
                             </el-dropdown-item>
                             <!--<el-dropdown-item icon="el-icon-edit" divided @click.native="btnStartInstance(row)">发起流程
                             </el-dropdown-item>-->
@@ -313,7 +324,7 @@
                 })
             },
             btnExport(row) {
-                downloadAction('/flowable/processDefinition/xml','get', {processDefinitionId: row.id}, row.name + '-v' + row.version + '.bpmn20.xml')
+                downloadAction('/flowable/processDefinition/xml', 'get', {processDefinitionId: row.id}, row.name + '-v' + row.version + '.bpmn20.xml')
             },
             btnImage(processDefinitionId) {
                 // this.imagePath = `${process.env.VUE_APP_BASE_API}` + '/flowable/processDefinition/image?processDefinitionId=' + processDefinitionId + '&access_token=' + getToken() + '&time=' + new Date()
