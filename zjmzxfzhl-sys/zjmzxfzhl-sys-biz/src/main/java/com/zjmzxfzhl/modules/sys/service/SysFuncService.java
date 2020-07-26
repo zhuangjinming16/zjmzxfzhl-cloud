@@ -18,4 +18,11 @@ public interface SysFuncService extends BaseService<SysFunc> {
      * @return
      */
     IPage<SysFunc> list(IPage<SysFunc> page, SysFunc sysFunc);
+
+    /**
+     * 删除功能按钮
+     * @param ids
+     * @return
+     */
+    boolean delete(String ids);
 }

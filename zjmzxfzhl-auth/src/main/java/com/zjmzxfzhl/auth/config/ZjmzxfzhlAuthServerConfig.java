@@ -106,12 +106,13 @@ public class ZjmzxfzhlAuthServerConfig extends AuthorizationServerConfigurerAdap
     public TokenEnhancer tokenEnhancer() {
         return (accessToken, authentication) -> {
             if (accessToken instanceof DefaultOAuth2AccessToken && authentication.getUserAuthentication() != null) {
-                final Map<String, Object> additionalInfo = new HashMap<>(16);
+                final Map<String, Object> tokenEnhancerInfo = new HashMap<>(16);
                 SecurityUser securityUser = (SecurityUser) authentication.getUserAuthentication().getPrincipal();
-                additionalInfo.put("userRealName", securityUser.getUserRealName());
-                additionalInfo.put("orgId", securityUser.getOrgId());
-                additionalInfo.put("roleId", securityUser.getRoleId());
-                ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
+                tokenEnhancerInfo.put("userRealName", securityUser.getUserRealName());
+                tokenEnhancerInfo.put("orgId", securityUser.getOrgId());
+                tokenEnhancerInfo.put("roleId", securityUser.getRoleId());
+                tokenEnhancerInfo.put("additionalInformation",securityUser.getAdditionalInformation());
+                ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(tokenEnhancerInfo);
             }
             return accessToken;
         };

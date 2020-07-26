@@ -272,7 +272,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserMapper, SysUser> 
 
         List<Route> result = new ArrayList<Route>();
         routeMap.forEach((k, v) -> {
-            if (CommonUtil.isEmptyStr(v.getRouteParentId())) {
+            if (CommonUtil.isEmptyStr(v.getRouteParentId()) && CommonUtil.isNotEmptyObject(v.getChildren())) {
                 result.add(v);
             }
         });

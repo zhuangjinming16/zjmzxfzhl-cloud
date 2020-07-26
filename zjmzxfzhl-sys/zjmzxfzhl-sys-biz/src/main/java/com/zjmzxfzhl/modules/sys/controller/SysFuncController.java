@@ -82,15 +82,7 @@ public class SysFuncController extends BaseController {
     @PreAuthorize("@elp.single('sys:func:delete')")
     @DeleteMapping(value = "/delete")
     public Result delete(@RequestParam String ids) {
-        if (ids == null || ids.trim().length() == 0) {
-            return Result.error("ids can't be empty");
-        }
-        String[] idsArr = ids.split(",");
-        if (idsArr.length > 1) {
-            sysFuncService.removeByIds(Arrays.asList(idsArr));
-        } else {
-            sysFuncService.removeById(idsArr[0]);
-        }
+        sysFuncService.delete(ids);
         return Result.ok();
     }
 }

@@ -8,10 +8,12 @@ import com.zjmzxfzhl.common.core.util.CommonUtil;
 import com.zjmzxfzhl.common.core.constant.SysConstants;
 import com.zjmzxfzhl.modules.sys.entity.SysFunc;
 import com.zjmzxfzhl.modules.sys.entity.SysMenu;
+import com.zjmzxfzhl.modules.sys.entity.SysRolePermission;
 import com.zjmzxfzhl.modules.sys.entity.vo.ElTree;
 import com.zjmzxfzhl.modules.sys.mapper.SysMenuMapper;
 import com.zjmzxfzhl.modules.sys.service.SysFuncService;
 import com.zjmzxfzhl.modules.sys.service.SysMenuService;
+import com.zjmzxfzhl.modules.sys.service.SysRolePermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,10 +22,11 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 菜单Service
- * 
+ *
  * @author 庄金明
  */
 @Service
@@ -32,6 +35,9 @@ public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuMapper, SysMenu> 
     @Autowired
     private SysFuncService sysFuncService;
 
+    @Autowired
+    private SysRolePermissionService sysRolePermissionService;
+
     @Override
     public IPage<SysMenu> list(IPage<SysMenu> page, SysMenu sysMenu) {
         return page.setRecords(baseMapper.list(page, sysMenu));
@@ -39,7 +45,7 @@ public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuMapper, SysMenu> 
 
     /**
      * 新增菜单，自动计算是否叶子
-     * 
+     *
      * @param sysMenu
      * @return
      */
@@ -67,7 +73,7 @@ public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuMapper, SysMenu> 
 
     /**
      * 修改菜单
-     * 
+     *
      * @param sysMenu
      * @return
      */
@@ -100,9 +106,9 @@ public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuMapper, SysMenu> 
     }
 
     /**
-     * @功能：批量删除
      * @param id
      * @return
+     * @功能：批量删除
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -113,12 +119,18 @@ public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuMapper, SysMenu> 
         }
         SysMenu sysMenu = this.getById(id);
         boolean result = this.removeById(id);
-        // 删除功能
-        sysFuncService.remove(new LambdaQueryWrapper<SysFunc>().eq(SysFunc::getMenuId, id));
+
+        List<SysFunc> funcs = sysFuncService.list(new LambdaQueryWrapper<SysFunc>().eq(SysFunc::getMenuId, id));
+        // 删除功能按钮
+        List<String> menuOrFuncIds = funcs.stream().map(SysFunc::getFuncId).collect(Collectors.toList());
+        sysFuncService.remove(new LambdaQueryWrapper<SysFunc>().in(SysFunc::getFuncId, menuOrFuncIds));
+        // 删除菜单功能权限
+        menuOrFuncIds.add(id);
+        sysRolePermissionService.remove(new LambdaQueryWrapper<SysRolePermission>().in(SysRolePermission::getMenuOrFuncId, menuOrFuncIds));
+        // 若父菜单的下级菜单为空，则修改为是叶子节点
         if (!CommonUtil.isEmptyStr(sysMenu.getParentMenuId())) {
-            // 若父菜单的下级菜单为空，则修改为是叶子节点
-            int countParentChildren = this
-                    .count(new LambdaQueryWrapper<SysMenu>().eq(SysMenu::getParentMenuId, sysMenu.getParentMenuId()));
+            int countParentChildren = this.count(new LambdaQueryWrapper<SysMenu>().eq(SysMenu::getParentMenuId,
+                    sysMenu.getParentMenuId()));
             if (countParentChildren == 0) {
                 SysMenu parentSysMenu = this.getById(sysMenu.getParentMenuId());
                 parentSysMenu.setIsLeaf("1");
@@ -130,7 +142,7 @@ public class SysMenuServiceImpl extends BaseServiceImpl<SysMenuMapper, SysMenu> 
 
     /**
      * 菜单管理，菜单树数据
-     * 
+     *
      * @return
      */
     @Override
