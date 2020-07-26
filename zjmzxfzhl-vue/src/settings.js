@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'zjmzxfzhl',
+    title: 'zjmzxfzhl-cloud',
 
     /**
      * @type {boolean} true | false

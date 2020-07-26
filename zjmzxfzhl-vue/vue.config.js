@@ -6,7 +6,7 @@ function resolve(dir) {
     return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'zjmzxfzhl' // page title
+const name = defaultSettings.title || 'zjmzxfzhl-cloud' // page title
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
 // For example, Mac: sudo npm run
@@ -21,7 +21,7 @@ module.exports = {
      * In most cases please use '/' !!!
      * Detail: https://cli.vuejs.org/config/#publicpath
      */
-    publicPath: '/zjmzxfzhl/',
+    publicPath: '/zjmzxfzhl-cloud/',
     outputDir: 'dist',
     assetsDir: 'static',
     lintOnSave: process.env.NODE_ENV === 'development',

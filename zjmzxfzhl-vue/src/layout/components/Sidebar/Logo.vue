@@ -24,7 +24,7 @@
         },
         data() {
             return {
-                title: 'zjmzxfzhl',
+                title: 'zjmzxfzhl-cloud',
                 logo: ''
             }
         }
