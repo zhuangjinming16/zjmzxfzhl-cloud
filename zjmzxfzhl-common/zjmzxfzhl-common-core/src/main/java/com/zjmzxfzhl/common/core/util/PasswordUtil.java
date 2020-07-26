@@ -23,9 +23,15 @@ public class PasswordUtil {
     }
 
     private static PasswordEncoder getPasswordEncoder() {
-        PasswordEncoder passwordEncoder = SpringContextUtils.getBean("passwordEncoder");
-        if (passwordEncoder == null) {
-            passwordEncoder = ENCODER;
+        PasswordEncoder passwordEncoder = ENCODER;
+        try {
+            passwordEncoder = SpringContextUtils.getBean("passwordEncoder");
+        } catch (Exception e) {
+            // 不做处理
+        } finally {
+            if (passwordEncoder == null) {
+                passwordEncoder = ENCODER;
+            }
         }
         return passwordEncoder;
     }

@@ -68,6 +68,10 @@ public class LogAspect {
             }
         });
 
+        if (ex != null) {
+            throw ex;
+        }
+
         return result;
     }
 
