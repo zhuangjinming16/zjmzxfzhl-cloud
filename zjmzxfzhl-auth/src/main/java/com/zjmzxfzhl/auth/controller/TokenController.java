@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author 庄金明
- *
  */
 @RestController
 @RequestMapping("/token")

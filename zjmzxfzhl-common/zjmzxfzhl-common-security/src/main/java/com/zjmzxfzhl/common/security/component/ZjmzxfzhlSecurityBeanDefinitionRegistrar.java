@@ -12,20 +12,22 @@ import org.springframework.core.type.AnnotationMetadata;
  */
 @Slf4j
 public class ZjmzxfzhlSecurityBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
-	/***
-	 * 资源服务器默认bean名称
-	 */
-	String RESOURCE_SERVER_CONFIGURER = "resourceServerConfigurer";
+    /***
+     * 资源服务器默认bean名称
+     */
+    String RESOURCE_SERVER_CONFIGURER = "resourceServerConfigurer";
 
-	/**
-	 * 根据注解值动态注入资源服务器的相关属性
-	 * @param metadata 注解信息
-	 * @param registry 注册器
-	 */
-	@Override
-	public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
-		BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(ZjmzxfzhlResourceServerConfigurerAdapter.class);
-		registry.registerBeanDefinition(RESOURCE_SERVER_CONFIGURER, beanDefinitionBuilder.getBeanDefinition());
-	}
+    /**
+     * 根据注解值动态注入资源服务器的相关属性
+     *
+     * @param metadata 注解信息
+     * @param registry 注册器
+     */
+    @Override
+    public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
+        BeanDefinitionBuilder beanDefinitionBuilder =
+                BeanDefinitionBuilder.genericBeanDefinition(ZjmzxfzhlResourceServerConfigurerAdapter.class);
+        registry.registerBeanDefinition(RESOURCE_SERVER_CONFIGURER, beanDefinitionBuilder.getBeanDefinition());
+    }
 
 }

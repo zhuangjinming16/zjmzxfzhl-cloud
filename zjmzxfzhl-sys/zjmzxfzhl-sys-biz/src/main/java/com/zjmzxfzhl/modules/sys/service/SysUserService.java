@@ -15,13 +15,13 @@ import java.util.List;
 
 /**
  * 用户Service
- * 
+ *
  * @author 庄金明
  */
 public interface SysUserService extends BaseService<SysUser> {
     /**
      * 分页查询用户
-     * 
+     *
      * @param page
      * @param sysUser
      * @return
@@ -30,7 +30,7 @@ public interface SysUserService extends BaseService<SysUser> {
 
     /**
      * 公共选人查询
-     * 
+     *
      * @param page
      * @param sysUser
      * @return
@@ -39,7 +39,7 @@ public interface SysUserService extends BaseService<SysUser> {
 
     /**
      * 根据用户id查询角色
-     * 
+     *
      * @param userId
      * @return
      */
@@ -47,7 +47,7 @@ public interface SysUserService extends BaseService<SysUser> {
 
     /**
      * 获取用户信息 ，若用户变更角色，则roleId不能为空,并且将变更后的roleId更新到T_SYS_USER表中
-     * 
+     *
      * @param userId
      * @param roleId
      * @return
@@ -56,6 +56,7 @@ public interface SysUserService extends BaseService<SysUser> {
 
     /**
      * 获取用户简单信息
+     *
      * @param userId
      * @return
      */
@@ -63,7 +64,7 @@ public interface SysUserService extends BaseService<SysUser> {
 
     /**
      * 加载用户按钮权限
-     * 
+     *
      * @param sysUser
      * @param roleId
      * @return
@@ -72,7 +73,7 @@ public interface SysUserService extends BaseService<SysUser> {
 
     /**
      * 加载路由信息
-     * 
+     *
      * @param sysUser
      * @param roleId
      * @return
@@ -81,7 +82,7 @@ public interface SysUserService extends BaseService<SysUser> {
 
     /**
      * 新增用户
-     * 
+     *
      * @param sysUser
      * @return
      */
@@ -89,7 +90,7 @@ public interface SysUserService extends BaseService<SysUser> {
 
     /**
      * 修改用户
-     * 
+     *
      * @param sysUser
      * @return
      */
@@ -97,14 +98,14 @@ public interface SysUserService extends BaseService<SysUser> {
 
     /**
      * 删除用户
-     * 
+     *
      * @param ids
      */
     void delete(String ids);
 
     /**
      * 修改密码
-     * 
+     *
      * @param sysPasswordForm
      * @return
      */

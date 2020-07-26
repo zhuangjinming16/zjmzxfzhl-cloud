@@ -2,9 +2,9 @@ package com.zjmzxfzhl.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zjmzxfzhl.common.core.base.BaseServiceImpl;
+import com.zjmzxfzhl.common.core.constant.SysConstants;
 import com.zjmzxfzhl.common.core.exception.SysException;
 import com.zjmzxfzhl.common.core.util.CommonUtil;
-import com.zjmzxfzhl.common.core.constant.SysConstants;
 import com.zjmzxfzhl.modules.sys.entity.SysOrg;
 import com.zjmzxfzhl.modules.sys.entity.vo.ElTree;
 import com.zjmzxfzhl.modules.sys.mapper.SysOrgMapper;
@@ -19,7 +19,7 @@ import java.util.Map;
 
 /**
  * 机构Service
- * 
+ *
  * @author 庄金明
  */
 @Service
@@ -31,7 +31,7 @@ public class SysOrgServiceImpl extends BaseServiceImpl<SysOrgMapper, SysOrg> imp
 
     /**
      * 新增机构，自动计算机构级别、机构级次码、是否叶子
-     * 
+     *
      * @param sysOrg
      * @return
      */
@@ -64,7 +64,7 @@ public class SysOrgServiceImpl extends BaseServiceImpl<SysOrgMapper, SysOrg> imp
 
     /**
      * 修改机构，自动计算机构级别、机构级次码、是否叶子
-     * 
+     *
      * @param sysOrg
      * @return
      */
@@ -95,7 +95,7 @@ public class SysOrgServiceImpl extends BaseServiceImpl<SysOrgMapper, SysOrg> imp
 
     /**
      * 机构管理，机构树数据
-     * 
+     *
      * @return
      */
     @Override
@@ -106,7 +106,7 @@ public class SysOrgServiceImpl extends BaseServiceImpl<SysOrgMapper, SysOrg> imp
 
     /**
      * 生成机构树
-     * 
+     *
      * @param orgList
      * @return
      */

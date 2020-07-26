@@ -25,7 +25,7 @@ import java.util.Map;
  * @author 庄金明
  * @date 2020年3月24日
  */
-@SuppressWarnings({ "rawtypes" })
+@SuppressWarnings({"rawtypes"})
 public abstract class BaseFlowableController {
     @Autowired
     protected ResponseFactory responseFactory;
@@ -91,25 +91,29 @@ public abstract class BaseFlowableController {
     }
 
     protected FlowablePage pageList(Map<String, String> requestParams, Query query,
-            Class<? extends IListWrapper> listWrapperClass, Map<String, QueryProperty> allowedSortProperties) {
+                                    Class<? extends IListWrapper> listWrapperClass,
+                                    Map<String, QueryProperty> allowedSortProperties) {
         return pageList(getFlowablePage(requestParams), query, listWrapperClass, allowedSortProperties);
     }
 
     protected FlowablePage pageList(Map<String, String> requestParams, Query query,
-            Class<? extends IListWrapper> listWrapperClass, Map<String, QueryProperty> allowedSortProperties,
-            QueryProperty defaultDescSortProperty) {
+                                    Class<? extends IListWrapper> listWrapperClass,
+                                    Map<String, QueryProperty> allowedSortProperties,
+                                    QueryProperty defaultDescSortProperty) {
         return pageList(getFlowablePage(requestParams), query, listWrapperClass, allowedSortProperties,
                 defaultDescSortProperty);
     }
 
     protected FlowablePage pageList(FlowablePage flowablePage, Query query,
-            Class<? extends IListWrapper> listWrapperClass, Map<String, QueryProperty> allowedSortProperties) {
+                                    Class<? extends IListWrapper> listWrapperClass,
+                                    Map<String, QueryProperty> allowedSortProperties) {
         return pageList(flowablePage, query, listWrapperClass, allowedSortProperties, null);
     }
 
     protected FlowablePage pageList(FlowablePage flowablePage, Query query,
-            Class<? extends IListWrapper> listWrapperClass, Map<String, QueryProperty> allowedSortProperties,
-            QueryProperty defaultDescSortProperty) {
+                                    Class<? extends IListWrapper> listWrapperClass,
+                                    Map<String, QueryProperty> allowedSortProperties,
+                                    QueryProperty defaultDescSortProperty) {
         List list = null;
         if (flowablePage == null) {
             list = query.list();
@@ -134,9 +138,9 @@ public abstract class BaseFlowableController {
     }
 
     protected void setQueryOrder(List<Order> orders, Query query, Map<String, QueryProperty> properties,
-            QueryProperty defaultDescSortProperty) {
-        boolean orderByDefaultDescSortProperty = (orders == null || orders.size() == 0 || properties.isEmpty())
-                && defaultDescSortProperty != null;
+                                 QueryProperty defaultDescSortProperty) {
+        boolean orderByDefaultDescSortProperty =
+                (orders == null || orders.size() == 0 || properties.isEmpty()) && defaultDescSortProperty != null;
         if (orderByDefaultDescSortProperty) {
             query.orderBy(defaultDescSortProperty).desc();
         } else {
@@ -144,8 +148,7 @@ public abstract class BaseFlowableController {
                 for (Order order : orders) {
                     QueryProperty qp = properties.get(order.getProperty());
                     if (qp == null) {
-                        throw new FlowableIllegalArgumentException("Value for param 'orders' is not valid, '"
-                                + order.getProperty() + "' is not a valid property");
+                        throw new FlowableIllegalArgumentException("Value for param 'orders' is not valid, '" + order.getProperty() + "' is not a valid property");
                     }
                     query.orderBy(qp);
                     if (order.getDirection() == Direction.ASC) {
@@ -160,7 +163,7 @@ public abstract class BaseFlowableController {
 
     /**
      * 只接收字符串
-     * 
+     *
      * @param message
      * @param arguments
      * @return
@@ -170,8 +173,8 @@ public abstract class BaseFlowableController {
     }
 
     protected boolean isShowBusinessKey(String processDefinitionId) {
-        List<ValuedDataObject> dataObjects = repositoryService.getBpmnModel(processDefinitionId).getMainProcess()
-                .getDataObjects();
+        List<ValuedDataObject> dataObjects =
+                repositoryService.getBpmnModel(processDefinitionId).getMainProcess().getDataObjects();
         if (dataObjects != null && dataObjects.size() > 0) {
             for (ValuedDataObject valuedDataObject : dataObjects) {
                 if ("showBusinessKey".equals(valuedDataObject.getId())) {

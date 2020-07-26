@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * 岗位Service
- * 
+ *
  * @author 庄金明
  */
 @Service
@@ -35,7 +35,7 @@ public class SysPostServiceImpl extends BaseServiceImpl<SysPostMapper, SysPost> 
 
     /**
      * 查询岗位用户
-     * 
+     *
      * @param page
      * @param sysPostUser
      * @return
@@ -47,7 +47,7 @@ public class SysPostServiceImpl extends BaseServiceImpl<SysPostMapper, SysPost> 
 
     /**
      * 保存岗位用户
-     * 
+     *
      * @param postId
      * @param userIds
      */
@@ -69,7 +69,7 @@ public class SysPostServiceImpl extends BaseServiceImpl<SysPostMapper, SysPost> 
 
     /**
      * 删除岗位用户
-     * 
+     *
      * @param postId
      * @param userIds
      */
@@ -83,7 +83,7 @@ public class SysPostServiceImpl extends BaseServiceImpl<SysPostMapper, SysPost> 
 
     /**
      * 删除岗位
-     * 
+     *
      * @param ids
      */
     @Override
@@ -100,7 +100,7 @@ public class SysPostServiceImpl extends BaseServiceImpl<SysPostMapper, SysPost> 
 
     /**
      * 根据Flowable GroupQueryImpl查询岗位列表
-     * 
+     *
      * @param query
      * @return
      */

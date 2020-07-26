@@ -17,7 +17,7 @@ import java.util.Map;
 
 /**
  * 代码信息Controller
- * 
+ *
  * @author 庄金明
  */
 @RestController
@@ -28,7 +28,7 @@ public class SysCodeInfoController extends BaseController {
 
     /**
      * 自定义查询列表
-     * 
+     *
      * @param sysCodeInfo
      * @param current
      * @param size
@@ -49,9 +49,9 @@ public class SysCodeInfoController extends BaseController {
     }
 
     /**
-     * @功能：新增
      * @param sysCodeInfo
      * @return
+     * @功能：新增
      */
     @Log(value = "新增代码信息")
     @PreAuthorize("@elp.single('sys:codeInfo:save')")
@@ -62,9 +62,9 @@ public class SysCodeInfoController extends BaseController {
     }
 
     /**
-     * @功能：修改
      * @param sysCodeInfo
      * @return
+     * @功能：修改
      */
     @Log(value = "修改代码信息")
     @PreAuthorize("@elp.single('sys:codeInfo:update')")
@@ -75,9 +75,9 @@ public class SysCodeInfoController extends BaseController {
     }
 
     /**
-     * @功能：批量删除
      * @param ids
      * @return
+     * @功能：批量删除
      */
     @Log(value = "删除代码信息")
     @PreAuthorize("@elp.single('sys:codeInfo:delete')")
@@ -89,7 +89,7 @@ public class SysCodeInfoController extends BaseController {
 
     /**
      * 根据代码类型查询代码信息清单
-     * 
+     *
      * @param codeTypeIds
      * @return
      */

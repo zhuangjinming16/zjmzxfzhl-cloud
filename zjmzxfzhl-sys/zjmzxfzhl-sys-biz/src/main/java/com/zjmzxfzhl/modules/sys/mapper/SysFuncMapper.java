@@ -9,13 +9,13 @@ import java.util.List;
 
 /**
  * 功能Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface SysFuncMapper extends BaseMapper<SysFunc> {
     /**
      * 查询功能列表
-     * 
+     *
      * @param page
      * @param entity
      * @return

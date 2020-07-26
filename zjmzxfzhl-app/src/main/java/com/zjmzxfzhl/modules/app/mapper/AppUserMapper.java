@@ -9,13 +9,13 @@ import java.util.List;
 
 /**
  * 用户Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface AppUserMapper extends BaseMapper<AppUser> {
     /**
      * 查询用户列表
-     * 
+     *
      * @param page
      * @param entity
      * @return

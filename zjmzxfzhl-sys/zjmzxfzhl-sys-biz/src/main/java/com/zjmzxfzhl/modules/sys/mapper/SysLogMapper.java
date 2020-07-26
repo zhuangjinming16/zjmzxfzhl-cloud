@@ -9,13 +9,13 @@ import java.util.List;
 
 /**
  * 系统日志Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface SysLogMapper extends BaseMapper<SysLog> {
     /**
      * 查询系统日志列表
-     * 
+     *
      * @param page
      * @param entity
      * @return

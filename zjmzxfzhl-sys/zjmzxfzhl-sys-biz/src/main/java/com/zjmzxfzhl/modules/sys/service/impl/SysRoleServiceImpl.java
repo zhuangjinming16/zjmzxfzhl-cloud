@@ -21,7 +21,7 @@ import java.util.*;
 
 /**
  * 角色Service
- * 
+ *
  * @author 庄金明
  */
 @Service
@@ -44,7 +44,7 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRoleMapper, SysRole> 
 
     /**
      * 查询角色权限
-     * 
+     *
      * @param sysUser
      * @param roleId
      * @return
@@ -109,7 +109,7 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRoleMapper, SysRole> 
 
     /**
      * 保存角色权限
-     * 
+     *
      * @param roleId
      * @param menuOrFuncIds
      * @param permissionTypes
@@ -145,7 +145,7 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRoleMapper, SysRole> 
 
     /**
      * 查询角色用户
-     * 
+     *
      * @param page
      * @param roleId
      * @return
@@ -157,7 +157,7 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRoleMapper, SysRole> 
 
     /**
      * 保存角色用户
-     * 
+     *
      * @param sysRoleUser
      */
     @Override
@@ -178,7 +178,7 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRoleMapper, SysRole> 
 
     /**
      * 删除角色用户
-     * 
+     *
      * @param sysRoleUser
      */
     @Override
@@ -191,7 +191,7 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRoleMapper, SysRole> 
 
     /**
      * 删除角色
-     * 
+     *
      * @param ids
      */
     @Override

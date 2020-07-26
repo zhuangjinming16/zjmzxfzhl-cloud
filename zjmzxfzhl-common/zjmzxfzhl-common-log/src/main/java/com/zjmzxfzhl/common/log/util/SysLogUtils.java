@@ -13,12 +13,11 @@ import java.util.Objects;
 
 /**
  * @author 庄金明
- *
  */
 public class SysLogUtils {
     public static SysLog getSysLog() {
-        HttpServletRequest request = ((ServletRequestAttributes) Objects
-                .requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
+        HttpServletRequest request =
+                ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         SysLog sysLog = new SysLog();
         sysLog.setUserId(SecurityUtils.getUserId());
         sysLog.setIp(IpUtils.getIpAddr(request));

@@ -15,7 +15,6 @@ import java.util.List;
 
 /**
  * @author 庄金明
- * 
  */
 public class AuthorityDeserializer extends JsonDeserializer {
 

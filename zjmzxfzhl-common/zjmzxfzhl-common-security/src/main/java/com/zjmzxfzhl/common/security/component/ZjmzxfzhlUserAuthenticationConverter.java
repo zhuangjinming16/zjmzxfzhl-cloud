@@ -20,13 +20,6 @@ public class ZjmzxfzhlUserAuthenticationConverter implements UserAuthenticationC
 
     private static final String N_A = "N/A";
 
-    /**
-     * Extract information about the user to be used in an access token (i.e. for resource
-     * servers).
-     *
-     * @param authentication an authentication representing a user
-     * @return a map of key values representing the unique information about the user
-     */
     @Override
     public Map<String, ?> convertUserAuthentication(Authentication authentication) {
         Map<String, Object> response = new LinkedHashMap<>();
@@ -37,13 +30,6 @@ public class ZjmzxfzhlUserAuthenticationConverter implements UserAuthenticationC
         return response;
     }
 
-    /**
-     * Inverse of {@link #convertUserAuthentication(Authentication)}. Extracts an
-     * Authentication from a map.
-     *
-     * @param map a map of user information
-     * @return an Authentication representing the user or null if there is none
-     */
     @Override
     public Authentication extractAuthentication(Map<String, ?> map) {
         if (map.containsKey(USERNAME)) {

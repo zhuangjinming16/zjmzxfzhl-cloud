@@ -58,8 +58,7 @@ public class ZjmzxfzhlResourceServerConfigurerAdapter extends ResourceServerConf
         httpSecurity.headers().frameOptions().disable();
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry =
                 httpSecurity.authorizeRequests();
-        permitAllUrl.getUrls()
-                .forEach(url -> registry.antMatchers(url).permitAll());
+        permitAllUrl.getUrls().forEach(url -> registry.antMatchers(url).permitAll());
         anonymousUrls.forEach(url -> registry.antMatchers(url).permitAll());
         registry.anyRequest().authenticated().and().csrf().disable();
     }

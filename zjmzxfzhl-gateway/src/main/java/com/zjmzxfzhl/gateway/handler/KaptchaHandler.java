@@ -1,7 +1,7 @@
 package com.zjmzxfzhl.gateway.handler;
 
 import com.google.code.kaptcha.Producer;
-import com.zjmzxfzhl.common.core.constant.Constants;
+import com.zjmzxfzhl.common.core.constant.CacheConstants;
 import com.zjmzxfzhl.common.core.redis.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +57,7 @@ public class KaptchaHandler implements HandlerFunction<ServerResponse> {
         BufferedImage image = producer.createImage(text);
 
         // 保存到 redis,60秒
-        redisUtil.set(Constants.PREFIX_USER_CAPTCHA + uuid, text, 60);
+        redisUtil.set(CacheConstants.CAPTCHA + uuid, text, 60);
 
         // 转换流信息写出
         FastByteArrayOutputStream os = new FastByteArrayOutputStream();

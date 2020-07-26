@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * @author 庄金明
- *
  */
 public interface CommonDataPermissionMapper {
     /**

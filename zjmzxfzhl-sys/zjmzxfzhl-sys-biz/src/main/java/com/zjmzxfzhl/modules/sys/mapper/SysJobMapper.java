@@ -9,13 +9,13 @@ import java.util.List;
 
 /**
  * 定时任务Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface SysJobMapper extends BaseMapper<SysJob> {
     /**
      * 查询定时任务列表
-     * 
+     *
      * @param page
      * @param entity
      * @return

@@ -40,8 +40,7 @@ public class ResponseFactory {
         this.historyService = historyService;
     }
 
-    public List<ProcessDefinitionResponse> createProcessDefinitionResponseList(
-            List<ProcessDefinition> processDefinitions) {
+    public List<ProcessDefinitionResponse> createProcessDefinitionResponseList(List<ProcessDefinition> processDefinitions) {
         List<ProcessDefinitionResponse> responseList = new ArrayList<>();
         for (ProcessDefinition instance : processDefinitions) {
             responseList.add(createProcessDefinitionResponse(instance));
@@ -59,7 +58,7 @@ public class ResponseFactory {
     }
 
     public ProcessDefinitionResponse createProcessDefinitionResponse(ProcessDefinition processDefinition,
-            String formKey) {
+                                                                     String formKey) {
         ProcessDefinitionResponse response = new ProcessDefinitionResponse();
         response.setId(processDefinition.getId());
         response.setKey(processDefinition.getKey());
@@ -98,8 +97,7 @@ public class ResponseFactory {
         return result;
     }
 
-    public List<HistoricProcessInstanceResponse> createHistoricProcessInstanceResponseList(
-            List<HistoricProcessInstance> processInstances) {
+    public List<HistoricProcessInstanceResponse> createHistoricProcessInstanceResponseList(List<HistoricProcessInstance> processInstances) {
         List<HistoricProcessInstanceResponse> responseList = new ArrayList<>();
         for (HistoricProcessInstance instance : processInstances) {
             responseList.add(createHistoricProcessInstanceResponse(instance));
@@ -107,15 +105,13 @@ public class ResponseFactory {
         return responseList;
     }
 
-    private HistoricProcessInstanceResponse createHistoricProcessInstanceResponse(
-            HistoricProcessInstance processInstance) {
+    private HistoricProcessInstanceResponse createHistoricProcessInstanceResponse(HistoricProcessInstance processInstance) {
         HistoricProcessInstanceResponse result = new HistoricProcessInstanceResponse();
         createHistoricProcessInstanceResponse(result, processInstance);
         return result;
     }
 
-    public ProcessInstanceDetailResponse createProcessInstanceDetailResponse(HistoricProcessInstance hisProcessInstance,
-            ProcessInstance processInstance) {
+    public ProcessInstanceDetailResponse createProcessInstanceDetailResponse(HistoricProcessInstance hisProcessInstance, ProcessInstance processInstance) {
         ProcessInstanceDetailResponse result = new ProcessInstanceDetailResponse();
         createHistoricProcessInstanceResponse(result, hisProcessInstance);
         result.setStartUserName(getUserName(hisProcessInstance.getStartUserId()));
@@ -127,7 +123,7 @@ public class ResponseFactory {
     }
 
     private void createHistoricProcessInstanceResponse(HistoricProcessInstanceResponse result,
-            HistoricProcessInstance processInstance) {
+                                                       HistoricProcessInstance processInstance) {
         result.setId(processInstance.getId());
         result.setName(processInstance.getName());
         result.setBusinessKey(processInstance.getBusinessKey());
@@ -153,8 +149,7 @@ public class ResponseFactory {
             }
         }
         if (processInstanceIds != null && processInstanceIds.size() > 0) {
-            historyService.createHistoricProcessInstanceQuery().processInstanceIds(processInstanceIds).list().forEach(
-                    processInstance -> processInstanceNames.put(processInstance.getId(), processInstance.getName()));
+            historyService.createHistoricProcessInstanceQuery().processInstanceIds(processInstanceIds).list().forEach(processInstance -> processInstanceNames.put(processInstance.getId(), processInstance.getName()));
         }
         List<TaskResponse> responseList = new ArrayList<>();
         for (TaskInfo task : tasks) {

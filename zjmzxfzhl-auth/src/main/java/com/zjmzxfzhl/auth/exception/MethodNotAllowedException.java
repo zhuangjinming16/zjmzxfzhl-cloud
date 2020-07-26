@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 
 /**
  * @author 庄金明
- *
  */
 @JsonSerialize(using = ZjmzxfzhlAuth2ExceptionSerializer.class)
 public class MethodNotAllowedException extends ZjmzxfzhlAuth2Exception {

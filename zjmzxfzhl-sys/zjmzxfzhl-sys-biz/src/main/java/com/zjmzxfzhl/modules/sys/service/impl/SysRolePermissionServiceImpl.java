@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * 操作权限Service
- * 
+ *
  * @author 庄金明
  */
 @Service
-public class SysRolePermissionServiceImpl extends BaseServiceImpl<SysRolePermissionMapper, SysRolePermission>
-        implements SysRolePermissionService {
+public class SysRolePermissionServiceImpl extends BaseServiceImpl<SysRolePermissionMapper, SysRolePermission> implements SysRolePermissionService {
     @Override
     public IPage<SysRolePermission> list(IPage<SysRolePermission> page, SysRolePermission sysRolePermission) {
         return page.setRecords(baseMapper.list(page, sysRolePermission));

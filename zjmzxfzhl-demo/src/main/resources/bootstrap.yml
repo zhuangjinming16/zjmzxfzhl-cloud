@@ -3,7 +3,7 @@ server:
   port: 8050
 
 # Spring
-spring: 
+spring:
   application:
     # 应用名称
     name: zjmzxfzhl-demo

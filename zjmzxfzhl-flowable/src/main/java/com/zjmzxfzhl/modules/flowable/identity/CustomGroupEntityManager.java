@@ -37,9 +37,9 @@ public class CustomGroupEntityManager extends GroupEntityManagerImpl {
     @Override
     public List<Group> findGroupByQueryCriteria(GroupQueryImpl query) {
         List<Group> groups = flowableCommonMapper.selectGroupByQueryCriteria(query);
-        if(groups == null ){
+        if (groups == null) {
             return new ArrayList<>();
-        }else{
+        } else {
             return groups;
         }
     }

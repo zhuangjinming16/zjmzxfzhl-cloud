@@ -2,8 +2,8 @@ package com.zjmzxfzhl.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zjmzxfzhl.common.core.constant.Constants;
 import com.zjmzxfzhl.common.core.base.BaseServiceImpl;
+import com.zjmzxfzhl.common.core.constant.CacheConstants;
 import com.zjmzxfzhl.common.core.exception.SysException;
 import com.zjmzxfzhl.common.core.redis.util.RedisUtil;
 import com.zjmzxfzhl.modules.sys.entity.SysCodeInfo;
@@ -19,12 +19,11 @@ import java.util.Arrays;
 
 /**
  * 代码类别Service
- * 
+ *
  * @author 庄金明
  */
 @Service
-public class SysCodeTypeServiceImpl extends BaseServiceImpl<SysCodeTypeMapper, SysCodeType>
-        implements SysCodeTypeService {
+public class SysCodeTypeServiceImpl extends BaseServiceImpl<SysCodeTypeMapper, SysCodeType> implements SysCodeTypeService {
 
     @Autowired
     private SysCodeInfoService sysCodeInfoService;
@@ -39,7 +38,7 @@ public class SysCodeTypeServiceImpl extends BaseServiceImpl<SysCodeTypeMapper, S
 
     /**
      * 删除数据字典信息
-     * 
+     *
      * @param ids
      */
     @Override
@@ -56,7 +55,7 @@ public class SysCodeTypeServiceImpl extends BaseServiceImpl<SysCodeTypeMapper, S
         }
         sysCodeInfoService.remove(new QueryWrapper<SysCodeInfo>().in("code_type_id", (Object[]) idsArr));
         for (String codeTypeId : idsArr) {
-            redisUtil.del(Constants.PREFIX_SYS_CODE_TYPE + codeTypeId);
+            redisUtil.del(CacheConstants.SYS_CODE_TYPE + codeTypeId);
         }
     }
 }

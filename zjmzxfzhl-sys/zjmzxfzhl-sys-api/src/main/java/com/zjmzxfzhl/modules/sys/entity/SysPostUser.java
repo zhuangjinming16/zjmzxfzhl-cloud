@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 【岗位和用户关系】实体类
- * 
+ *
  * @author 庄金明
  */
 @Data

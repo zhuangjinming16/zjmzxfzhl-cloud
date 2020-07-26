@@ -7,18 +7,16 @@ import java.lang.annotation.Target;
 
 /**
  * 分布式锁注解
- * 
+ * <p>
  * 使用例子：
- * 
+ *
+ * @author 庄金明
  * @RedissonLock 锁整个方法
  * @RedissonLock(lockIndexs = 0) 锁第一个参数
  * @RedissonLock(lockIndexs = {0,1}) 锁第一个参数和第二个参数组合
  * @RedissonLock(lockIndexs = {1,2}) 锁第二个参数和第三个参数组合
  * @RedissonLock(lockIndexs = 0,fieldNames = "transId") 锁第一个参数属性等于transId
  * @RedissonLock(lockIndexs = {0,1},fieldNames = {"transId","id"}) 锁第一个参数属性等于transId和第二个参数属性等于id的组合
- * 
- * @author 庄金明
- *
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
@@ -45,7 +43,7 @@ public @interface RedissonLock {
 
     /**
      * 未取到锁时提示信息
-     * 
+     *
      * @return
      */
     String msg() default "交易执行失败，请稍后重试";

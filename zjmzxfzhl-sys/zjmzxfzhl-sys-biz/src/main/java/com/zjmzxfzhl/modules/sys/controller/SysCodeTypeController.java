@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 /**
  * 代码类别Controller
- * 
+ *
  * @author 庄金明
  */
 @RestController
@@ -26,7 +26,7 @@ public class SysCodeTypeController extends BaseController {
 
     /**
      * 自定义查询列表
-     * 
+     *
      * @param sysCodeType
      * @param current
      * @param size
@@ -47,9 +47,9 @@ public class SysCodeTypeController extends BaseController {
     }
 
     /**
-     * @功能：新增
      * @param sysCodeType
      * @return
+     * @功能：新增
      */
     @Log(value = "新增代码类别")
     @PreAuthorize("@elp.single('sys:codeType:save')")
@@ -60,9 +60,9 @@ public class SysCodeTypeController extends BaseController {
     }
 
     /**
-     * @功能：修改
      * @param sysCodeType
      * @return
+     * @功能：修改
      */
     @Log(value = "修改代码类别")
     @PreAuthorize("@elp.single('sys:codeType:update')")
@@ -73,9 +73,9 @@ public class SysCodeTypeController extends BaseController {
     }
 
     /**
-     * @功能：批量删除
      * @param ids
      * @return
+     * @功能：批量删除
      */
     @Log(value = "删除代码类别")
     @PreAuthorize("@elp.single('sys:codeType:delete')")

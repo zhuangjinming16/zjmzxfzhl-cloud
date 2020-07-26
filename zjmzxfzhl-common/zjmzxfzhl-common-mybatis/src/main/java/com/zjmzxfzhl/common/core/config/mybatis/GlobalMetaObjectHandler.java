@@ -38,9 +38,7 @@ public class GlobalMetaObjectHandler implements MetaObjectHandler {
     }
 
     private boolean isBaseEntity(MetaObject metaObject) {
-        return metaObject.getOriginalObject() instanceof BaseEntity
-                || (metaObject.hasGetter(Constants.ENTITY) && metaObject.getValue(Constants.ENTITY) != null
-                        && metaObject.getValue(Constants.ENTITY) instanceof BaseEntity);
+        return metaObject.getOriginalObject() instanceof BaseEntity || (metaObject.hasGetter(Constants.ENTITY) && metaObject.getValue(Constants.ENTITY) != null && metaObject.getValue(Constants.ENTITY) instanceof BaseEntity);
     }
 
     private void setBaseEntityInsertFill(MetaObject metaObject) {

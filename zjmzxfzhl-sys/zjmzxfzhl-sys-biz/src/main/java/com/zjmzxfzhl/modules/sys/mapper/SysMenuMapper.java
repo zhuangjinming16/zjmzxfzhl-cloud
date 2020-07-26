@@ -9,13 +9,13 @@ import java.util.List;
 
 /**
  * 菜单Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface SysMenuMapper extends BaseMapper<SysMenu> {
     /**
      * 查询菜单列表
-     * 
+     *
      * @param page
      * @param entity
      * @return

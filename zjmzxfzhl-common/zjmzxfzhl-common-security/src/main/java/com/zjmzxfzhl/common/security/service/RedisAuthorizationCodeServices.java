@@ -1,5 +1,6 @@
 package com.zjmzxfzhl.common.security.service;
 
+import com.zjmzxfzhl.common.core.constant.CacheConstants;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.code.RandomValueAuthorizationCodeServices;
@@ -8,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author 庄金明
- *
  */
 public class RedisAuthorizationCodeServices extends RandomValueAuthorizationCodeServices {
 
@@ -40,11 +40,11 @@ public class RedisAuthorizationCodeServices extends RandomValueAuthorizationCode
 
     /**
      * redis中 code key的前缀
-     * 
+     *
      * @param code
      * @return
      */
     private String redisKey(String code) {
-        return "oauth:code:" + code;
+        return CacheConstants.OAUTH_CODE + code;
     }
 }

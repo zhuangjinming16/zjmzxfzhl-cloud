@@ -1,13 +1,12 @@
 package com.zjmzxfzhl.modules.sys.job;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 定时任务调度demo
- * 
+ *
  * @author 庄金明
  */
 @Component("zjmzxfzhlJob")

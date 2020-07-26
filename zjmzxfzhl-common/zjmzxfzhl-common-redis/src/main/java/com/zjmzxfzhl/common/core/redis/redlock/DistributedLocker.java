@@ -12,7 +12,7 @@ public interface DistributedLocker {
 
     /**
      * 获得锁
-     * 
+     *
      * @param lockKey
      * @return
      */
@@ -20,7 +20,7 @@ public interface DistributedLocker {
 
     /**
      * 锁lockKey
-     * 
+     *
      * @param lockKey
      * @return
      */
@@ -28,7 +28,7 @@ public interface DistributedLocker {
 
     /**
      * 锁lockKey timeout
-     * 
+     *
      * @param lockKey
      * @param timeout
      * @return
@@ -37,7 +37,7 @@ public interface DistributedLocker {
 
     /**
      * 锁lockKey
-     * 
+     *
      * @param lockKey
      * @param timeout
      * @param unit
@@ -47,7 +47,7 @@ public interface DistributedLocker {
 
     /**
      * 尝试锁
-     * 
+     *
      * @param lockKey
      * @param waitTime
      * @param leaseTime
@@ -58,7 +58,7 @@ public interface DistributedLocker {
 
     /**
      * 尝试锁
-     * 
+     *
      * @param lock
      * @param waitTime
      * @param leaseTime
@@ -69,14 +69,14 @@ public interface DistributedLocker {
 
     /**
      * 解锁
-     * 
+     *
      * @param lockKey
      */
     void unlock(String lockKey);
 
     /**
      * 解锁
-     * 
+     *
      * @param lock
      */
     void unlock(RLock lock);

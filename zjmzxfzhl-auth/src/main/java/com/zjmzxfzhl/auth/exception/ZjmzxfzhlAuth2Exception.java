@@ -6,7 +6,6 @@ import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 
 /**
  * @author 庄金明
- *
  */
 @JsonSerialize(using = ZjmzxfzhlAuth2ExceptionSerializer.class)
 public class ZjmzxfzhlAuth2Exception extends OAuth2Exception {

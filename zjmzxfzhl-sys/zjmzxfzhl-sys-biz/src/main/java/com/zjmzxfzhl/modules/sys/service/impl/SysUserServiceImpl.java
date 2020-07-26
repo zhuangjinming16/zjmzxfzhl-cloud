@@ -5,15 +5,16 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
-import com.zjmzxfzhl.common.core.constant.Constants;
 import com.zjmzxfzhl.common.core.base.BaseServiceImpl;
 import com.zjmzxfzhl.common.core.base.UserInfo;
+import com.zjmzxfzhl.common.core.constant.CacheConstants;
+import com.zjmzxfzhl.common.core.constant.Constants;
 import com.zjmzxfzhl.common.core.exception.SysException;
 import com.zjmzxfzhl.common.core.redis.util.RedisUtil;
 import com.zjmzxfzhl.common.core.util.CommonUtil;
 import com.zjmzxfzhl.common.core.util.IpUtils;
+import com.zjmzxfzhl.common.core.util.PasswordUtil;
 import com.zjmzxfzhl.common.core.util.SecurityUtils;
-import com.zjmzxfzhl.common.security.util.PasswordUtil;
 import com.zjmzxfzhl.modules.sys.entity.*;
 import com.zjmzxfzhl.modules.sys.entity.vo.*;
 import com.zjmzxfzhl.modules.sys.mapper.SysUserMapper;
@@ -307,7 +308,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserMapper, SysUser> 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean saveSysUser(SysUser sysUser) {
-        String defaultPassword = (String) redisUtil.get(Constants.PREFIX_SYS_CONFIG + "defaultPassword", "1");
+        String defaultPassword = (String) redisUtil.get(CacheConstants.SYS_CONFIG + "defaultPassword", "1");
         // 默认密码
         String password = PasswordUtil.encryptPassword(defaultPassword);
         sysUser.setPassword(password);

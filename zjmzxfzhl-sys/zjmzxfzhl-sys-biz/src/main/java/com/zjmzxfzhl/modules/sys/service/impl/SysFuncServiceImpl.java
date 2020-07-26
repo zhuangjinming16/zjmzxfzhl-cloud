@@ -2,9 +2,7 @@ package com.zjmzxfzhl.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zjmzxfzhl.common.core.Result;
 import com.zjmzxfzhl.common.core.base.BaseServiceImpl;
-import com.zjmzxfzhl.common.core.exception.SysException;
 import com.zjmzxfzhl.common.core.util.CommonUtil;
 import com.zjmzxfzhl.modules.sys.entity.SysFunc;
 import com.zjmzxfzhl.modules.sys.entity.SysRolePermission;
@@ -19,7 +17,7 @@ import java.util.Arrays;
 
 /**
  * 功能Service
- * 
+ *
  * @author 庄金明
  */
 @Service
@@ -35,13 +33,14 @@ public class SysFuncServiceImpl extends BaseServiceImpl<SysFuncMapper, SysFunc> 
 
     /**
      * 删除功能按钮
+     *
      * @param ids
      * @return
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean delete(String ids){
-        CommonUtil.isEmptyStr(ids,"ids can't be empty");
+    public boolean delete(String ids) {
+        CommonUtil.isEmptyStr(ids, "ids can't be empty");
         String[] idsArr = ids.split(",");
         if (idsArr.length > 1) {
             removeByIds(Arrays.asList(idsArr));

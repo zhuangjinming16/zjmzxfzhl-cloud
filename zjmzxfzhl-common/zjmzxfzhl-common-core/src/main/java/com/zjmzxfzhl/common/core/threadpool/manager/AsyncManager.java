@@ -10,15 +10,15 @@ import java.util.concurrent.Future;
 
 /**
  * 异步任务管理器
- * 
+ *
  * @author 庄金明
  */
 public class AsyncManager {
     /**
      * 异步操作任务调度线程池
      */
-    private ThreadPoolTaskExecutor asyncServiceExecutor = SpringContextUtils
-            .getBean(ThreadPoolConfig.ASYNC_SERVICE_EXECUTOR);
+    private ThreadPoolTaskExecutor asyncServiceExecutor =
+            SpringContextUtils.getBean(ThreadPoolConfig.ASYNC_SERVICE_EXECUTOR);
 
     /**
      * 单例模式

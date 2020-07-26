@@ -14,7 +14,7 @@ import java.util.Date;
 
 /**
  * 【定时任务执行日志】实体类
- * 
+ *
  * @author 庄金明
  */
 @Data

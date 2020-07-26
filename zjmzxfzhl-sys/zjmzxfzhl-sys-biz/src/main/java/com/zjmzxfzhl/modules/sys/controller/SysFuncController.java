@@ -12,11 +12,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Arrays;
 
 /**
  * 功能Controller
- * 
+ *
  * @author 庄金明
  */
 @RestController
@@ -27,7 +26,7 @@ public class SysFuncController extends BaseController {
 
     /**
      * 自定义查询列表
-     * 
+     *
      * @param sysFunc
      * @param current
      * @param size
@@ -48,9 +47,9 @@ public class SysFuncController extends BaseController {
     }
 
     /**
-     * @功能：新增
      * @param sysFunc
      * @return
+     * @功能：新增
      */
     @Log(value = "新增功能按钮")
     @PreAuthorize("@elp.single('sys:func:save')")
@@ -61,9 +60,9 @@ public class SysFuncController extends BaseController {
     }
 
     /**
-     * @功能：修改
      * @param sysFunc
      * @return
+     * @功能：修改
      */
     @Log(value = "修改功能按钮")
     @PreAuthorize("@elp.single('sys:func:update')")
@@ -74,9 +73,9 @@ public class SysFuncController extends BaseController {
     }
 
     /**
-     * @功能：批量删除
      * @param ids
      * @return
+     * @功能：批量删除
      */
     @Log(value = "删除功能按钮")
     @PreAuthorize("@elp.single('sys:func:delete')")

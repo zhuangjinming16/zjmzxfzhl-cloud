@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * order设置的小一点，若注解用于service类，让该切面优先于Transactional注解
- * 
+ *
  * @author 庄金明
  * @date 2020年3月23日
  */
@@ -33,7 +33,7 @@ public class RedissonLockAspect {
 
     /**
      * 处理锁
-     * 
+     *
      * @param joinPoint
      * @param redissonLock
      * @return
@@ -71,8 +71,8 @@ public class RedissonLockAspect {
             lockParams = lockParamsBuffer.toString();
         }
         // 取得方法名
-        String key = joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName()
-                + lockParams;
+        String key =
+                joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName() + lockParams;
 
         RLock rlock = redissonDistributedLocker.getLock(key);
         boolean isSuccess = redissonDistributedLocker.tryLock(rlock, waitTime, leaseTime, TimeUnit.SECONDS);

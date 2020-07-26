@@ -4,7 +4,6 @@ import com.zjmzxfzhl.common.core.Result;
 import com.zjmzxfzhl.common.core.base.UserInfo;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**

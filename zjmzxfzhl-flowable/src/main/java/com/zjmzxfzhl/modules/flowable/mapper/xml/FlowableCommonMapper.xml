@@ -3,79 +3,83 @@
 
 <mapper namespace="com.zjmzxfzhl.modules.flowable.mapper.FlowableCommonMapper">
 
-    <select id="selectUserByQueryCriteria" parameterType="org.flowable.idm.engine.impl.UserQueryImpl" resultType="org.flowable.idm.engine.impl.persistence.entity.UserEntityImpl">
-		SELECT
-			t.USER_ID id,
-			t.USER_NAME firstName,
-			t.USER_NAME lastName,
-			t.USER_NAME displayName,
-			t.EMAIL email
-		<include refid="selectUserByQueryCriteriaSql" />
-	</select>
+    <select id="selectUserByQueryCriteria" parameterType="org.flowable.idm.engine.impl.UserQueryImpl"
+            resultType="org.flowable.idm.engine.impl.persistence.entity.UserEntityImpl">
+        SELECT
+        t.USER_ID id,
+        t.USER_NAME firstName,
+        t.USER_NAME lastName,
+        t.USER_NAME displayName,
+        t.EMAIL email
+        <include refid="selectUserByQueryCriteriaSql"/>
+    </select>
 
-	<select id="selectUserCountByQueryCriteria" parameterType="org.flowable.idm.engine.impl.UserQueryImpl" resultType="long">
-		select count(1)
-		<include refid="selectUserByQueryCriteriaSql" />
-	</select>
+    <select id="selectUserCountByQueryCriteria" parameterType="org.flowable.idm.engine.impl.UserQueryImpl"
+            resultType="long">
+        select count(1)
+        <include refid="selectUserByQueryCriteriaSql"/>
+    </select>
 
-	<sql id="selectUserByQueryCriteriaSql">
-		FROM t_sys_user t
-		WHERE 1=1
-		<if test="id != null">
-			and t.USER_ID = #{id}
-		</if>
-		<if test="ids != null &amp;&amp; ids.size() &gt; 0">
-			and t.USER_ID IN
-			<foreach item="id" index="index" collection="ids"
-					 open="(" separator="," close=")">
-				#{id}
-			</foreach>
-		</if>
-		<if test="firstName != null">
-			and t.USER_NAME = #{firstName}
-		</if>
-		<if test="firstNameLike != null">
-			and t.USER_NAME like #{firstNameLike}${wildcardEscapeClause}
-		</if>
-	</sql>
+    <sql id="selectUserByQueryCriteriaSql">
+        FROM t_sys_user t
+        WHERE 1=1
+        <if test="id != null">
+            and t.USER_ID = #{id}
+        </if>
+        <if test="ids != null &amp;&amp; ids.size() &gt; 0">
+            and t.USER_ID IN
+            <foreach item="id" index="index" collection="ids"
+                     open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </if>
+        <if test="firstName != null">
+            and t.USER_NAME = #{firstName}
+        </if>
+        <if test="firstNameLike != null">
+            and t.USER_NAME like #{firstNameLike}${wildcardEscapeClause}
+        </if>
+    </sql>
 
-	<select id="selectGroupByQueryCriteria" parameterType="org.flowable.idm.engine.impl.GroupQueryImpl" resultType="org.flowable.idm.engine.impl.persistence.entity.GroupEntityImpl">
-		select r.POST_ID id,
-			   r.POST_NAME name
-		<include refid="selectGroupByQueryCriteriaSql" />
-	</select>
+    <select id="selectGroupByQueryCriteria" parameterType="org.flowable.idm.engine.impl.GroupQueryImpl"
+            resultType="org.flowable.idm.engine.impl.persistence.entity.GroupEntityImpl">
+        select r.POST_ID id,
+        r.POST_NAME name
+        <include refid="selectGroupByQueryCriteriaSql"/>
+    </select>
 
-	<select id="selectGroupCountByQueryCriteria" parameterType="org.flowable.idm.engine.impl.GroupQueryImpl"
-			resultType="org.flowable.idm.engine.impl.persistence.entity.GroupEntityImpl">
-		select count(1)
-		<include refid="selectGroupByQueryCriteriaSql" />
-	</select>
+    <select id="selectGroupCountByQueryCriteria" parameterType="org.flowable.idm.engine.impl.GroupQueryImpl"
+            resultType="org.flowable.idm.engine.impl.persistence.entity.GroupEntityImpl">
+        select count(1)
+        <include refid="selectGroupByQueryCriteriaSql"/>
+    </select>
 
-	<sql id="selectGroupByQueryCriteriaSql">
-		from t_sys_post r
-		where 1=1
-		<if test="id != null">
-			and r.post_id = #{id}
-		</if>
-		<if test="ids != null &amp;&amp; ids.size() &gt; 0">
-			and r.post_id IN
-			<foreach item="id" index="index" collection="ids"
-					 open="(" separator="," close=")">
-				#{id}
-			</foreach>
-		</if>
-		<if test="name != null">
-			and r.post_name = #{name}
-		</if>
-		<if test="nameLike != null">
-			and r.post_name like #{nameLike}${wildcardEscapeClause}
-		</if>
-		<if test="userId != null">
-			and exists(select 1 from T_SYS_POST_USER m where m.post_id = r.post_id and M.USER_ID = #{userId})
-		</if>
-		<if test="userIds != null &amp;&amp; userIds.size() &gt; 0">
-			and exists(select 1 from T_SYS_POST_USER m where m.post_id = r.post_id and M.USER_ID in
-			<foreach item="userId" index="index" collection="userIds" open="(" separator="," close=")">#{userId}</foreach>)
-		</if>
-	</sql>
+    <sql id="selectGroupByQueryCriteriaSql">
+        from t_sys_post r
+        where 1=1
+        <if test="id != null">
+            and r.post_id = #{id}
+        </if>
+        <if test="ids != null &amp;&amp; ids.size() &gt; 0">
+            and r.post_id IN
+            <foreach item="id" index="index" collection="ids"
+                     open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </if>
+        <if test="name != null">
+            and r.post_name = #{name}
+        </if>
+        <if test="nameLike != null">
+            and r.post_name like #{nameLike}${wildcardEscapeClause}
+        </if>
+        <if test="userId != null">
+            and exists(select 1 from T_SYS_POST_USER m where m.post_id = r.post_id and M.USER_ID = #{userId})
+        </if>
+        <if test="userIds != null &amp;&amp; userIds.size() &gt; 0">
+            and exists(select 1 from T_SYS_POST_USER m where m.post_id = r.post_id and M.USER_ID in
+            <foreach item="userId" index="index" collection="userIds" open="(" separator="," close=")">
+                #{userId}</foreach>)
+        </if>
+    </sql>
 </mapper>

@@ -2,8 +2,8 @@ package com.zjmzxfzhl.modules.sys.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zjmzxfzhl.common.core.constant.Constants;
 import com.zjmzxfzhl.common.core.base.BaseServiceImpl;
+import com.zjmzxfzhl.common.core.constant.CacheConstants;
 import com.zjmzxfzhl.common.core.exception.SysException;
 import com.zjmzxfzhl.common.core.redis.util.RedisUtil;
 import com.zjmzxfzhl.common.core.util.CommonUtil;
@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * 系统参数Service
- * 
+ *
  * @author 庄金明
  */
 @Service
@@ -40,11 +40,11 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfigMapper, SysCo
             configIdsArr = configIds.split(",");
             for (String configId : configIdsArr) {
                 // 先清除
-                redisUtil.del(Constants.PREFIX_SYS_CONFIG + configId);
+                redisUtil.del(CacheConstants.SYS_CONFIG + configId);
             }
         } else {
             // 先清除
-            redisUtil.delPattern(Constants.PREFIX_SYS_CONFIG + "*");
+            redisUtil.delPattern(CacheConstants.SYS_CONFIG + "*");
         }
         QueryWrapper<SysConfig> queryWrapper = new QueryWrapper<>();
         if (configIdsArr != null && configIdsArr.length > 0) {
@@ -53,13 +53,13 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfigMapper, SysCo
         queryWrapper.orderByAsc("SORT_NO");
         List<SysConfig> list = this.list(queryWrapper);
         for (SysConfig sysConfig : list) {
-            redisUtil.set(Constants.PREFIX_SYS_CONFIG + sysConfig.getConfigId(), sysConfig.getConfigValue());
+            redisUtil.set(CacheConstants.SYS_CONFIG + sysConfig.getConfigId(), sysConfig.getConfigValue());
         }
     }
 
     /**
      * 保存系统参数，并加载进redis缓存
-     * 
+     *
      * @param sysConfig
      */
     @Override
@@ -71,7 +71,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfigMapper, SysCo
 
     /**
      * 修改系统参数，并加载进redis缓存
-     * 
+     *
      * @param sysConfig
      */
     @Override
@@ -83,7 +83,7 @@ public class SysConfigServiceImpl extends BaseServiceImpl<SysConfigMapper, SysCo
 
     /**
      * 删除系统参数，并重新加载redis缓存
-     * 
+     *
      * @param ids
      */
     @Override

@@ -1,14 +1,14 @@
 package com.zjmzxfzhl.common.security.service;
 
 import com.zjmzxfzhl.common.core.Result;
-import com.zjmzxfzhl.common.core.constant.SecurityConstants;
 import com.zjmzxfzhl.common.core.base.UserInfo;
+import com.zjmzxfzhl.common.core.constant.SecurityConstants;
+import com.zjmzxfzhl.common.core.security.SecurityUser;
 import com.zjmzxfzhl.common.core.util.CommonUtil;
 import com.zjmzxfzhl.common.core.util.SecurityUtils;
 import com.zjmzxfzhl.common.core.util.SpringContextUtils;
 import com.zjmzxfzhl.common.remote.feign.RemoteSysUserService;
 import com.zjmzxfzhl.common.remote.feign.base.RemoteUserInfoService;
-import com.zjmzxfzhl.common.core.security.SecurityUser;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;

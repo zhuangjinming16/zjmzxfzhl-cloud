@@ -18,7 +18,7 @@ public interface PermissionService {
 
     /**
      * 校验用户是否有权限读取任务
-     * 
+     *
      * @param taskId
      * @param userId
      * @param validateReadProcessInstance
@@ -26,22 +26,24 @@ public interface PermissionService {
      * @return
      */
     HistoricTaskInstance validateReadPermissionOnTask(String taskId, String userId,
-                                                      boolean validateReadProcessInstance, boolean validateReadParentTask);
+                                                      boolean validateReadProcessInstance,
+                                                      boolean validateReadParentTask);
 
     /**
      * 校验用户是否有权限读取任务
-     * 
+     *
      * @param taskId
      * @param userId
      * @param validateReadProcessInstance
      * @param validateReadParentTask
      * @return
      */
-    Task validateReadPermissionOnTask2(String taskId, String userId, boolean validateReadProcessInstance, boolean validateReadParentTask);
+    Task validateReadPermissionOnTask2(String taskId, String userId, boolean validateReadProcessInstance,
+                                       boolean validateReadParentTask);
 
     /**
      * 判断用户是否是任务的所有者或者执行人
-     * 
+     *
      * @param currentUser
      * @param task
      * @return
@@ -50,7 +52,7 @@ public interface PermissionService {
 
     /**
      * 判断用户是否是任务的所有者或者执行人
-     * 
+     *
      * @param currentUser
      * @param taskId
      * @return
@@ -59,7 +61,7 @@ public interface PermissionService {
 
     /**
      * 判断是否流程启动人，且流程启动人是否可以完成任务
-     * 
+     *
      * @param userId
      * @param task
      * @return
@@ -68,7 +70,7 @@ public interface PermissionService {
 
     /**
      * 判断流程启动人是否可以完成任务
-     * 
+     *
      * @param task
      * @return
      */
@@ -76,7 +78,7 @@ public interface PermissionService {
 
     /**
      * 判断是否任务的关联人
-     * 
+     *
      * @param userId
      * @param taskId
      * @return
@@ -85,7 +87,7 @@ public interface PermissionService {
 
     /**
      * 校验用户是否有权限读取该流程实例
-     * 
+     *
      * @param userId
      * @param processInstanceId
      * @return
@@ -94,7 +96,7 @@ public interface PermissionService {
 
     /**
      * 判断用户是否有权限读取该流程实例
-     * 
+     *
      * @param userId
      * @param processInstanceId
      * @return
@@ -103,17 +105,18 @@ public interface PermissionService {
 
     /**
      * 判断用户是否有权限读取该流程实例
-     * 
+     *
      * @param userId
      * @param historicProcessInstance
      * @param processInstanceId
      * @return
      */
-    boolean hasReadPermissionOnProcessInstance(String userId, HistoricProcessInstance historicProcessInstance, String processInstanceId);
+    boolean hasReadPermissionOnProcessInstance(String userId, HistoricProcessInstance historicProcessInstance,
+                                               String processInstanceId);
 
     /**
      * 判断用户是否有权限读取该流程定义
-     * 
+     *
      * @param userId
      * @param processDefinitionId
      * @param processDefinitionKey
@@ -125,7 +128,7 @@ public interface PermissionService {
 
     /**
      * 校验用户是否有权限读取该流程定义
-     * 
+     *
      * @param userId
      * @param processDefinitionId
      */
@@ -133,7 +136,7 @@ public interface PermissionService {
 
     /**
      * 获取潜在的启动组数组
-     * 
+     *
      * @param identityLinks
      * @return
      */
@@ -141,7 +144,7 @@ public interface PermissionService {
 
     /**
      * 获取潜在的启动人数组
-     * 
+     *
      * @param identityLinks
      * @return
      */
@@ -149,7 +152,7 @@ public interface PermissionService {
 
     /**
      * 判断任务是否挂起
-     * 
+     *
      * @param task
      * @return
      */
@@ -157,13 +160,13 @@ public interface PermissionService {
 
     /**
      * 是否可以转办任务
-     * 
+     * <p>
      * 1.任务所有人可以转办
-     * 
+     * <p>
      * 2.任务执行人可以转办，但要求任务非委派状态
-     * 
+     * <p>
      * 3.被转办人不能是当前任务执行人
-     * 
+     *
      * @param taskId
      * @param userId
      * @param assignee
@@ -173,13 +176,13 @@ public interface PermissionService {
 
     /**
      * 是否可以委派任务
-     * 
+     * <p>
      * 1.任务所有人可以委派
-     * 
+     * <p>
      * 2.任务执行人可以委派
-     * 
+     * <p>
      * 3.被委派人不能是任务所有人和当前任务执行人
-     * 
+     *
      * @param taskId
      * @param userId
      * @param delegater
@@ -189,7 +192,7 @@ public interface PermissionService {
 
     /**
      * 校验用户是否可以执行任务
-     * 
+     *
      * @param taskId
      * @param userId
      * @return
@@ -198,7 +201,7 @@ public interface PermissionService {
 
     /**
      * 校验用户是否可以终止流程
-     * 
+     *
      * @param taskId
      * @param userId
      * @return
@@ -207,7 +210,7 @@ public interface PermissionService {
 
     /**
      * 是否admin用户
-     * 
+     *
      * @param userId
      * @return
      */

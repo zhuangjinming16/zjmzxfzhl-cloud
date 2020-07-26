@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 【操作权限】实体类
- * 
+ *
  * @author 庄金明
  */
 @Data

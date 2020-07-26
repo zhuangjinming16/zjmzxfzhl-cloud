@@ -1,8 +1,8 @@
 package com.zjmzxfzhl.common.core.constant;
 
 /**
- * 常量文件类
- * 
+ * 系统管理常量
+ *
  * @author 庄金明
  */
 public class SysConstants {

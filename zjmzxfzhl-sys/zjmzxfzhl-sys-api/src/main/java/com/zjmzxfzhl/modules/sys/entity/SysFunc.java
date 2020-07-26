@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 【功能】实体类
- * 
+ *
  * @author 庄金明
  */
 @Data

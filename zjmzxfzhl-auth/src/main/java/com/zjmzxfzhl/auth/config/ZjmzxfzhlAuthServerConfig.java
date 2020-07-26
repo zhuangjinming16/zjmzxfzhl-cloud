@@ -1,9 +1,10 @@
 package com.zjmzxfzhl.auth.config;
 
 import com.zjmzxfzhl.auth.exception.ZjmzxfzhlWebResponseExceptionTranslator;
+import com.zjmzxfzhl.common.core.constant.CacheConstants;
+import com.zjmzxfzhl.common.core.security.SecurityUser;
 import com.zjmzxfzhl.common.security.service.RedisAuthorizationCodeServices;
 import com.zjmzxfzhl.common.security.service.RedisClientDetailsService;
-import com.zjmzxfzhl.common.core.security.SecurityUser;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -98,7 +99,7 @@ public class ZjmzxfzhlAuthServerConfig extends AuthorizationServerConfigurerAdap
     @Bean
     public TokenStore tokenStore() {
         RedisTokenStore tokenStore = new RedisTokenStore(redisConnectionFactory);
-        tokenStore.setPrefix("oauth:access:");
+        tokenStore.setPrefix(CacheConstants.OAUTH_ACCESS);
         return tokenStore;
     }
 
@@ -111,7 +112,7 @@ public class ZjmzxfzhlAuthServerConfig extends AuthorizationServerConfigurerAdap
                 tokenEnhancerInfo.put("userRealName", securityUser.getUserRealName());
                 tokenEnhancerInfo.put("orgId", securityUser.getOrgId());
                 tokenEnhancerInfo.put("roleId", securityUser.getRoleId());
-                tokenEnhancerInfo.put("additionalInformation",securityUser.getAdditionalInformation());
+                tokenEnhancerInfo.put("additionalInformation", securityUser.getAdditionalInformation());
                 ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(tokenEnhancerInfo);
             }
             return accessToken;

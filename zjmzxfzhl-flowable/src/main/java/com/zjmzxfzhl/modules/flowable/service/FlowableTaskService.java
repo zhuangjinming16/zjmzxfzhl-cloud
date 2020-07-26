@@ -15,7 +15,7 @@ import java.util.List;
 public interface FlowableTaskService {
     /**
      * 查询任务详情
-     * 
+     *
      * @param taskId
      * @return
      */
@@ -23,7 +23,7 @@ public interface FlowableTaskService {
 
     /**
      * 查询子任务列表
-     * 
+     *
      * @param taskId
      * @return
      */
@@ -31,7 +31,7 @@ public interface FlowableTaskService {
 
     /**
      * 修改任务
-     * 
+     *
      * @param taskUpdateRequest
      * @return
      */
@@ -39,14 +39,14 @@ public interface FlowableTaskService {
 
     /**
      * 转办任务
-     * 
+     *
      * @param taskRequest
      */
     void assignTask(TaskRequest taskRequest);
 
     /**
      * 新增任务参与人
-     * 
+     *
      * @param taskId
      * @param involveUserId
      */
@@ -54,7 +54,7 @@ public interface FlowableTaskService {
 
     /**
      * 移除任务参与人
-     * 
+     *
      * @param taskId
      * @param involveUserId
      */
@@ -62,21 +62,21 @@ public interface FlowableTaskService {
 
     /**
      * 认领任务
-     * 
+     *
      * @param taskRequest
      */
     void claimTask(TaskRequest taskRequest);
 
     /**
      * 取消认领
-     * 
+     *
      * @param taskRequest
      */
     void unclaimTask(TaskRequest taskRequest);
 
     /**
      * 新增任务关联人
-     * 
+     *
      * @param task
      * @param userId
      * @param linkType
@@ -85,35 +85,35 @@ public interface FlowableTaskService {
 
     /**
      * 委派任务
-     * 
+     *
      * @param taskRequest
      */
     void delegateTask(TaskRequest taskRequest);
 
     /**
      * 完成任务
-     * 
+     *
      * @param taskRequest
      */
     void completeTask(TaskRequest taskRequest);
 
     /**
      * 删除任务
-     * 
+     *
      * @param taskId
      */
     void deleteTask(String taskId);
 
     /**
      * 终止流程
-     * 
+     *
      * @param taskRequest
      */
     void stopProcessInstance(TaskRequest taskRequest);
 
     /**
      * 查询可退回节点
-     * 
+     *
      * @param taskId
      * @return
      */
@@ -121,14 +121,14 @@ public interface FlowableTaskService {
 
     /**
      * 退回任务
-     * 
+     *
      * @param taskRequest
      */
     void backTask(TaskRequest taskRequest);
 
     /**
      * 查询单一任务详情
-     * 
+     *
      * @param taskId
      * @return
      */
@@ -136,7 +136,7 @@ public interface FlowableTaskService {
 
     /**
      * 查询单一历史任务详情
-     * 
+     *
      * @param taskId
      * @return
      */
@@ -144,7 +144,7 @@ public interface FlowableTaskService {
 
     /**
      * 新增过程意见
-     * 
+     *
      * @param taskId
      * @param processInstanceId
      * @param userId
@@ -155,7 +155,7 @@ public interface FlowableTaskService {
 
     /**
      * 查询过程意见
-     * 
+     *
      * @param taskId
      * @param processInstanceId
      * @param type
@@ -166,14 +166,14 @@ public interface FlowableTaskService {
 
     /**
      * 新增任务关联信息
-     * 
+     *
      * @param taskIdentityRequest
      */
     void saveTaskIdentityLink(IdentityRequest taskIdentityRequest);
 
     /**
      * 删除任务关联信息
-     * 
+     *
      * @param taskId
      * @param identityId
      * @param identityType

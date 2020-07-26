@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * 角色和用户关系Service
- * 
+ *
  * @author 庄金明
  */
 @Service
-public class SysRoleUserServiceImpl extends BaseServiceImpl<SysRoleUserMapper, SysRoleUser>
-        implements SysRoleUserService {
+public class SysRoleUserServiceImpl extends BaseServiceImpl<SysRoleUserMapper, SysRoleUser> implements SysRoleUserService {
     @Override
     public IPage<SysRoleUser> list(IPage<SysRoleUser> page, SysRoleUser sysRoleUser) {
         return page.setRecords(baseMapper.list(page, sysRoleUser));

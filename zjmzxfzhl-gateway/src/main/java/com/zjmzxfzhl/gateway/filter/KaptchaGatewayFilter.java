@@ -3,8 +3,8 @@ package com.zjmzxfzhl.gateway.filter;
 import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zjmzxfzhl.common.core.constant.Constants;
 import com.zjmzxfzhl.common.core.Result;
+import com.zjmzxfzhl.common.core.constant.CacheConstants;
 import com.zjmzxfzhl.common.core.constant.SecurityConstants;
 import com.zjmzxfzhl.common.core.exception.BaseException;
 import com.zjmzxfzhl.common.core.redis.util.RedisUtil;
@@ -100,12 +100,12 @@ public class KaptchaGatewayFilter extends AbstractGatewayFilterFactory {
         CommonUtil.isEmptyStr(uuid, "验证码uuid不能为空");
         CommonUtil.isEmptyStr(captcha, "验证码不能为空");
 
-        String cacheCaptcha = (String) redisUtil.get(Constants.PREFIX_USER_CAPTCHA + uuid);
+        String cacheCaptcha = (String) redisUtil.get(CacheConstants.CAPTCHA + uuid);
         if (!captcha.equals(cacheCaptcha)) {
             throw new BaseException("验证码错误或已失效");
         }
         // 验证码验证通过后，应立即删除缓存，防止恶意暴力破解密码
-        redisUtil.del(Constants.PREFIX_USER_CAPTCHA + uuid);
+        redisUtil.del(CacheConstants.CAPTCHA + uuid);
     }
 
 }

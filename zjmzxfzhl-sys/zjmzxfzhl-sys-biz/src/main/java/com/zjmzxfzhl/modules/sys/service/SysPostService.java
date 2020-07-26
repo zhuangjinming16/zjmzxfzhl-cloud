@@ -12,14 +12,14 @@ import java.util.List;
 
 /**
  * 岗位Service
- * 
+ *
  * @author 庄金明
  */
 public interface SysPostService extends BaseService<SysPost> {
 
     /**
      * 分页查询岗位
-     * 
+     *
      * @param page
      * @param sysPost
      * @return
@@ -28,7 +28,7 @@ public interface SysPostService extends BaseService<SysPost> {
 
     /**
      * 查询岗位用户
-     * 
+     *
      * @param page
      * @param sysPostUser
      * @return
@@ -37,7 +37,7 @@ public interface SysPostService extends BaseService<SysPost> {
 
     /**
      * 保存岗位用户
-     * 
+     *
      * @param postId
      * @param userIds
      */
@@ -45,7 +45,7 @@ public interface SysPostService extends BaseService<SysPost> {
 
     /**
      * 删除岗位用户
-     * 
+     *
      * @param postId
      * @param userIds
      */
@@ -53,14 +53,14 @@ public interface SysPostService extends BaseService<SysPost> {
 
     /**
      * 删除岗位
-     * 
+     *
      * @param ids
      */
     void delete(String ids);
 
     /**
      * 根据Flowable GroupQueryImpl查询岗位列表
-     * 
+     *
      * @param query
      * @return
      */

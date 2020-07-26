@@ -3,10 +3,10 @@ package com.zjmzxfzhl.modules.sys.permission.provider;
 import com.zjmzxfzhl.common.core.constant.SysConstants;
 import com.zjmzxfzhl.common.core.permission.provider.AbstractDataPermissionProvider;
 import com.zjmzxfzhl.common.core.permission.wrapper.PermissionWrapper;
+import com.zjmzxfzhl.common.core.security.SecurityUser;
 import com.zjmzxfzhl.common.core.util.CommonUtil;
 import com.zjmzxfzhl.common.core.util.SecurityUtils;
 import com.zjmzxfzhl.common.core.xss.SqlFilter;
-import com.zjmzxfzhl.common.core.security.SecurityUser;
 import lombok.Getter;
 import lombok.Setter;
 

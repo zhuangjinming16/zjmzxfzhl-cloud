@@ -56,7 +56,8 @@ public class PermissionServiceImpl implements PermissionService {
      */
     @Override
     public HistoricTaskInstance validateReadPermissionOnTask(String taskId, String userId,
-            boolean validateReadProcessInstance, boolean validateReadParentTask) {
+                                                             boolean validateReadProcessInstance,
+                                                             boolean validateReadParentTask) {
         if (isAdmin(userId)) {
             return historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult();
         }
@@ -74,8 +75,7 @@ public class PermissionServiceImpl implements PermissionService {
         // Last resort: user has access to process instance or parent task -> can see task
         task = historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult();
         if (task != null) {
-            if (validateReadProcessInstance && task.getProcessInstanceId() != null
-                    && task.getProcessInstanceId().length() > 0) {
+            if (validateReadProcessInstance && task.getProcessInstanceId() != null && task.getProcessInstanceId().length() > 0) {
                 boolean hasReadPermissionOnProcessInstance = hasReadPermissionOnProcessInstance(userId,
                         task.getProcessInstanceId());
                 if (hasReadPermissionOnProcessInstance) {
@@ -93,13 +93,13 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public Task validateReadPermissionOnTask2(String taskId, String userId, boolean validateReadProcessInstance,
-            boolean validateReadParentTask) {
+                                              boolean validateReadParentTask) {
         if (isAdmin(userId)) {
             return taskService.createTaskQuery().taskId(taskId).singleResult();
         }
 
-        Task task = taskService.createTaskQuery().taskId(taskId).or().taskCandidateOrAssigned(userId).taskOwner(userId)
-                .endOr().singleResult();
+        Task task =
+                taskService.createTaskQuery().taskId(taskId).or().taskCandidateOrAssigned(userId).taskOwner(userId).endOr().singleResult();
         if (task != null) {
             return task;
         }
@@ -107,8 +107,7 @@ public class PermissionServiceImpl implements PermissionService {
         // Last resort: user has access to process instance or parent task -> can see task
         task = taskService.createTaskQuery().taskId(taskId).singleResult();
         if (task != null) {
-            if (validateReadProcessInstance && task.getProcessInstanceId() != null
-                    && task.getProcessInstanceId().length() > 0) {
+            if (validateReadProcessInstance && task.getProcessInstanceId() != null && task.getProcessInstanceId().length() > 0) {
                 boolean hasReadPermissionOnProcessInstance = hasReadPermissionOnProcessInstance(userId,
                         task.getProcessInstanceId());
                 if (hasReadPermissionOnProcessInstance) {
@@ -149,8 +148,8 @@ public class PermissionServiceImpl implements PermissionService {
     public boolean validateIfUserIsInitiatorAndCanCompleteTask(String userId, TaskInfo task) {
         boolean canCompleteTask = false;
         if (task.getProcessInstanceId() != null) {
-            HistoricProcessInstance historicProcessInstance = historyService.createHistoricProcessInstanceQuery()
-                    .processInstanceId(task.getProcessInstanceId()).singleResult();
+            HistoricProcessInstance historicProcessInstance =
+                    historyService.createHistoricProcessInstanceQuery().processInstanceId(task.getProcessInstanceId()).singleResult();
             if (historicProcessInstance != null && StringUtils.isNotEmpty(historicProcessInstance.getStartUserId())) {
                 String processInstanceStartUserId = historicProcessInstance.getStartUserId();
                 if (userId.equals(processInstanceStartUserId) && validateIfInitiatorCanCompleteTask(task)) {
@@ -187,8 +186,8 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public HistoricProcessInstance validateReadPermissionOnProcessInstance(String userId, String processInstanceId) {
-        HistoricProcessInstance historicProcessInstance = historyService.createHistoricProcessInstanceQuery()
-                .processInstanceId(processInstanceId).singleResult();
+        HistoricProcessInstance historicProcessInstance =
+                historyService.createHistoricProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
         boolean hasPermission = hasReadPermissionOnProcessInstance(userId, historicProcessInstance, processInstanceId);
         if (hasPermission) {
             return historicProcessInstance;
@@ -201,8 +200,8 @@ public class PermissionServiceImpl implements PermissionService {
      */
     @Override
     public boolean hasReadPermissionOnProcessInstance(String userId, String processInstanceId) {
-        HistoricProcessInstance historicProcessInstance = historyService.createHistoricProcessInstanceQuery()
-                .processInstanceId(processInstanceId).singleResult();
+        HistoricProcessInstance historicProcessInstance =
+                historyService.createHistoricProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
         return hasReadPermissionOnProcessInstance(userId, historicProcessInstance, processInstanceId);
     }
 
@@ -211,10 +210,10 @@ public class PermissionServiceImpl implements PermissionService {
      */
     @Override
     public boolean hasReadPermissionOnProcessInstance(String userId, HistoricProcessInstance historicProcessInstance,
-            String processInstanceId) {
+                                                      String processInstanceId) {
         if (historicProcessInstance == null) {
-            throw new FlowableObjectNotFoundException(
-                    "ProcessInstance with id: " + processInstanceId + " does not exist");
+            throw new FlowableObjectNotFoundException("ProcessInstance with id: " + processInstanceId + " does not " +
+                    "exist");
         }
 
         if (isAdmin(userId)) {
@@ -222,8 +221,7 @@ public class PermissionServiceImpl implements PermissionService {
         }
 
         // Start user check
-        if (historicProcessInstance.getStartUserId() != null
-                && historicProcessInstance.getStartUserId().equals(userId)) {
+        if (historicProcessInstance.getStartUserId() != null && historicProcessInstance.getStartUserId().equals(userId)) {
             return true;
         }
 
@@ -255,9 +253,10 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public ProcessDefinition validateReadPermissionOnProcessDefinition(String userId, String processDefinitionId,
-            String processDefinitionKey, String tenantId) {
-        ProcessDefinition definition = managementService
-                .executeCommand(new GetProcessDefinitionInfoCmd(processDefinitionId, processDefinitionKey, tenantId));
+                                                                       String processDefinitionKey, String tenantId) {
+        ProcessDefinition definition =
+                managementService.executeCommand(new GetProcessDefinitionInfoCmd(processDefinitionId,
+                        processDefinitionKey, tenantId));
         validateReadPermissionOnProcessDefinition(userId, definition.getId());
         return definition;
     }
@@ -319,13 +318,13 @@ public class PermissionServiceImpl implements PermissionService {
 
     /**
      * 是否可以转办任务
-     * 
+     * <p>
      * 1.任务所有人可以转办
-     * 
+     * <p>
      * 2.任务执行人可以转办，但要求任务非委派状态
-     * 
+     * <p>
      * 3.被转办人不能是当前任务执行人
-     * 
+     *
      * @param taskId
      * @param userId
      * @param assignee
@@ -339,8 +338,8 @@ public class PermissionServiceImpl implements PermissionService {
         }
         String owner = task.getOwner();
         String oldAssignee = task.getAssignee();
-        boolean canAssignFlag = isAdmin(userId) || userId.equals(owner)
-                || (userId.equals(oldAssignee) && !isTaskPending(task));
+        boolean canAssignFlag =
+                isAdmin(userId) || userId.equals(owner) || (userId.equals(oldAssignee) && !isTaskPending(task));
         if (canAssignFlag) {
             if (assignee == null || assignee.length() == 0) {
                 throw new FlowableException("Assignee cannot be empty");
@@ -354,13 +353,13 @@ public class PermissionServiceImpl implements PermissionService {
 
     /**
      * 是否可以委派任务
-     * 
+     * <p>
      * 1.任务所有人可以委派
-     * 
+     * <p>
      * 2.任务执行人可以委派
-     * 
+     * <p>
      * 3.被委派人不能是任务所有人和当前任务执行人
-     * 
+     *
      * @param taskId
      * @param userId
      * @param delegater
@@ -405,14 +404,14 @@ public class PermissionServiceImpl implements PermissionService {
         if (task == null) {
             throw new FlowableObjectNotFoundException("Task with id: " + taskId + " does not exist");
         }
-        ProcessInstance processInstance = runtimeService.createProcessInstanceQuery()
-                .processInstanceId(task.getProcessInstanceId()).singleResult();
+        ProcessInstance processInstance =
+                runtimeService.createProcessInstanceQuery().processInstanceId(task.getProcessInstanceId()).singleResult();
         if (processInstance == null) {
-            throw new FlowableObjectNotFoundException(
-                    "ProcessInstance with id: " + task.getProcessInstanceId() + " does not exist");
+            throw new FlowableObjectNotFoundException("ProcessInstance with id: " + task.getProcessInstanceId() + " " +
+                    "does not exist");
         }
-        boolean canStopFlag = isAdmin(userId)
-                || (userId != null && userId.length() > 0 && userId.equals(processInstance.getStartUserId()));
+        boolean canStopFlag =
+                isAdmin(userId) || (userId != null && userId.length() > 0 && userId.equals(processInstance.getStartUserId()));
         if (canStopFlag) {
             return processInstance;
         }

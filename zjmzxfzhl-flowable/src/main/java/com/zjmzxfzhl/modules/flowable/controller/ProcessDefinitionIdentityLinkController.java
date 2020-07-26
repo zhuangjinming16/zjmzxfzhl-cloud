@@ -27,8 +27,8 @@ public class ProcessDefinitionIdentityLinkController extends BaseFlowableControl
     @GetMapping(value = "/list")
     public Result list(@RequestParam String processDefinitionId) {
         ProcessDefinition processDefinition = processDefinitionService.getProcessDefinitionById(processDefinitionId);
-        List<IdentityLink> identityLinks = repositoryService
-                .getIdentityLinksForProcessDefinition(processDefinition.getId());
+        List<IdentityLink> identityLinks =
+                repositoryService.getIdentityLinksForProcessDefinition(processDefinition.getId());
         return Result.ok(responseFactory.createIdentityResponseList(identityLinks));
     }
 
@@ -44,7 +44,7 @@ public class ProcessDefinitionIdentityLinkController extends BaseFlowableControl
     @PreAuthorize("@elp.single('flowable:processDefinitionIdentityLink:delete')")
     @DeleteMapping(value = "/delete")
     public Result delete(@RequestParam String processDefinitionId, @RequestParam String identityId,
-            @RequestParam String identityType) {
+                         @RequestParam String identityType) {
         processDefinitionService.deleteProcessDefinitionIdentityLink(processDefinitionId, identityId, identityType);
         return Result.ok();
     }

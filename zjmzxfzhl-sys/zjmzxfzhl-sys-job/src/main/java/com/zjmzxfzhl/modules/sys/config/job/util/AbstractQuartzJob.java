@@ -50,10 +50,8 @@ public abstract class AbstractQuartzJob implements Job {
     /**
      * 执行前
      *
-     * @param context
-     *            工作执行上下文对象
-     * @param sysJob
-     *            系统计划任务
+     * @param context 工作执行上下文对象
+     * @param sysJob  系统计划任务
      */
     protected void before(JobExecutionContext context, SysJob sysJob) {
         threadLocal.set(new Date());
@@ -62,12 +60,9 @@ public abstract class AbstractQuartzJob implements Job {
     /**
      * 执行后
      *
-     * @param context
-     *            工作执行上下文对象
-     * @param sysJob
-     *            系统计划任务
-     * @param e
-     *            异常
+     * @param context 工作执行上下文对象
+     * @param sysJob  系统计划任务
+     * @param e       异常
      */
     protected void after(JobExecutionContext context, SysJob sysJob, Exception e) {
         Date startTime = threadLocal.get();
@@ -100,12 +95,9 @@ public abstract class AbstractQuartzJob implements Job {
     /**
      * 执行方法，由子类重载
      *
-     * @param context
-     *            工作执行上下文对象
-     * @param sysJob
-     *            系统计划任务
-     * @throws Exception
-     *             执行过程中的异常
+     * @param context 工作执行上下文对象
+     * @param sysJob  系统计划任务
+     * @throws Exception 执行过程中的异常
      */
     protected abstract void doExecute(JobExecutionContext context, SysJob sysJob) throws Exception;
 }

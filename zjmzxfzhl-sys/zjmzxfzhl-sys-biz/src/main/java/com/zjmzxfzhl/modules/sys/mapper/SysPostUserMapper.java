@@ -9,13 +9,13 @@ import java.util.List;
 
 /**
  * 岗位和用户关系Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface SysPostUserMapper extends BaseMapper<SysPostUser> {
     /**
      * 查询岗位和用户关系列表
-     * 
+     *
      * @param page
      * @param entity
      * @return

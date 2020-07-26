@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 /**
  * 岗位和用户关系Controller
- * 
+ *
  * @author 庄金明
  */
 @RestController
@@ -26,7 +26,7 @@ public class SysPostUserController extends BaseController {
 
     /**
      * 自定义查询列表
-     * 
+     *
      * @param sysPostUser
      * @param current
      * @param size
@@ -47,9 +47,9 @@ public class SysPostUserController extends BaseController {
     }
 
     /**
-     * @功能：新增
      * @param sysPostUser
      * @return
+     * @功能：新增
      */
     @PreAuthorize("@elp.single('sys:postUser:save')")
     @PostMapping(value = "/save")
@@ -59,9 +59,9 @@ public class SysPostUserController extends BaseController {
     }
 
     /**
-     * @功能：修改
      * @param sysPostUser
      * @return
+     * @功能：修改
      */
     @PreAuthorize("@elp.single('sys:postUser:update')")
     @PutMapping(value = "/update")
@@ -71,9 +71,9 @@ public class SysPostUserController extends BaseController {
     }
 
     /**
-     * @功能：批量删除
      * @param ids
      * @return
+     * @功能：批量删除
      */
     @PreAuthorize("@elp.single('sys:postUser:delete')")
     @DeleteMapping(value = "/delete")

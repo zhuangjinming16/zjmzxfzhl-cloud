@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 /**
  * @author 庄金明
- *
  */
 @Service(value = "elp")
 public class ElPermissionService {
@@ -22,14 +21,14 @@ public class ElPermissionService {
     }
 
     public Boolean or(String permissions) {
-        Set<String> elPermissions = SecurityUtils.getUserDetails().getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority).collect(Collectors.toSet());
+        Set<String> elPermissions =
+                SecurityUtils.getUserDetails().getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet());
         return Arrays.stream(permissions.split(",")).anyMatch(elPermissions::contains);
     }
 
     public Boolean and(String permissions) {
-        Set<String> elPermissions = SecurityUtils.getUserDetails().getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority).collect(Collectors.toSet());
+        Set<String> elPermissions =
+                SecurityUtils.getUserDetails().getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet());
         return Arrays.stream(permissions.split(",")).allMatch(elPermissions::contains);
     }
 }

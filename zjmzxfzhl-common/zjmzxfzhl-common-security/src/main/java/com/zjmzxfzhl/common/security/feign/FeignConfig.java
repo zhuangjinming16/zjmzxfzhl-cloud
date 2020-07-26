@@ -14,7 +14,6 @@ import org.springframework.security.oauth2.provider.authentication.OAuth2Authent
  * Feign配置
  *
  * @author 庄金明
- *
  **/
 @Configuration
 public class FeignConfig {
@@ -25,8 +24,8 @@ public class FeignConfig {
             Authentication authentication = securityContext.getAuthentication();
             if (authentication != null && authentication.getDetails() instanceof OAuth2AuthenticationDetails) {
                 OAuth2AuthenticationDetails dateils = (OAuth2AuthenticationDetails) authentication.getDetails();
-                requestTemplate.header(HttpHeaders.AUTHORIZATION,
-                        String.format("%s %s", SecurityConstants.BEARER_TOKEN_TYPE, dateils.getTokenValue()));
+                requestTemplate.header(HttpHeaders.AUTHORIZATION, String.format("%s %s",
+                        SecurityConstants.BEARER_TOKEN_TYPE, dateils.getTokenValue()));
             }
         };
         return requestInterceptor;

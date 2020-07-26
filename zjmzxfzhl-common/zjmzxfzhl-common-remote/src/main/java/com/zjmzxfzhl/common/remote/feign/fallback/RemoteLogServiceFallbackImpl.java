@@ -15,18 +15,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class RemoteLogServiceFallbackImpl implements RemoteLogService {
 
-	@Setter
-	private Throwable cause;
+    @Setter
+    private Throwable cause;
 
-	/**
-	 * 保存日志
-	 * @param sysLog 日志实体
-	 * @return Result
-	 */
-	@Override
-	public Result save(SysLog sysLog) {
-		log.error("feign 插入日志失败", cause);
-		return null;
-	}
+    /**
+     * 保存日志
+     *
+     * @param sysLog 日志实体
+     * @return Result
+     */
+    @Override
+    public Result save(SysLog sysLog) {
+        log.error("feign 插入日志失败", cause);
+        return null;
+    }
 
 }

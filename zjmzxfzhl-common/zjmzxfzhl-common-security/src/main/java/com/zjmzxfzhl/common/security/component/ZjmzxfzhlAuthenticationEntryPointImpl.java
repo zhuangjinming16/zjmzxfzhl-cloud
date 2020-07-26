@@ -15,7 +15,6 @@ import java.io.Serializable;
 
 /**
  * @author 庄金明
- *
  */
 @Component
 public class ZjmzxfzhlAuthenticationEntryPointImpl implements AuthenticationEntryPoint, Serializable {
@@ -25,8 +24,7 @@ public class ZjmzxfzhlAuthenticationEntryPointImpl implements AuthenticationEntr
     private ObjectMapper objectMapper;
 
     @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e)
-            throws IOException {
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException {
         try {
             int code = HttpStatus.UNAUTHORIZED.value();
             String msg = String.format("请求访问：%s，认证失败，无法访问系统资源", request.getRequestURI());

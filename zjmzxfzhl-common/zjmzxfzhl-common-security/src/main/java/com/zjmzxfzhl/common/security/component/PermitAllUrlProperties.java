@@ -18,7 +18,7 @@ import java.util.List;
 @ConfigurationProperties(prefix = "security.oauth2.ignore")
 public class PermitAllUrlProperties {
 
-	@Getter
-	@Setter
-	private List<String> urls = new ArrayList<>();
+    @Getter
+    @Setter
+    private List<String> urls = new ArrayList<>();
 }

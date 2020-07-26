@@ -11,13 +11,13 @@ import java.util.List;
 
 /**
  * 机构Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface SysOrgMapper extends BaseMapper<SysOrg> {
     /**
      * 查询机构列表
-     * 
+     *
      * @param page
      * @param entity
      * @return

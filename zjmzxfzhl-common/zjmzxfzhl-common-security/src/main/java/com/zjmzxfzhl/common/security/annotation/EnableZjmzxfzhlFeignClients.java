@@ -13,9 +13,13 @@ import java.lang.annotation.*;
 @Documented
 @EnableFeignClients
 public @interface EnableZjmzxfzhlFeignClients {
-	String[] value() default {};
-	String[] basePackages() default { "com.zjmzxfzhl" };
-	Class<?>[] basePackageClasses() default {};
-	Class<?>[] defaultConfiguration() default {};
-	Class<?>[] clients() default {};
+    String[] value() default {};
+
+    String[] basePackages() default {"com.zjmzxfzhl"};
+
+    Class<?>[] basePackageClasses() default {};
+
+    Class<?>[] defaultConfiguration() default {};
+
+    Class<?>[] clients() default {};
 }

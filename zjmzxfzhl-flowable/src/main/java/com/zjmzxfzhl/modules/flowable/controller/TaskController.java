@@ -83,19 +83,16 @@ public class TaskController extends BaseFlowableController {
             query.processInstanceId(requestParams.get(FlowableConstant.PROCESS_INSTANCE_ID));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.PROCESS_INSTANCE_BUSINESS_KEY))) {
-            query.processInstanceBusinessKeyLike(
-                    ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_INSTANCE_BUSINESS_KEY)));
+            query.processInstanceBusinessKeyLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_INSTANCE_BUSINESS_KEY)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.PROCESS_DEFINITION_KEY))) {
-            query.processDefinitionKeyLike(
-                    ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_DEFINITION_KEY)));
+            query.processDefinitionKeyLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_DEFINITION_KEY)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.PROCESS_DEFINITION_ID))) {
             query.processDefinitionId(requestParams.get(FlowableConstant.PROCESS_DEFINITION_ID));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.PROCESS_DEFINITION_NAME))) {
-            query.processDefinitionNameLike(
-                    ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_DEFINITION_NAME)));
+            query.processDefinitionNameLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_DEFINITION_NAME)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.EXECUTION_ID))) {
             query.executionId(requestParams.get(FlowableConstant.EXECUTION_ID));
@@ -107,8 +104,7 @@ public class TaskController extends BaseFlowableController {
             query.taskDescriptionLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.TASK_DESCRIPTION)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TASK_DEFINITION_KEY))) {
-            query.taskDefinitionKeyLike(
-                    ObjectUtils.convertToLike(requestParams.get(FlowableConstant.TASK_DEFINITION_KEY)));
+            query.taskDefinitionKeyLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.TASK_DEFINITION_KEY)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TASK_ASSIGNEE))) {
             query.taskAssignee(requestParams.get(FlowableConstant.TASK_ASSIGNEE));
@@ -131,8 +127,8 @@ public class TaskController extends BaseFlowableController {
             }
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.PROCESS_FINISHED))) {
-            boolean isProcessFinished = ObjectUtils
-                    .convertToBoolean(requestParams.get(FlowableConstant.PROCESS_FINISHED));
+            boolean isProcessFinished =
+                    ObjectUtils.convertToBoolean(requestParams.get(FlowableConstant.PROCESS_FINISHED));
             if (isProcessFinished) {
                 query.processFinished();
             } else {
@@ -152,8 +148,8 @@ public class TaskController extends BaseFlowableController {
             query.taskCandidateGroup(requestParams.get(FlowableConstant.TASK_CANDIDATE_GROUP));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TASK_CANDIDATE_GROUPS))) {
-            query.taskCandidateGroupIn(
-                    Arrays.asList(requestParams.get(FlowableConstant.TASK_CANDIDATE_GROUPS).split(",")));
+            query.taskCandidateGroupIn(Arrays.asList(requestParams.get(FlowableConstant.TASK_CANDIDATE_GROUPS).split(
+                    ",")));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.DUE_DATE_AFTER))) {
             query.taskDueAfter(ObjectUtils.convertToDate(requestParams.get(FlowableConstant.DUE_DATE_AFTER)));
@@ -162,20 +158,16 @@ public class TaskController extends BaseFlowableController {
             query.taskDueBefore(ObjectUtils.convertToDate(requestParams.get(FlowableConstant.DUE_DATE_BEFORE)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TASK_CREATED_BEFORE))) {
-            query.taskCreatedBefore(
-                    ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_CREATED_BEFORE)));
+            query.taskCreatedBefore(ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_CREATED_BEFORE)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TASK_CREATED_AFTER))) {
-            query.taskCreatedAfter(
-                    ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_CREATED_AFTER)));
+            query.taskCreatedAfter(ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_CREATED_AFTER)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TASK_COMPLETED_BEFORE))) {
-            query.taskCompletedBefore(
-                    ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_COMPLETED_BEFORE)));
+            query.taskCompletedBefore(ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_COMPLETED_BEFORE)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TASK_COMPLETED_AFTER))) {
-            query.taskCompletedAfter(
-                    ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_COMPLETED_AFTER)));
+            query.taskCompletedAfter(ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_COMPLETED_AFTER)));
         }
         return query;
     }
@@ -189,19 +181,16 @@ public class TaskController extends BaseFlowableController {
             query.taskNameLike(requestParams.get(FlowableConstant.TASK_NAME));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.PROCESS_INSTANCE_BUSINESS_KEY))) {
-            query.processInstanceBusinessKeyLike(
-                    ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_INSTANCE_BUSINESS_KEY)));
+            query.processInstanceBusinessKeyLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_INSTANCE_BUSINESS_KEY)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.PROCESS_DEFINITION_KEY))) {
-            query.processDefinitionKeyLike(
-                    ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_DEFINITION_KEY)));
+            query.processDefinitionKeyLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_DEFINITION_KEY)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.PROCESS_DEFINITION_ID))) {
             query.processDefinitionId(requestParams.get(FlowableConstant.PROCESS_DEFINITION_ID));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.PROCESS_DEFINITION_NAME))) {
-            query.processDefinitionNameLike(
-                    ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_DEFINITION_NAME)));
+            query.processDefinitionNameLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.PROCESS_DEFINITION_NAME)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.DUE_DATE_AFTER))) {
             query.taskDueAfter(ObjectUtils.convertToDate(requestParams.get(FlowableConstant.DUE_DATE_AFTER)));
@@ -210,12 +199,10 @@ public class TaskController extends BaseFlowableController {
             query.taskDueBefore(ObjectUtils.convertToDate(requestParams.get(FlowableConstant.DUE_DATE_BEFORE)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TASK_CREATED_BEFORE))) {
-            query.taskCreatedBefore(
-                    ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_CREATED_BEFORE)));
+            query.taskCreatedBefore(ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_CREATED_BEFORE)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TASK_CREATED_AFTER))) {
-            query.taskCreatedAfter(
-                    ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_CREATED_AFTER)));
+            query.taskCreatedAfter(ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.TASK_CREATED_AFTER)));
         }
         if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TENANT_ID))) {
             query.taskTenantId(requestParams.get(FlowableConstant.TENANT_ID));
@@ -339,8 +326,8 @@ public class TaskController extends BaseFlowableController {
         Object renderedTaskForm = formService.getRenderedTaskForm(taskId);
         Map<String, Object> variables = runtimeService.getVariables(task.getProcessInstanceId());
 
-        ProcessInstance processInstance = runtimeService.createProcessInstanceQuery()
-                .processInstanceId(task.getProcessInstanceId()).singleResult();
+        ProcessInstance processInstance =
+                runtimeService.createProcessInstanceQuery().processInstanceId(task.getProcessInstanceId()).singleResult();
         Map<String, Object> ret = new HashMap<String, Object>(7);
         ret.put("startUserId", processInstance.getStartUserId());
         ret.put("startFormKey", startFormKey);

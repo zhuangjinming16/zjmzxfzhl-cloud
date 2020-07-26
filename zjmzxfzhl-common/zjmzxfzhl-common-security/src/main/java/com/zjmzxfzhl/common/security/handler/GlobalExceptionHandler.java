@@ -19,9 +19,8 @@ import java.util.List;
 
 /**
  * 异常处理器
- * 
+ *
  * @author 庄金明
- * 
  */
 @RestControllerAdvice
 @Slf4j
@@ -79,8 +78,8 @@ public class GlobalExceptionHandler {
             for (ObjectError objectError : allErrors) {
                 if (objectError instanceof FieldError) {
                     FieldError fieldError = (FieldError) objectError;
-                    errorMsg.append(fieldError.getField()).append(":").append(fieldError.getDefaultMessage())
-                            .append(";");
+                    errorMsg.append(fieldError.getField()).append(":").append(fieldError.getDefaultMessage()).append(
+                            ";");
                 } else {
                     errorMsg.append(objectError.getDefaultMessage()).append(";");
                 }

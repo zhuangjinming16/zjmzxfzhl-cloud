@@ -14,20 +14,19 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author 庄金明
- *
  */
 @Slf4j
 public class RepeatRequestComponent {
 
     private RedissonDistributedLocker redissonDistributedLocker;
 
-    public RepeatRequestComponent(RedissonDistributedLocker redissonDistributedLocker){
+    public RepeatRequestComponent(RedissonDistributedLocker redissonDistributedLocker) {
         this.redissonDistributedLocker = redissonDistributedLocker;
     }
 
     /**
      * 执行登录用户交易防重发
-     * 
+     *
      * @param joinPoint
      * @param userId
      * @return
@@ -36,15 +35,15 @@ public class RepeatRequestComponent {
      * @throws NoSuchMethodException
      * @throws Throwable
      */
-    public Object exec(ProceedingJoinPoint joinPoint, String userId)
-            throws IllegalAccessException, InvocationTargetException, NoSuchMethodException, Throwable {
+    public Object exec(ProceedingJoinPoint joinPoint, String userId) throws IllegalAccessException,
+            InvocationTargetException, NoSuchMethodException, Throwable {
         // 默认不等待、且30秒后释放锁
         int waitTime = 0, leaseTime = 30;
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         RepeatRequest repeatRequest = signature.getMethod().getAnnotation((RepeatRequest.class));
         // 未设置注解，且未登录
-        Boolean canProceed = repeatRequest == null
-                && (userId == null || userId.length() == 0 || "anonymousUser".equals(userId));
+        Boolean canProceed =
+                repeatRequest == null && (userId == null || userId.length() == 0 || "anonymousUser".equals(userId));
         if (canProceed) {
             return joinPoint.proceed();
         }
@@ -57,9 +56,9 @@ public class RepeatRequestComponent {
             leaseTime = repeatRequest.leaseTime();
             /**
              * repeatRequest.isLoginThenOnlyUserId()
-             * 
+             *
              * true时，若用户已登录，只使用 userId 组拼 key 忽略 lockIndexs,若用户未登陆，则只使用 lockIndexs 组拼key
-             * 
+             *
              * false时，若用户已登录，即使用 userId 组拼 key 也使用 lockIndexs 组拼key,若用户未登陆，则只使用 lockIndexs 组拼key
              */
             if (!repeatRequest.isLoginThenOnlyUserId() || userId.length() == 0) {

@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 /**
  * 流程Controller
- * 
+ *
  * @author 庄金明
  */
 @RestController
@@ -27,7 +27,7 @@ public class FlowableFormController extends BaseController {
 
     /**
      * 自定义查询列表
-     * 
+     *
      * @param flowableForm
      * @param current
      * @param size
@@ -48,9 +48,9 @@ public class FlowableFormController extends BaseController {
     }
 
     /**
-     * @功能：新增
      * @param flowableForm
      * @return
+     * @功能：新增
      */
     @Log(value = "新增流程表单")
     @PreAuthorize("@elp.single('flowable:form:save')")
@@ -61,9 +61,9 @@ public class FlowableFormController extends BaseController {
     }
 
     /**
-     * @功能：修改
      * @param flowableForm
      * @return
+     * @功能：修改
      */
     @Log(value = "修改流程表单")
     @PreAuthorize("@elp.single('flowable:form:update')")
@@ -74,9 +74,9 @@ public class FlowableFormController extends BaseController {
     }
 
     /**
-     * @功能：批量删除
      * @param ids
      * @return
+     * @功能：批量删除
      */
     @Log(value = "删除流程表单")
     @PreAuthorize("@elp.single('flowable:form:delete')")

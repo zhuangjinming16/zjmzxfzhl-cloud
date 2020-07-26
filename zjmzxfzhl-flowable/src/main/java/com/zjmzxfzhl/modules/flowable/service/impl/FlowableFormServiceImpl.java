@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * 流程Service
- * 
+ *
  * @author 庄金明
  */
 @Service
-public class FlowableFormServiceImpl extends BaseServiceImpl<FlowableFormMapper, FlowableForm>
-        implements FlowableFormService {
+public class FlowableFormServiceImpl extends BaseServiceImpl<FlowableFormMapper, FlowableForm> implements FlowableFormService {
     @Override
     public IPage<FlowableForm> list(IPage<FlowableForm> page, FlowableForm flowableForm) {
         return page.setRecords(baseMapper.list(page, flowableForm));

@@ -2,15 +2,13 @@ package com.zjmzxfzhl.modules.demo.permission.provider;
 
 import com.zjmzxfzhl.common.core.permission.provider.AbstractDataPermissionProvider;
 import com.zjmzxfzhl.common.core.permission.wrapper.PermissionWrapper;
-
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * 测试数据库后台返回provider
- * 
- * @author
  *
+ * @author
  */
 @Getter
 @Setter

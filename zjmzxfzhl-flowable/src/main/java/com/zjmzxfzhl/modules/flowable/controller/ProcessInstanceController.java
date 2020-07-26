@@ -94,8 +94,7 @@ public class ProcessInstanceController extends BaseFlowableController {
             query.superProcessInstanceId(requestParams.get(FlowableConstant.SUPER_PROCESS_INSTANCE_ID));
         }
         if (CommonUtil.isNotEmptyAfterTrim(requestParams.get(FlowableConstant.EXCLUDE_SUBPROCESSES))) {
-            query.excludeSubprocesses(
-                    ObjectUtils.convertToBoolean(requestParams.get(FlowableConstant.EXCLUDE_SUBPROCESSES)));
+            query.excludeSubprocesses(ObjectUtils.convertToBoolean(requestParams.get(FlowableConstant.EXCLUDE_SUBPROCESSES)));
         }
         if (CommonUtil.isNotEmptyAfterTrim(requestParams.get(FlowableConstant.FINISHED_AFTER))) {
             query.finishedAfter(ObjectUtils.convertToDatetime(requestParams.get(FlowableConstant.FINISHED_AFTER)));
@@ -138,13 +137,13 @@ public class ProcessInstanceController extends BaseFlowableController {
     public Result queryById(@RequestParam String processInstanceId) {
         permissionService.validateReadPermissionOnProcessInstance(SecurityUtils.getUserId(), processInstanceId);
         ProcessInstance processInstance = null;
-        HistoricProcessInstance historicProcessInstance = processInstanceService
-                .getHistoricProcessInstanceById(processInstanceId);
+        HistoricProcessInstance historicProcessInstance =
+                processInstanceService.getHistoricProcessInstanceById(processInstanceId);
         if (historicProcessInstance.getEndTime() == null) {
             processInstance = processInstanceService.getProcessInstanceById(processInstanceId);
         }
-        ProcessInstanceDetailResponse pidr = responseFactory
-                .createProcessInstanceDetailResponse(historicProcessInstance, processInstance);
+        ProcessInstanceDetailResponse pidr =
+                responseFactory.createProcessInstanceDetailResponse(historicProcessInstance, processInstance);
         return Result.ok(pidr);
     }
 
@@ -160,7 +159,7 @@ public class ProcessInstanceController extends BaseFlowableController {
     @PreAuthorize("@elp.single('flowable:processInstance:delete')")
     @DeleteMapping(value = "/delete")
     public Result delete(@RequestParam String processInstanceId, @RequestParam(required = false) boolean cascade,
-            @RequestParam(required = false) String deleteReason) {
+                         @RequestParam(required = false) String deleteReason) {
         processInstanceService.delete(processInstanceId, cascade, deleteReason);
         return Result.ok();
     }
@@ -191,15 +190,15 @@ public class ProcessInstanceController extends BaseFlowableController {
 
     @GetMapping(value = "/formData")
     public Result formData(@RequestParam String processInstanceId) {
-        HistoricProcessInstance processInstance = permissionService
-                .validateReadPermissionOnProcessInstance(SecurityUtils.getUserId(), processInstanceId);
+        HistoricProcessInstance processInstance =
+                permissionService.validateReadPermissionOnProcessInstance(SecurityUtils.getUserId(), processInstanceId);
         Object renderedStartForm = formService.getRenderedStartForm(processInstance.getProcessDefinitionId());
         Map<String, Object> variables = null;
         if (processInstance.getEndTime() == null) {
             variables = runtimeService.getVariables(processInstanceId);
         } else {
-            List<HistoricVariableInstance> hisVals = historyService.createHistoricVariableInstanceQuery()
-                    .processInstanceId(processInstanceId).list();
+            List<HistoricVariableInstance> hisVals =
+                    historyService.createHistoricVariableInstanceQuery().processInstanceId(processInstanceId).list();
             variables = new HashMap<>(16);
             for (HistoricVariableInstance variableInstance : hisVals) {
                 variables.put(variableInstance.getVariableName(), variableInstance.getValue());

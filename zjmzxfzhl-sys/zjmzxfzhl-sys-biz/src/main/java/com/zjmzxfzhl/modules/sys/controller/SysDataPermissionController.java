@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 /**
  * 数据权限Controller
- * 
+ *
  * @author 庄金明
  */
 @RestController
@@ -27,7 +27,7 @@ public class SysDataPermissionController extends BaseController {
 
     /**
      * 自定义查询列表
-     * 
+     *
      * @param sysDataPermission
      * @param current
      * @param size
@@ -49,9 +49,9 @@ public class SysDataPermissionController extends BaseController {
     }
 
     /**
-     * @功能：新增
      * @param sysDataPermission
      * @return
+     * @功能：新增
      */
     @Log(value = "新增数据权限")
     @PreAuthorize("@elp.single('sys:dataPermission:save')")
@@ -62,9 +62,9 @@ public class SysDataPermissionController extends BaseController {
     }
 
     /**
-     * @功能：修改
      * @param sysDataPermission
      * @return
+     * @功能：修改
      */
     @Log(value = "修改数据权限")
     @PreAuthorize("@elp.single('sys:dataPermission:update')")
@@ -75,9 +75,9 @@ public class SysDataPermissionController extends BaseController {
     }
 
     /**
-     * @功能：批量删除
      * @param ids
      * @return
+     * @功能：批量删除
      */
     @Log(value = "删除数据权限")
     @PreAuthorize("@elp.single('sys:dataPermission:delete')")

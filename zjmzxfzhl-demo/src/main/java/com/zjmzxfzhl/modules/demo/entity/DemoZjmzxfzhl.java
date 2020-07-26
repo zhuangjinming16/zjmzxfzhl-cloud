@@ -1,25 +1,22 @@
 package com.zjmzxfzhl.modules.demo.entity;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.zjmzxfzhl.common.core.base.BaseEntity;
 import com.zjmzxfzhl.common.core.validator.constraints.LengthForUtf8;
-
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * 【开发示例】实体类
- * 
+ *
  * @author 庄金明
  */
 @Data

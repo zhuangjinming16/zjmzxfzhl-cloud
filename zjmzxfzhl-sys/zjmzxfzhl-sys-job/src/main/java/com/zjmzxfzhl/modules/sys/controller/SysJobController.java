@@ -1,29 +1,21 @@
 package com.zjmzxfzhl.modules.sys.controller;
 
-import javax.validation.Valid;
-
-import org.quartz.SchedulerException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zjmzxfzhl.common.core.Result;
 import com.zjmzxfzhl.common.core.base.BaseController;
 import com.zjmzxfzhl.modules.sys.entity.SysJob;
 import com.zjmzxfzhl.modules.sys.service.SysJobService;
+import org.quartz.SchedulerException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * 定时任务Controller
- * 
+ *
  * @author 庄金明
  */
 @RestController
@@ -34,7 +26,7 @@ public class SysJobController extends BaseController {
 
     /**
      * 自定义查询列表
-     * 
+     *
      * @param sysJob
      * @param current
      * @param size
@@ -55,11 +47,11 @@ public class SysJobController extends BaseController {
     }
 
     /**
-     * @功能：新增
      * @param sysJob
      * @return
      * @throws JobException
      * @throws SchedulerException
+     * @功能：新增
      */
     @PreAuthorize("@elp.single('sys:job:save')")
     @PostMapping(value = "/save")
@@ -69,9 +61,9 @@ public class SysJobController extends BaseController {
     }
 
     /**
-     * @功能：修改
      * @param sysJob
      * @return
+     * @功能：修改
      */
     @PreAuthorize("@elp.single('sys:job:update')")
     @PutMapping(value = "/update")
@@ -81,10 +73,10 @@ public class SysJobController extends BaseController {
     }
 
     /**
-     * @功能：批量删除
      * @param ids
      * @return
      * @throws SchedulerException
+     * @功能：批量删除
      */
     @PreAuthorize("@elp.single('sys:job:delete')")
     @DeleteMapping(value = "/delete")

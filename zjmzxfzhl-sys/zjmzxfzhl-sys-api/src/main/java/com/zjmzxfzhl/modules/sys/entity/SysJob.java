@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 【定时任务】实体类
- * 
+ *
  * @author 庄金明
  */
 @Data

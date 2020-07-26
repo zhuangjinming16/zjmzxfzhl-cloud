@@ -5,9 +5,9 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
-  * @author 庄金明
-  * @date
-  */
+ * @author 庄金明
+ * @date
+ */
 @Data
 public class CommonDataPermissionVO implements Serializable {
     private static final long serialVersionUID = 1L;

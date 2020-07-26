@@ -2,8 +2,8 @@ package com.zjmzxfzhl.modules.app.controller;
 
 import com.zjmzxfzhl.common.core.Result;
 import com.zjmzxfzhl.common.core.exception.AppException;
+import com.zjmzxfzhl.common.core.util.PasswordUtil;
 import com.zjmzxfzhl.common.security.annotation.AnonymousAccess;
-import com.zjmzxfzhl.common.security.util.PasswordUtil;
 import com.zjmzxfzhl.modules.app.entity.AppUser;
 import com.zjmzxfzhl.modules.app.form.AppRegisterForm;
 import com.zjmzxfzhl.modules.app.service.AppUserService;

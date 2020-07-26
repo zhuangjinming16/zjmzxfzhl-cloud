@@ -10,7 +10,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author 庄金明
- *
  */
 public class PermissionWrapper extends AbstractPermissionWrapper<String, PermissionWrapper> {
 
@@ -25,8 +24,8 @@ public class PermissionWrapper extends AbstractPermissionWrapper<String, Permiss
     }
 
     private PermissionWrapper(AtomicInteger paramNameSeq, Map<String, Object> paramNameValuePairs,
-            MergeSegments mergeSegments, Configuration configuration, List<ParameterMapping> parameterMappings,
-            String additionalParameterName) {
+                              MergeSegments mergeSegments, Configuration configuration,
+                              List<ParameterMapping> parameterMappings, String additionalParameterName) {
         this.paramNameSeq = paramNameSeq;
         this.paramNameValuePairs = paramNameValuePairs;
         this.expression = mergeSegments;

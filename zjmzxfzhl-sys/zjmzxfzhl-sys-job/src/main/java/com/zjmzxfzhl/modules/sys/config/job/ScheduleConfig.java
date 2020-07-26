@@ -1,12 +1,11 @@
 package com.zjmzxfzhl.modules.sys.config.job;
 
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
+
+import javax.sql.DataSource;
+import java.util.Properties;
 
 /**
  * @author 庄金明

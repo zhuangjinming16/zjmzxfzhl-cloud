@@ -14,13 +14,13 @@ import java.util.List;
 
 /**
  * 用户Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {
     /**
      * 查询用户列表
-     * 
+     *
      * @param page
      * @param entity
      * @return
@@ -31,7 +31,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 根据用户Id查询角色列表
-     * 
+     *
      * @param userId
      * @return
      */
@@ -39,14 +39,14 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 查询所有权限清单
-     * 
+     *
      * @return
      */
     List<SysRolePermissionVO> getAdminPermissions();
 
     /**
      * 根据角色Id查询角色权限清单
-     * 
+     *
      * @param roleId
      * @return
      */
@@ -54,7 +54,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 根据角色Id查询菜单列表
-     * 
+     *
      * @param roleId
      * @return
      */

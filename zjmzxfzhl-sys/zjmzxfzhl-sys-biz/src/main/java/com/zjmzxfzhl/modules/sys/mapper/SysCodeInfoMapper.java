@@ -9,13 +9,13 @@ import java.util.List;
 
 /**
  * 代码信息Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface SysCodeInfoMapper extends BaseMapper<SysCodeInfo> {
     /**
      * 查询代码信息列表
-     * 
+     *
      * @param page
      * @param entity
      * @return

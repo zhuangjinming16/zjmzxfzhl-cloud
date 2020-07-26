@@ -1,30 +1,21 @@
 package com.zjmzxfzhl.modules.demo.controller;
 
-import java.util.Arrays;
-
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zjmzxfzhl.common.core.Result;
 import com.zjmzxfzhl.common.core.base.BaseController;
 import com.zjmzxfzhl.modules.demo.entity.DemoZjmzxfzhl;
 import com.zjmzxfzhl.modules.demo.service.DemoZjmzxfzhlService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.Arrays;
 
 /**
  * 开发示例Controller
- * 
+ *
  * @author 庄金明
  */
 @RestController
@@ -35,7 +26,7 @@ public class DemoZjmzxfzhlController extends BaseController {
 
     /**
      * 自定义查询列表
-     * 
+     *
      * @param demoZjmzxfzhl
      * @param current
      * @param size
@@ -73,9 +64,9 @@ public class DemoZjmzxfzhlController extends BaseController {
     }
 
     /**
-     * @功能：新增
      * @param demoZjmzxfzhl
      * @return
+     * @功能：新增
      */
     @PreAuthorize("@elp.single('demo:zjmzxfzhl:save')")
     @PostMapping(value = "/save")
@@ -85,9 +76,9 @@ public class DemoZjmzxfzhlController extends BaseController {
     }
 
     /**
-     * @功能：修改
      * @param demoZjmzxfzhl
      * @return
+     * @功能：修改
      */
     @PreAuthorize("@elp.single('demo:zjmzxfzhl:update')")
     @PutMapping(value = "/update")
@@ -97,9 +88,9 @@ public class DemoZjmzxfzhlController extends BaseController {
     }
 
     /**
-     * @功能：批量删除
      * @param ids
      * @return
+     * @功能：批量删除
      */
     @PreAuthorize("@elp.single('demo:zjmzxfzhl:delete')")
     @DeleteMapping(value = "/delete")

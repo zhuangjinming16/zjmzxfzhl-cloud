@@ -14,7 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * @author 庄金明
- *
  */
 @Order(99)
 @Configuration
@@ -36,15 +35,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().and().authorizeRequests()
-                .antMatchers("/actuator/**","/token/**").permitAll()
-                .anyRequest().authenticated().and().csrf().disable();
+        http.httpBasic().and().authorizeRequests().antMatchers("/actuator/**", "/token/**").permitAll().anyRequest().authenticated().and().csrf().disable();
     }
 
-        @Override
-        public void configure(WebSecurity web) throws Exception {
-            web.ignoring().antMatchers("/static/**", "/favicon.ico");
-        }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/static/**", "/favicon.ico");
+    }
 
     /**
      * 强散列哈希加密实现

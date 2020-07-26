@@ -109,7 +109,7 @@ public class TaskResponse {
     }
 
     public TaskResponse(TaskInfo taskInfo, ProcessDefinition processDefinition, TaskInfo parentTaskInfo,
-            String processInstanceName) {
+                        String processInstanceName) {
         initializeTaskDetails(taskInfo);
 
         if (processDefinition != null) {

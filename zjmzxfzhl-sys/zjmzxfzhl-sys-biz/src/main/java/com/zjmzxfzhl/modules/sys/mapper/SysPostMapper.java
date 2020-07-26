@@ -14,13 +14,13 @@ import java.util.List;
 
 /**
  * 岗位Mapper
- * 
+ *
  * @author 庄金明
  */
 public interface SysPostMapper extends BaseMapper<SysPost> {
     /**
      * 查询岗位列表
-     * 
+     *
      * @param page
      * @param entity
      * @return
@@ -29,7 +29,7 @@ public interface SysPostMapper extends BaseMapper<SysPost> {
 
     /**
      * 查询岗位用户列表
-     * 
+     *
      * @param page
      * @param entity
      * @return
@@ -39,7 +39,7 @@ public interface SysPostMapper extends BaseMapper<SysPost> {
 
     /**
      * 根据Flowable GroupQueryImpl查询岗位列表
-     * 
+     *
      * @param query
      * @return
      */

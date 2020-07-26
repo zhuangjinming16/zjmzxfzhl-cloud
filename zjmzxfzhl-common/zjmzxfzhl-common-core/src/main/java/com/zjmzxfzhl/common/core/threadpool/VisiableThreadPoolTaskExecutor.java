@@ -10,7 +10,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @author 庄金明
- *
  */
 @Slf4j
 public class VisiableThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {

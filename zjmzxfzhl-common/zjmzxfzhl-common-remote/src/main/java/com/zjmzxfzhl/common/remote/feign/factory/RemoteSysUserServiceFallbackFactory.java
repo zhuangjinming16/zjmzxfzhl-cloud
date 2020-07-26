@@ -12,11 +12,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class RemoteSysUserServiceFallbackFactory implements FallbackFactory<RemoteSysUserService> {
 
-	@Override
-	public RemoteSysUserService create(Throwable throwable) {
-		RemoteSysUserServiceFallbackImpl remoteUserServiceFallback = new RemoteSysUserServiceFallbackImpl();
-		remoteUserServiceFallback.setCause(throwable);
-		return remoteUserServiceFallback;
-	}
+    @Override
+    public RemoteSysUserService create(Throwable throwable) {
+        RemoteSysUserServiceFallbackImpl remoteUserServiceFallback = new RemoteSysUserServiceFallbackImpl();
+        remoteUserServiceFallback.setCause(throwable);
+        return remoteUserServiceFallback;
+    }
 
 }

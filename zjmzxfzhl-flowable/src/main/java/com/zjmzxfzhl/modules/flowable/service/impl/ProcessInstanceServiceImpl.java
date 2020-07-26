@@ -1,9 +1,9 @@
 package com.zjmzxfzhl.modules.flowable.service.impl;
 
+import com.zjmzxfzhl.common.core.security.SecurityUser;
 import com.zjmzxfzhl.common.core.util.CommonUtil;
 import com.zjmzxfzhl.common.core.util.ObjectUtils;
 import com.zjmzxfzhl.common.core.util.SecurityUtils;
-import com.zjmzxfzhl.common.core.security.SecurityUser;
 import com.zjmzxfzhl.modules.flowable.common.CommentTypeEnum;
 import com.zjmzxfzhl.modules.flowable.common.ResponseFactory;
 import com.zjmzxfzhl.modules.flowable.constant.FlowableConstant;
