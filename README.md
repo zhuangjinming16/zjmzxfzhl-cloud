@@ -15,6 +15,8 @@ gitee: https://gitee.com/zjm16/zjmzxfzhl-cloud
 
 github: https://github.com/zhuangjinming16/zjmzxfzhl-cloud
 
+若需要使用 Spring Boot 架构请移步: https://gitee.com/zjm16/zjmzxfzhl
+
 ## 感谢
 
 [pig](https://gitee.com/log4j/pig) , [Ruoyi-Cloud](https://gitee.com/y_project/RuoYi-Cloud) , [open-capacity-platform](https://gitee.com/owenwangwen/open-capacity-platform)
