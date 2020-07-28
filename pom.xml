@@ -44,7 +44,6 @@
         <oshi.version>3.9.1</oshi.version>
         <easyexcel.version>2.2.0-beta1</easyexcel.version>
         <httpclient.version>4.5.7</httpclient.version>
-        <guava.version>20.0</guava.version>
         <hutool.version>5.3.8</hutool.version>
     </properties>
 
@@ -310,12 +309,6 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
                 <version>${easyexcel.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
             </dependency>
 
             <!-- zjmzxfzhl -->
