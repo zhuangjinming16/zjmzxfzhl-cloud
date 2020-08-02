@@ -95,7 +95,7 @@ zjmzxfzhl-cloud
      </dataObject>
      ```
 
-   - 流程设计可参考工程源代码 `zjmzxfzhl/src/main/resources/processes_test` 下的流程（使用的是`Flowable`的`Eclipse`插件 `Flowable Diagram Editor 设计的）
+   - 流程设计可参考工程源代码 `zjmzxfzhl/src/main/resources/processes_test` 下的流程（使用的是`Flowable`的`Eclipse`插件 `Flowable Diagram Editor` 设计的）
 
    - 自定义表单使用LGPL协议开源的 [FormMaking](http://form.xiaoyaoji.cn/pricing/#/zh-CN/)，若使用的 `FormMaking` 安装包（及通过 `npm` 引入）的方式，不需要购买授权，但若有使用 `FormMaking` 的源代码，需要到官方购买授权
 
