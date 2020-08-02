@@ -2,6 +2,7 @@ package com.zjmzxfzhl.common.log.aspect;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.zjmzxfzhl.common.core.Result;
+import com.zjmzxfzhl.common.core.threadpool.AsyncThreadExecutorProperties;
 import com.zjmzxfzhl.common.core.threadpool.manager.AsyncManager;
 import com.zjmzxfzhl.common.core.util.JacksonUtil;
 import com.zjmzxfzhl.common.core.util.SpringContextUtils;
@@ -12,6 +13,7 @@ import com.zjmzxfzhl.modules.sys.entity.SysLog;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -57,16 +59,20 @@ public class LogAspect {
 
         sysLog.setOperateResult(operateResult);
 
-        /// 同步方式保存系统日志
-        /// SpringContextUtils.getBean(RemoteLogService.class).save(sysLog);
-
-        // 异步方式保存日志
-        AsyncManager.me().execute(new Runnable() {
-            @Override
-            public void run() {
-                SpringContextUtils.getBean(RemoteLogService.class).save(sysLog);
-            }
-        });
+        AsyncThreadExecutorProperties asyncThreadExecutorProperties =
+                SpringContextUtils.getBeanIgnoreNotFound("asyncThreadExecutorProperties");
+        if (asyncThreadExecutorProperties != null && asyncThreadExecutorProperties.getEnabled()) {
+            // 异步方式保存日志
+            AsyncManager.me().execute(new Runnable() {
+                @Override
+                public void run() {
+                    SpringContextUtils.getBean(RemoteLogService.class).save(sysLog);
+                }
+            });
+        } else {
+            // 同步方式保存系统日志
+            SpringContextUtils.getBean(RemoteLogService.class).save(sysLog);
+        }
 
         if (ex != null) {
             throw ex;

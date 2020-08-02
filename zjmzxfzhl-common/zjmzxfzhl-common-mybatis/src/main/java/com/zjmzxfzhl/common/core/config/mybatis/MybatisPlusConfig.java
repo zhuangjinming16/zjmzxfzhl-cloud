@@ -21,7 +21,7 @@ import java.util.Collections;
 public class MybatisPlusConfig {
 
     @Bean
-    @ConditionalOnProperty(name = "dataPermission.enabled", havingValue = "true")
+    @ConditionalOnProperty(name = "zjmzxfzhl.data-permission.enabled", havingValue = "true")
     public PermissionParser permissionParser() {
         return new PermissionParser();
     }

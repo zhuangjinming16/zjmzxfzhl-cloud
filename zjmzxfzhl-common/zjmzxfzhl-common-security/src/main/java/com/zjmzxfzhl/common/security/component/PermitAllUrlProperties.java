@@ -13,9 +13,8 @@ import java.util.List;
  * @author 庄金明
  * @date
  */
-@Slf4j
 @Configuration
-@ConfigurationProperties(prefix = "security.oauth2.ignore")
+@ConfigurationProperties(prefix = "zjmzxfzhl.oauth2-ignore")
 public class PermitAllUrlProperties {
 
     @Getter

@@ -35,7 +35,7 @@ public class AppDemoController extends BaseController {
      * 未登陆用户直接访问，未设置防重发
      *
      * @return
-     * @WithoutLogin 未登陆也可以访问，该项注释掉，则未登录用户无法访问
+     * @AnonymousAccess 未登陆也可以访问，该项注释掉，则未登录用户无法访问
      */
     @RepeatRequest(waitTime = 2, leaseTime = 5, msg = "等待2秒且5秒后释放")
     @GetMapping(value = "/repeatRequest1")
@@ -53,7 +53,7 @@ public class AppDemoController extends BaseController {
      * @param deviceSn
      * @param deviceImei
      * @return
-     * @WithoutLogin 未登陆也可以访问
+     * @AnonymousAccess 未登陆也可以访问
      */
     @RepeatRequest(lockIndexs = {0, 1})
     @GetMapping(value = "/repeatRequest2")

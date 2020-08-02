@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class FlowableEngineConfig implements EngineConfigurationConfigurer<SpringProcessEngineConfiguration> {
-    @Value("${flowableFontName}")
+    @Value("${zjmzxfzhl.flowable.font-name:宋体}")
     private String flowableFontName;
 
     @Override

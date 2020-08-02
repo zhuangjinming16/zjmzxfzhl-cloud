@@ -71,7 +71,7 @@ public class PermissionParser implements ISqlParser, InitializingBean {
         SQLKEYWORD_OPERATORS.put(SqlKeyword.BETWEEN.getSqlSegment(), SqlKeyword.BETWEEN);
     }
 
-    @Value("${dataPermission.tableName:T_SYS_DATA_PERMISSION}")
+    @Value("${zjmzxfzhl.data-permission.table-name:T_SYS_DATA_PERMISSION}")
     private String dataPermissionTableName;
 
     @SuppressWarnings("unchecked")

@@ -33,7 +33,7 @@ import java.util.List;
 @Slf4j
 @Component
 public class KaptchaGatewayFilter extends AbstractGatewayFilterFactory {
-    @Value("${captchaFilter.clients}")
+    @Value("${zjmzxfzhl.captcha.clients}")
     private List<String> clients;
 
     @Autowired

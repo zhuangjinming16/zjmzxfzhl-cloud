@@ -17,7 +17,7 @@ import org.springframework.core.io.ClassPathResource;
  * @date 2020年3月24日
  */
 @Configuration
-@ConditionalOnProperty(name = "spring.redis.redisson.enabled", havingValue = "true")
+@ConditionalOnProperty(name = "zjmzxfzhl.redisson.enabled", havingValue = "true")
 public class RedissonConfig {
     @Value("${spring.redis.sentinel.nodes:}")
     private String nodes;
@@ -28,7 +28,6 @@ public class RedissonConfig {
         Config config = null;
         if (nodes != null && nodes.length() > 0) {
             config = Config.fromYAML(new ClassPathResource("redisson-sentinel.yml").getInputStream());
-            return Redisson.create(config);
         } else {
             config = Config.fromYAML(new ClassPathResource("redisson-single.yml").getInputStream());
         }
