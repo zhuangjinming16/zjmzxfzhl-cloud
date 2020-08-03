@@ -14,6 +14,12 @@
     <description>zjmzxfzhl服务间调用</description>
 
     <dependencies>
+        <!--feign 依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.zjmzxfzhl</groupId>
             <artifactId>zjmzxfzhl-sys-api</artifactId>

@@ -11,11 +11,6 @@ import java.io.IOException;
  * @date 2020年3月24日
  */
 public class XssFilter implements Filter {
-
-    @Override
-    public void init(FilterConfig config) throws ServletException {
-    }
-
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
             ServletException {
@@ -27,9 +22,4 @@ public class XssFilter implements Filter {
             DateUtil.clearNow();
         }
     }
-
-    @Override
-    public void destroy() {
-    }
-
 }

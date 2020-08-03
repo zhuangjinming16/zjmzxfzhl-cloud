@@ -60,7 +60,7 @@ public class LogAspect {
         sysLog.setOperateResult(operateResult);
 
         AsyncThreadExecutorProperties asyncThreadExecutorProperties =
-                SpringContextUtils.getBeanIgnoreNotFound("asyncThreadExecutorProperties");
+                SpringContextUtils.getBeanIgnoreNotFound(AsyncThreadExecutorProperties.class);
         if (asyncThreadExecutorProperties != null && asyncThreadExecutorProperties.getEnabled()) {
             // 异步方式保存日志
             AsyncManager.me().execute(new Runnable() {
