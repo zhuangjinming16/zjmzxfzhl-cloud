@@ -25,6 +25,8 @@ spring:
         # 共享配置
         shared-dataids: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
     sentinel:
+      filter:
+        enabled: true
       # 取消控制台懒加载
       eager: true
       transport:
@@ -32,10 +34,20 @@ spring:
         dashboard: 127.0.0.1:8858
       # nacos配置持久化
       datasource:
+        # api分组
         ds1:
           nacos:
             server-addr: 127.0.0.1:8848
-            dataId: sentinel-zjmzxfzhl-gateway
+            dataId: sentinel-zjmzxfzhl-gw-api-group
             groupId: DEFAULT_GROUP
             data-type: json
-            rule-type: flow
+            rule-type: gw-api-group
+        # 网关流控
+        ds2:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: sentinel-zjmzxfzhl-gw-flow
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: gw-flow
+
