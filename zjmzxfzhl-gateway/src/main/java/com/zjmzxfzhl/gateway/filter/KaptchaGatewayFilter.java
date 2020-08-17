@@ -60,7 +60,7 @@ public class KaptchaGatewayFilter extends AbstractGatewayFilterFactory {
 
             // 配置了需要验证验证码的才进行验证， 直接向下执行
             try {
-                String[] clientInfos = WebUtils.getClientId(request);
+                String[] clientInfos = WebUtils.getClientInfo(request);
                 if (!clients.contains(clientInfos[0])) {
                     return chain.filter(exchange);
                 }

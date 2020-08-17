@@ -2,6 +2,7 @@ package com.zjmzxfzhl.common.security.component;
 
 import com.zjmzxfzhl.common.core.util.SpringContextUtils;
 import com.zjmzxfzhl.common.security.annotation.AnonymousAccess;
+import com.zjmzxfzhl.common.security.annotation.Inner;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,11 +48,16 @@ public class ZjmzxfzhlResourceServerConfigurerAdapter extends ResourceServerConf
         Map<RequestMappingInfo, HandlerMethod> handlerMethodMap =
                 SpringContextUtils.getApplicationContext().getBean(RequestMappingHandlerMapping.class).getHandlerMethods();
         Set<String> anonymousUrls = new HashSet<>();
+        Set<String> innerUrls = new HashSet<>();
         for (Map.Entry<RequestMappingInfo, HandlerMethod> infoEntry : handlerMethodMap.entrySet()) {
             HandlerMethod handlerMethod = infoEntry.getValue();
             AnonymousAccess anonymousAccess = handlerMethod.getMethodAnnotation(AnonymousAccess.class);
             if (null != anonymousAccess) {
                 anonymousUrls.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
+            }
+            Inner inner = handlerMethod.getMethodAnnotation(Inner.class);
+            if (null != inner) {
+                innerUrls.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
             }
         }
 
@@ -60,6 +66,7 @@ public class ZjmzxfzhlResourceServerConfigurerAdapter extends ResourceServerConf
                 httpSecurity.authorizeRequests();
         permitAllUrl.getUrls().forEach(url -> registry.antMatchers(url).permitAll());
         anonymousUrls.forEach(url -> registry.antMatchers(url).permitAll());
+        innerUrls.forEach(url -> registry.antMatchers(url).permitAll());
         registry.anyRequest().authenticated().and().csrf().disable();
     }
 

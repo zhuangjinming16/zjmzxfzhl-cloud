@@ -1,11 +1,13 @@
 package com.zjmzxfzhl.common.security.component;
 
+import com.zjmzxfzhl.common.security.service.RedisClientDetailsService;
 import lombok.SneakyThrows;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,6 +15,8 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 import java.util.Collections;
 
 /**
@@ -22,7 +26,6 @@ import java.util.Collections;
 @ConfigurationPropertiesScan
 @ComponentScan("com.zjmzxfzhl.common.security")
 public class ZjmzxfzhlResourceServerAutoConfiguration {
-
     @Bean
     @Primary
     @LoadBalanced
@@ -45,5 +48,12 @@ public class ZjmzxfzhlResourceServerAutoConfiguration {
             }
         });
         return restTemplate;
+    }
+
+    @Bean
+    public RedisClientDetailsService redisClientDetailsService(DataSource dataSource,RedisTemplate<String, Object> redisTemplate) {
+        RedisClientDetailsService clientDetailsService = new RedisClientDetailsService(dataSource);
+        clientDetailsService.setRedisTemplate(redisTemplate);
+        return clientDetailsService;
     }
 }

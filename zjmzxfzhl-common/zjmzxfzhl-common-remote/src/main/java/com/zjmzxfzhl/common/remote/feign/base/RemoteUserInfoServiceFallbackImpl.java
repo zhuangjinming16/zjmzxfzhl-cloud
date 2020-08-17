@@ -4,7 +4,6 @@ import com.zjmzxfzhl.common.core.Result;
 import com.zjmzxfzhl.common.core.base.UserInfo;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author 庄金明
@@ -23,7 +22,7 @@ public class RemoteUserInfoServiceFallbackImpl implements RemoteUserInfoService 
      * @return Result
      */
     @Override
-    public Result<UserInfo> info(@RequestParam("userId") String userId) {
+    public Result<UserInfo> info(String userId, String inner) {
         log.error("feign 查询用户信息失败:{}", userId, cause);
         return null;
     }

@@ -1,12 +1,14 @@
 package com.zjmzxfzhl.common.remote.feign;
 
 import com.zjmzxfzhl.common.core.Result;
+import com.zjmzxfzhl.common.core.constant.SecurityConstants;
 import com.zjmzxfzhl.common.core.constant.ServiceNameConstants;
 import com.zjmzxfzhl.common.remote.feign.factory.RemoteLogServiceFallbackFactory;
 import com.zjmzxfzhl.modules.sys.entity.SysLog;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 /**
  * @author 庄金明
@@ -23,6 +25,6 @@ public interface RemoteLogService {
      * @return
      */
     @PostMapping("/save")
-    Result save(@RequestBody SysLog sysLog);
+    Result save(@RequestBody SysLog sysLog, @RequestHeader(SecurityConstants.INNER) String inner);
 
 }

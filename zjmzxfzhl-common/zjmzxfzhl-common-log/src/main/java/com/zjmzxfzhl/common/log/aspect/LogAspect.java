@@ -2,6 +2,7 @@ package com.zjmzxfzhl.common.log.aspect;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.zjmzxfzhl.common.core.Result;
+import com.zjmzxfzhl.common.core.constant.SecurityConstants;
 import com.zjmzxfzhl.common.core.threadpool.AsyncThreadExecutorProperties;
 import com.zjmzxfzhl.common.core.threadpool.manager.AsyncManager;
 import com.zjmzxfzhl.common.core.util.JacksonUtil;
@@ -66,12 +67,12 @@ public class LogAspect {
             AsyncManager.me().execute(new Runnable() {
                 @Override
                 public void run() {
-                    SpringContextUtils.getBean(RemoteLogService.class).save(sysLog);
+                    SpringContextUtils.getBean(RemoteLogService.class).save(sysLog, SecurityConstants.INNER_TRUE);
                 }
             });
         } else {
             // 同步方式保存系统日志
-            SpringContextUtils.getBean(RemoteLogService.class).save(sysLog);
+            SpringContextUtils.getBean(RemoteLogService.class).save(sysLog, SecurityConstants.INNER_TRUE);
         }
 
         if (ex != null) {

@@ -9,6 +9,7 @@ import com.zjmzxfzhl.common.core.base.UserInfo;
 import com.zjmzxfzhl.common.core.exception.SysException;
 import com.zjmzxfzhl.common.log.annotation.Log;
 import com.zjmzxfzhl.common.security.annotation.AnonymousAccess;
+import com.zjmzxfzhl.common.security.annotation.Inner;
 import com.zjmzxfzhl.modules.sys.entity.SysUser;
 import com.zjmzxfzhl.modules.sys.entity.vo.SysPasswordForm;
 import com.zjmzxfzhl.modules.sys.entity.vo.SysUserInfo;
@@ -115,7 +116,7 @@ public class SysUserController extends BaseController {
         return Result.ok(sysUserInfo);
     }
 
-    @AnonymousAccess
+    @Inner
     @GetMapping(value = "/info")
     public Result<UserInfo> info(@RequestParam String userId) {
         UserInfo userInfo = sysUserService.saveSingleGetUserInfo(userId);

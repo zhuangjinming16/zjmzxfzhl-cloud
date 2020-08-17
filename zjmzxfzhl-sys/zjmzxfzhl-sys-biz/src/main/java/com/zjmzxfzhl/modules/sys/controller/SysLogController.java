@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zjmzxfzhl.common.core.Result;
 import com.zjmzxfzhl.common.core.base.BaseController;
 import com.zjmzxfzhl.common.security.annotation.AnonymousAccess;
+import com.zjmzxfzhl.common.security.annotation.Inner;
 import com.zjmzxfzhl.modules.sys.entity.SysLog;
 import com.zjmzxfzhl.modules.sys.service.SysLogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,7 @@ public class SysLogController extends BaseController {
      * @功能：新增
      */
     /// @PreAuthorize("@elp.single('sys:log:save')")
-    @AnonymousAccess
+    @Inner
     @PostMapping(value = "/save")
     public Result save(@Valid @RequestBody SysLog sysLog) {
         sysLogService.save(sysLog);

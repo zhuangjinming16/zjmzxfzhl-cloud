@@ -57,8 +57,8 @@ public class ZjmzxfzhlAuthServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) {
         oauthServer.allowFormAuthenticationForClients()
-                // .checkTokenAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()");
+                // .checkTokenAccess("isAuthenticated()")
+                .checkTokenAccess("permitAll()");
     }
 
     @Override
@@ -82,6 +82,10 @@ public class ZjmzxfzhlAuthServerConfig extends AuthorizationServerConfigurerAdap
                 .exceptionTranslator(new ZjmzxfzhlWebResponseExceptionTranslator());
     }
 
+    /**
+     * 认证服务器需要自己定义注入 RedisClientDetailsService
+     * @return
+     */
     @Bean
     public RedisClientDetailsService redisClientDetailsService() {
         RedisClientDetailsService clientDetailsService = new RedisClientDetailsService(dataSource);

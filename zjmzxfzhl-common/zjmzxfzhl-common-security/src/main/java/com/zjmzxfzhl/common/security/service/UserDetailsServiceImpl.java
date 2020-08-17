@@ -30,7 +30,6 @@ import javax.servlet.http.HttpServletRequest;
  * @author 庄金明
  */
 @Service("userDetailsService")
-@ConditionalOnBean(JdbcClientDetailsService.class)
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Resource
@@ -63,7 +62,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             }
         }
         RemoteUserInfoService remoteUserInfoService = SpringContextUtils.getBean(beanId);
-        Result<UserInfo> result = remoteUserInfoService.info(username);
+        Result<UserInfo> result = remoteUserInfoService.info(username, SecurityConstants.INNER_TRUE);
         return getUserDetails(result);
     }
 

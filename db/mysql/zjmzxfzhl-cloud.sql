@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80019
 File Encoding         : 65001
 
-Date: 2020-07-26 20:40:59
+Date: 2020-08-18 02:19:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -746,6 +746,11 @@ INSERT INTO `act_hi_actinst` VALUES ('8f33d90f-70b6-11ea-b6d9-4851b7b02457', '1'
 INSERT INTO `act_hi_actinst` VALUES ('8f34c370-70b6-11ea-b6d9-4851b7b02457', '3', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', 'e8227e13-70b4-11ea-b6d9-4851b7b02457', 'sub3u2', '8f34c371-70b6-11ea-b6d9-4851b7b02457', null, 'sub3u2', 'userTask', 'admin', '2020-03-28 13:39:57.718', '2020-03-28 13:40:03.195', '5477', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('8f34c372-70b6-11ea-b6d9-4851b7b02457', '1', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', '8f33d90e-70b6-11ea-b6d9-4851b7b02457', 'flow119', null, null, null, 'sequenceFlow', null, '2020-03-28 13:39:57.718', '2020-03-28 13:39:57.718', '0', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('8f34c373-70b6-11ea-b6d9-4851b7b02457', '3', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', '8f33d90e-70b6-11ea-b6d9-4851b7b02457', 'sub3u3', '8f34c374-70b6-11ea-b6d9-4851b7b02457', null, 'sub3u3', 'userTask', 'admin', '2020-03-28 13:39:57.718', '2020-03-28 13:40:08.768', '11050', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('8f8c9349-d478-11ea-804d-4851b7b02457', '1', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', 'start', null, null, 'Start', 'startEvent', null, '2020-08-02 12:28:05.774', '2020-08-02 12:28:05.784', '10', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('8f8e8f1a-d478-11ea-804d-4851b7b02457', '1', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', 'flow1', null, null, null, 'sequenceFlow', null, '2020-08-02 12:28:05.787', '2020-08-02 12:28:05.787', '0', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('8f8e8f1b-d478-11ea-804d-4851b7b02457', '3', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', '__initiator__', '8f8fc79c-d478-11ea-804d-4851b7b02457', null, '申请提交人', 'userTask', 'admin', '2020-08-02 12:28:05.787', '2020-08-02 12:28:06.183', '396', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('8fcb7112-d478-11ea-804d-4851b7b02457', '1', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', 'flow2', null, null, null, 'sequenceFlow', null, '2020-08-02 12:28:06.186', '2020-08-02 12:28:06.186', '0', null, '');
+INSERT INTO `act_hi_actinst` VALUES ('8fcbbf33-d478-11ea-804d-4851b7b02457', '1', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', 'managerApprove', '8fcbbf34-d478-11ea-804d-4851b7b02457', null, '部门经理审批', 'userTask', null, '2020-08-02 12:28:06.188', null, null, null, '');
 INSERT INTO `act_hi_actinst` VALUES ('91e59e1e-70b4-11ea-b6d9-4851b7b02457', '1', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', '8b72c4d0-70b4-11ea-b6d9-4851b7b02457', 'flow95', null, null, null, 'sequenceFlow', null, '2020-03-28 13:25:43.239', '2020-03-28 13:25:43.239', '0', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('91e5c52f-70b4-11ea-b6d9-4851b7b02457', '1', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', '8b72c4d0-70b4-11ea-b6d9-4851b7b02457', 'parallelgateway6_end', null, null, 'Parallel Gateway', 'parallelGateway', null, '2020-03-28 13:25:43.240', '2020-03-28 13:25:43.243', '3', null, '');
 INSERT INTO `act_hi_actinst` VALUES ('920754b6-702b-11ea-82a6-4851b7b02457', '1', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', '88039e6b-7029-11ea-82a6-4851b7b02457', 'parallelgateway11_end', null, null, 'Parallel Gateway', 'parallelGateway', null, '2020-03-27 21:05:02.409', '2020-03-27 21:06:25.639', '83230', null, '');
@@ -1689,6 +1694,8 @@ INSERT INTO `act_hi_comment` VALUES ('8f068b3c-70ba-11ea-b6d9-4851b7b02457', 'ev
 INSERT INTO `act_hi_comment` VALUES ('8f07d289-70b4-11ea-b6d9-4851b7b02457', 'RL', '2020-03-28 13:25:38.430', 'admin', '8b73d64c-70b4-11ea-b6d9-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', 'AddComment', '认领', 0xE8AEA4E9A286);
 INSERT INTO `act_hi_comment` VALUES ('8f0b06db-70b4-11ea-b6d9-4851b7b02457', 'event', '2020-03-28 13:25:38.451', 'admin', '8b73d64c-70b4-11ea-b6d9-4851b7b02457', null, 'AddUserLink', 'admin_|_assignee', null);
 INSERT INTO `act_hi_comment` VALUES ('8f2ecffa-70b6-11ea-b6d9-4851b7b02457', 'WC', '2020-03-28 13:39:57.679', 'admin', 'e822f34f-70b4-11ea-b6d9-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', 'AddComment', '55', 0x3535);
+INSERT INTO `act_hi_comment` VALUES ('8fb4b4bd-d478-11ea-804d-4851b7b02457', 'TJ', '2020-08-02 12:28:06.037', 'admin', '8f8fc79c-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', 'AddComment', '提交', 0xE68F90E4BAA4);
+INSERT INTO `act_hi_comment` VALUES ('8fbaf650-d478-11ea-804d-4851b7b02457', 'event', '2020-08-02 12:28:06.078', 'admin', '8f8fc79c-d478-11ea-804d-4851b7b02457', null, 'AddUserLink', 'admin_|_assignee', null);
 INSERT INTO `act_hi_comment` VALUES ('9074e495-70b6-11ea-b6d9-4851b7b02457', 'RL', '2020-03-28 13:39:59.816', 'admin', '8f34c371-70b6-11ea-b6d9-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', 'AddComment', '认领', 0xE8AEA4E9A286);
 INSERT INTO `act_hi_comment` VALUES ('90795167-70b6-11ea-b6d9-4851b7b02457', 'event', '2020-03-28 13:39:59.845', 'admin', '8f34c371-70b6-11ea-b6d9-4851b7b02457', null, 'AddUserLink', 'admin_|_assignee', null);
 INSERT INTO `act_hi_comment` VALUES ('9136a923-7029-11ea-82a6-4851b7b02457', 'WC', '2020-03-27 20:50:42.047', 'admin', '88039e76-7029-11ea-82a6-4851b7b02457', 'a55e2250-7022-11ea-82a6-4851b7b02457', 'AddComment', '22', 0x3232);
@@ -2399,6 +2406,11 @@ INSERT INTO `act_hi_identitylink` VALUES ('8e9bb4c5-70b2-11ea-b6d9-4851b7b02457'
 INSERT INTO `act_hi_identitylink` VALUES ('8f05049b-70ba-11ea-b6d9-4851b7b02457', null, 'assignee', 'admin', '89e00829-70ba-11ea-b6d9-4851b7b02457', '2020-03-28 14:08:35.392', null, null, null, null);
 INSERT INTO `act_hi_identitylink` VALUES ('8f09f56a-70b4-11ea-b6d9-4851b7b02457', null, 'assignee', 'admin', '8b73d64c-70b4-11ea-b6d9-4851b7b02457', '2020-03-28 13:25:38.444', null, null, null, null);
 INSERT INTO `act_hi_identitylink` VALUES ('8f302f8b-70b6-11ea-b6d9-4851b7b02457', null, 'participant', 'admin', null, '2020-03-28 13:39:57.688', 'a55e2250-7022-11ea-82a6-4851b7b02457', null, null, null);
+INSERT INTO `act_hi_identitylink` VALUES ('8f8b0ca2-d478-11ea-804d-4851b7b02457', null, 'starter', 'admin', null, '2020-08-02 12:28:05.767', '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null);
+INSERT INTO `act_hi_identitylink` VALUES ('8fb9bdce-d478-11ea-804d-4851b7b02457', null, 'assignee', 'admin', '8f8fc79c-d478-11ea-804d-4851b7b02457', '2020-08-02 12:28:06.070', null, null, null, null);
+INSERT INTO `act_hi_identitylink` VALUES ('8fbacf3f-d478-11ea-804d-4851b7b02457', null, 'participant', 'admin', null, '2020-08-02 12:28:06.077', '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null);
+INSERT INTO `act_hi_identitylink` VALUES ('8fc83cc1-d478-11ea-804d-4851b7b02457', null, 'participant', 'admin', null, '2020-08-02 12:28:06.165', '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null);
+INSERT INTO `act_hi_identitylink` VALUES ('8fcbe645-d478-11ea-804d-4851b7b02457', 'manager', 'candidate', null, '8fcbbf34-d478-11ea-804d-4851b7b02457', '2020-08-02 12:28:06.189', null, null, null, null);
 INSERT INTO `act_hi_identitylink` VALUES ('90770776-70b6-11ea-b6d9-4851b7b02457', null, 'assignee', 'admin', '8f34c371-70b6-11ea-b6d9-4851b7b02457', '2020-03-28 13:39:59.830', null, null, null, null);
 INSERT INTO `act_hi_identitylink` VALUES ('9137ba94-7029-11ea-82a6-4851b7b02457', null, 'participant', 'admin', null, '2020-03-27 20:50:42.054', 'a55e2250-7022-11ea-82a6-4851b7b02457', null, null, null);
 INSERT INTO `act_hi_identitylink` VALUES ('91e290dd-70b4-11ea-b6d9-4851b7b02457', null, 'participant', 'admin', null, '2020-03-28 13:25:43.219', 'a55e2250-7022-11ea-82a6-4851b7b02457', null, null, null);
@@ -2631,6 +2643,7 @@ CREATE TABLE `act_hi_procinst` (
 -- Records of act_hi_procinst
 -- ----------------------------
 INSERT INTO `act_hi_procinst` VALUES ('31c18324-982c-11ea-8f83-4851b7b02457', '2', '31c18324-982c-11ea-8f83-4851b7b02457', '777', 'leaveBusinessKey:1:08b02899-981c-11ea-aae9-4851b7b02457', '2020-05-17 18:50:16.897', '2020-05-17 18:51:37.861', '80964', 'zjmzxfzhl', 'start', 'end', null, null, '', 'zjmzxfzhl请假流程带Key', null, null);
+INSERT INTO `act_hi_procinst` VALUES ('8f8abe81-d478-11ea-804d-4851b7b02457', '1', '8f8abe81-d478-11ea-804d-4851b7b02457', null, 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '2020-08-02 12:28:05.762', null, null, 'admin', 'start', null, null, null, '', 'admin请假流程', null, null);
 INSERT INTO `act_hi_procinst` VALUES ('a55e2250-7022-11ea-82a6-4851b7b02457', '2', 'a55e2250-7022-11ea-82a6-4851b7b02457', null, 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', '2020-03-27 20:01:09.383', '2020-06-21 10:46:38.707', '7397129324', 'admin', 'start', 'endevent5', null, null, '', 'admin嵌套并行网关子流程', null, null);
 INSERT INTO `act_hi_procinst` VALUES ('c53da761-70f2-11ea-ba79-4851b7b02457', '2', 'c53da761-70f2-11ea-ba79-4851b7b02457', null, 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '2020-03-28 20:50:58.177', '2020-04-25 17:32:56.420', '2407318243', 'zjmzxfzhl', 'start', 'end', null, null, '', 'zjmzxfzhl请假流程', null, null);
 INSERT INTO `act_hi_procinst` VALUES ('f1d40a4f-86d6-11ea-8814-4851b7b02457', '2', 'f1d40a4f-86d6-11ea-8814-4851b7b02457', null, 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '2020-04-25 17:27:12.655', '2020-04-25 17:32:26.355', '313700', 'zjmzxfzhl', 'start', 'end', null, null, '', 'zjmzxfzhl请假流程', null, null);
@@ -2870,6 +2883,8 @@ INSERT INTO `act_hi_taskinst` VALUES ('8deaa545-7024-11ea-82a6-4851b7b02457', '3
 INSERT INTO `act_hi_taskinst` VALUES ('8ea3a40a-70b2-11ea-b6d9-4851b7b02457', '3', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', null, 'sub1u4', 'a55e2250-7022-11ea-82a6-4851b7b02457', '6f9a639d-70b2-11ea-b6d9-4851b7b02457', null, null, null, null, 'sub1u4', null, null, null, 'admin', '2020-03-28 13:11:18.780', '2020-03-28 13:12:44.741', '2020-03-28 13:12:48.572', '89792', null, '50', null, null, null, '', '2020-03-28 13:12:48.572');
 INSERT INTO `act_hi_taskinst` VALUES ('8f34c371-70b6-11ea-b6d9-4851b7b02457', '3', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', null, 'sub3u2', 'a55e2250-7022-11ea-82a6-4851b7b02457', 'e8227e13-70b4-11ea-b6d9-4851b7b02457', null, null, null, null, 'sub3u2', null, null, null, 'admin', '2020-03-28 13:39:57.718', '2020-03-28 13:39:59.820', '2020-03-28 13:40:03.191', '5473', null, '50', null, null, null, '', '2020-03-28 13:40:03.191');
 INSERT INTO `act_hi_taskinst` VALUES ('8f34c374-70b6-11ea-b6d9-4851b7b02457', '3', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', null, 'sub3u3', 'a55e2250-7022-11ea-82a6-4851b7b02457', '8f33d90e-70b6-11ea-b6d9-4851b7b02457', null, null, null, null, 'sub3u3', null, null, null, 'admin', '2020-03-28 13:39:57.718', '2020-03-28 13:40:05.383', '2020-03-28 13:40:08.763', '11045', null, '50', null, null, null, '', '2020-03-28 13:40:08.763');
+INSERT INTO `act_hi_taskinst` VALUES ('8f8fc79c-d478-11ea-804d-4851b7b02457', '3', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', null, '__initiator__', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', null, null, null, null, '申请提交人', null, null, null, 'admin', '2020-08-02 12:28:05.787', null, '2020-08-02 12:28:06.174', '387', null, '50', null, 'leaveApply.form', null, '', '2020-08-02 12:28:06.174');
+INSERT INTO `act_hi_taskinst` VALUES ('8fcbbf34-d478-11ea-804d-4851b7b02457', '1', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', null, 'managerApprove', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', null, null, null, null, '部门经理审批', null, null, null, null, '2020-08-02 12:28:06.188', null, null, null, null, '50', null, null, null, '', '2020-08-02 12:28:06.188');
 INSERT INTO `act_hi_taskinst` VALUES ('928bba63-70ba-11ea-b6d9-4851b7b02457', '3', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', null, 'u5', 'a55e2250-7022-11ea-82a6-4851b7b02457', '7ff238f6-70ba-11ea-b6d9-4851b7b02457', null, null, null, null, 'u5', null, null, null, 'admin', '2020-03-28 14:08:41.308', '2020-03-28 14:08:50.577', '2020-03-28 14:08:58.391', '17083', 'Change activity to u21', '50', null, null, null, '', '2020-03-28 14:08:58.391');
 INSERT INTO `act_hi_taskinst` VALUES ('9320afd9-7032-11ea-82a6-4851b7b02457', '3', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', null, 'sub1u3', 'a55e2250-7022-11ea-82a6-4851b7b02457', '931f5044-7032-11ea-82a6-4851b7b02457', null, null, null, null, 'sub1u3', null, null, null, 'admin', '2020-03-27 21:55:10.729', '2020-03-27 21:55:36.041', '2020-03-27 21:55:39.497', '28768', null, '50', null, null, null, '', '2020-03-27 21:55:39.497');
 INSERT INTO `act_hi_taskinst` VALUES ('9320d6ec-7032-11ea-82a6-4851b7b02457', '3', 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', null, 'sub1u2', 'a55e2250-7022-11ea-82a6-4851b7b02457', '9320afd6-7032-11ea-82a6-4851b7b02457', null, null, null, null, 'sub1u2', null, null, null, 'admin', '2020-03-27 21:55:10.730', '2020-03-27 21:55:30.193', '2020-03-27 21:55:33.796', '23066', null, '50', null, null, null, '', '2020-03-27 21:55:33.796');
@@ -3226,6 +3241,11 @@ INSERT INTO `act_hi_varinst` VALUES ('8de9e1e9-7024-11ea-82a6-4851b7b02457', '3'
 INSERT INTO `act_hi_varinst` VALUES ('8dea08fd-7024-11ea-82a6-4851b7b02457', '0', 'a55e2250-7022-11ea-82a6-4851b7b02457', '8dea08fa-7024-11ea-82a6-4851b7b02457', null, 'loopCounter', 'integer', null, null, null, null, null, '0', '0', null, '2020-03-27 20:14:49.028', '2020-03-27 20:14:49.028');
 INSERT INTO `act_hi_varinst` VALUES ('8dea0900-7024-11ea-82a6-4851b7b02457', '0', 'a55e2250-7022-11ea-82a6-4851b7b02457', '8dea08fb-7024-11ea-82a6-4851b7b02457', null, 'loopCounter', 'integer', null, null, null, null, null, '1', '1', null, '2020-03-27 20:14:49.028', '2020-03-27 20:14:49.028');
 INSERT INTO `act_hi_varinst` VALUES ('8dea5723-7024-11ea-82a6-4851b7b02457', '0', 'a55e2250-7022-11ea-82a6-4851b7b02457', '8dea08fc-7024-11ea-82a6-4851b7b02457', null, 'loopCounter', 'integer', null, null, null, null, null, '2', '2', null, '2020-03-27 20:14:49.031', '2020-03-27 20:14:49.031');
+INSERT INTO `act_hi_varinst` VALUES ('8f8bf703-d478-11ea-804d-4851b7b02457', '0', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, 'processInstanceFormData', 'string', null, null, null, null, null, null, '{\"userId\":\"11\",\"userName\":\"11\",\"date_start\":\"2020-08-02 12:28:02\",\"date_end\":\"2020-08-02 12:28:04\"}', null, '2020-08-02 12:28:05.772', '2020-08-02 12:28:05.772');
+INSERT INTO `act_hi_varinst` VALUES ('8f8c4524-d478-11ea-804d-4851b7b02457', '0', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, 'date_start', 'string', null, null, null, null, null, null, '2020-08-02 12:28:02', null, '2020-08-02 12:28:05.772', '2020-08-02 12:28:05.772');
+INSERT INTO `act_hi_varinst` VALUES ('8f8c4525-d478-11ea-804d-4851b7b02457', '0', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, 'date_end', 'string', null, null, null, null, null, null, '2020-08-02 12:28:04', null, '2020-08-02 12:28:05.772', '2020-08-02 12:28:05.772');
+INSERT INTO `act_hi_varinst` VALUES ('8f8c4526-d478-11ea-804d-4851b7b02457', '0', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, 'userName', 'string', null, null, null, null, null, null, '11', null, '2020-08-02 12:28:05.772', '2020-08-02 12:28:05.772');
+INSERT INTO `act_hi_varinst` VALUES ('8f8c6c37-d478-11ea-804d-4851b7b02457', '0', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, 'userId', 'string', null, null, null, null, null, null, '11', null, '2020-08-02 12:28:05.773', '2020-08-02 12:28:05.773');
 INSERT INTO `act_hi_varinst` VALUES ('a11be6b4-7031-11ea-82a6-4851b7b02457', '0', 'a55e2250-7022-11ea-82a6-4851b7b02457', 'a11be6b3-7031-11ea-82a6-4851b7b02457', null, 'nrOfInstances', 'integer', null, null, null, null, null, '3', '3', null, '2020-03-27 21:48:24.689', '2020-03-27 21:48:24.689');
 INSERT INTO `act_hi_varinst` VALUES ('a11be6b5-7031-11ea-82a6-4851b7b02457', '0', 'a55e2250-7022-11ea-82a6-4851b7b02457', 'a11be6b3-7031-11ea-82a6-4851b7b02457', null, 'nrOfCompletedInstances', 'integer', null, null, null, null, null, '0', '0', null, '2020-03-27 21:48:24.690', '2020-03-27 21:48:24.690');
 INSERT INTO `act_hi_varinst` VALUES ('a11c0dc6-7031-11ea-82a6-4851b7b02457', '0', 'a55e2250-7022-11ea-82a6-4851b7b02457', 'a11be6b3-7031-11ea-82a6-4851b7b02457', null, 'nrOfActiveInstances', 'integer', null, null, null, null, null, '3', '3', null, '2020-03-27 21:48:24.690', '2020-03-27 21:48:24.690');
@@ -3647,6 +3667,11 @@ CREATE TABLE `act_ru_actinst` (
 -- ----------------------------
 -- Records of act_ru_actinst
 -- ----------------------------
+INSERT INTO `act_ru_actinst` VALUES ('8f8c9349-d478-11ea-804d-4851b7b02457', '1', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', 'start', null, null, 'Start', 'startEvent', null, '2020-08-02 12:28:05.774', '2020-08-02 12:28:05.784', '10', null, '');
+INSERT INTO `act_ru_actinst` VALUES ('8f8e8f1a-d478-11ea-804d-4851b7b02457', '1', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', 'flow1', null, null, null, 'sequenceFlow', null, '2020-08-02 12:28:05.787', '2020-08-02 12:28:05.787', '0', null, '');
+INSERT INTO `act_ru_actinst` VALUES ('8f8e8f1b-d478-11ea-804d-4851b7b02457', '3', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', '__initiator__', '8f8fc79c-d478-11ea-804d-4851b7b02457', null, '申请提交人', 'userTask', 'admin', '2020-08-02 12:28:05.787', '2020-08-02 12:28:06.183', '396', null, '');
+INSERT INTO `act_ru_actinst` VALUES ('8fcb7112-d478-11ea-804d-4851b7b02457', '1', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', 'flow2', null, null, null, 'sequenceFlow', null, '2020-08-02 12:28:06.186', '2020-08-02 12:28:06.186', '0', null, '');
+INSERT INTO `act_ru_actinst` VALUES ('8fcbbf33-d478-11ea-804d-4851b7b02457', '1', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8c9348-d478-11ea-804d-4851b7b02457', 'managerApprove', '8fcbbf34-d478-11ea-804d-4851b7b02457', null, '部门经理审批', 'userTask', null, '2020-08-02 12:28:06.188', null, null, null, '');
 
 -- ----------------------------
 -- Table structure for act_ru_deadletter_job
@@ -3798,6 +3823,8 @@ CREATE TABLE `act_ru_execution` (
 -- ----------------------------
 -- Records of act_ru_execution
 -- ----------------------------
+INSERT INTO `act_ru_execution` VALUES ('8f8abe81-d478-11ea-804d-4851b7b02457', '1', '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', null, '8f8abe81-d478-11ea-804d-4851b7b02457', null, '1', '0', '1', '0', '0', '1', null, '', 'admin请假流程', 'start', '2020-08-02 12:28:05.762', 'admin', null, '1', '0', '0', '0', '0', '0', '0', '0', '0', null, null);
+INSERT INTO `act_ru_execution` VALUES ('8f8c9348-d478-11ea-804d-4851b7b02457', '2', '8f8abe81-d478-11ea-804d-4851b7b02457', null, '8f8abe81-d478-11ea-804d-4851b7b02457', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', null, '8f8abe81-d478-11ea-804d-4851b7b02457', 'managerApprove', '1', '0', '0', '0', '0', '1', null, '', null, null, '2020-08-02 12:28:05.774', null, null, '1', '0', '1', '0', '0', '0', '0', '0', '0', null, null);
 
 -- ----------------------------
 -- Table structure for act_ru_history_job
@@ -3858,6 +3885,10 @@ CREATE TABLE `act_ru_identitylink` (
 -- Records of act_ru_identitylink
 -- ----------------------------
 INSERT INTO `act_ru_identitylink` VALUES ('161ae97a-981c-11ea-aae9-4851b7b02457', '1', 'employee', 'candidate', null, null, null, 'leaveBusinessKey:1:08b02899-981c-11ea-aae9-4851b7b02457', null, null, null);
+INSERT INTO `act_ru_identitylink` VALUES ('8f8b0ca2-d478-11ea-804d-4851b7b02457', '1', null, 'starter', 'admin', null, '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null, null);
+INSERT INTO `act_ru_identitylink` VALUES ('8fbacf3f-d478-11ea-804d-4851b7b02457', '1', null, 'participant', 'admin', null, '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null, null);
+INSERT INTO `act_ru_identitylink` VALUES ('8fc83cc1-d478-11ea-804d-4851b7b02457', '1', null, 'participant', 'admin', null, '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null, null);
+INSERT INTO `act_ru_identitylink` VALUES ('8fcbe645-d478-11ea-804d-4851b7b02457', '1', 'manager', 'candidate', null, '8fcbbf34-d478-11ea-804d-4851b7b02457', null, null, null, null, null);
 INSERT INTO `act_ru_identitylink` VALUES ('b04fbc61-8233-11ea-a82d-4851b7b02457', '1', null, 'candidate', 'admin', null, null, 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', null, null, null);
 INSERT INTO `act_ru_identitylink` VALUES ('b8c56956-6857-11ea-abee-4851b7b02457', '1', 'employee', 'candidate', null, null, null, 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', null, null, null);
 INSERT INTO `act_ru_identitylink` VALUES ('d73f3969-8d01-11ea-ad3b-4851b7b02457', '1', null, 'candidate', 'zhl', null, null, 'complex:1:942a246e-7022-11ea-82a6-4851b7b02457', null, null, null);
@@ -4010,6 +4041,7 @@ CREATE TABLE `act_ru_task` (
 -- ----------------------------
 -- Records of act_ru_task
 -- ----------------------------
+INSERT INTO `act_ru_task` VALUES ('8fcbbf34-d478-11ea-804d-4851b7b02457', '1', '8f8c9348-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', 'leave:1:10c54b3b-66cf-11ea-bb0d-4851b7b02457', null, null, null, null, null, '部门经理审批', null, null, 'managerApprove', null, null, null, '50', '2020-08-02 12:28:06.188', null, null, '1', '', null, null, '1', '0', '1', '0');
 
 -- ----------------------------
 -- Table structure for act_ru_timer_job
@@ -4094,6 +4126,11 @@ CREATE TABLE `act_ru_variable` (
 -- ----------------------------
 -- Records of act_ru_variable
 -- ----------------------------
+INSERT INTO `act_ru_variable` VALUES ('8f8bf703-d478-11ea-804d-4851b7b02457', '1', 'string', 'processInstanceFormData', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null, null, null, null, null, '{\"userId\":\"11\",\"userName\":\"11\",\"date_start\":\"2020-08-02 12:28:02\",\"date_end\":\"2020-08-02 12:28:04\"}', null);
+INSERT INTO `act_ru_variable` VALUES ('8f8c4524-d478-11ea-804d-4851b7b02457', '1', 'string', 'date_start', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null, null, null, null, null, '2020-08-02 12:28:02', null);
+INSERT INTO `act_ru_variable` VALUES ('8f8c4525-d478-11ea-804d-4851b7b02457', '1', 'string', 'date_end', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null, null, null, null, null, '2020-08-02 12:28:04', null);
+INSERT INTO `act_ru_variable` VALUES ('8f8c4526-d478-11ea-804d-4851b7b02457', '1', 'string', 'userName', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null, null, null, null, null, '11', null);
+INSERT INTO `act_ru_variable` VALUES ('8f8c6c37-d478-11ea-804d-4851b7b02457', '1', 'string', 'userId', '8f8abe81-d478-11ea-804d-4851b7b02457', '8f8abe81-d478-11ea-804d-4851b7b02457', null, null, null, null, null, null, null, '11', null);
 
 -- ----------------------------
 -- Table structure for qrtz_blob_triggers
@@ -4245,7 +4282,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('ZjmzxfzhlScheduler', 'CN-20200214SKQY1595766158021', '1595767256313', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('ZjmzxfzhlScheduler', 'CN-20200214SKQY1597686934244', '1597688377326', '15000');
 
 -- ----------------------------
 -- Table structure for qrtz_simple_triggers
@@ -4322,10 +4359,10 @@ CREATE TABLE `qrtz_triggers` (
 -- ----------------------------
 -- Records of qrtz_triggers
 -- ----------------------------
-INSERT INTO `qrtz_triggers` VALUES ('ZjmzxfzhlScheduler', 'TASK_CLASS_NAME1', '测试1', 'TASK_CLASS_NAME1', '测试1', null, '1595766180000', '-1', '5', 'PAUSED', 'CRON', '1595766161000', '0', null, '0', '');
-INSERT INTO `qrtz_triggers` VALUES ('ZjmzxfzhlScheduler', 'TASK_CLASS_NAME2', '测试2', 'TASK_CLASS_NAME2', '测试2', null, '1595766180000', '-1', '5', 'PAUSED', 'CRON', '1595766161000', '0', null, '0', '');
-INSERT INTO `qrtz_triggers` VALUES ('ZjmzxfzhlScheduler', 'TASK_CLASS_NAME3', '测试3', 'TASK_CLASS_NAME3', '测试3', null, '1595766180000', '-1', '5', 'PAUSED', 'CRON', '1595766161000', '0', null, '0', '');
-INSERT INTO `qrtz_triggers` VALUES ('ZjmzxfzhlScheduler', 'TASK_CLASS_NAME4', '测试4', 'TASK_CLASS_NAME4', '测试4', null, '1595766165000', '-1', '5', 'PAUSED', 'CRON', '1595766161000', '0', null, '0', '');
+INSERT INTO `qrtz_triggers` VALUES ('ZjmzxfzhlScheduler', 'TASK_CLASS_NAME1', '测试1', 'TASK_CLASS_NAME1', '测试1', null, '1597686960000', '-1', '5', 'PAUSED', 'CRON', '1597686936000', '0', null, '0', '');
+INSERT INTO `qrtz_triggers` VALUES ('ZjmzxfzhlScheduler', 'TASK_CLASS_NAME2', '测试2', 'TASK_CLASS_NAME2', '测试2', null, '1597686960000', '-1', '5', 'PAUSED', 'CRON', '1597686936000', '0', null, '0', '');
+INSERT INTO `qrtz_triggers` VALUES ('ZjmzxfzhlScheduler', 'TASK_CLASS_NAME3', '测试3', 'TASK_CLASS_NAME3', '测试3', null, '1597686960000', '-1', '5', 'PAUSED', 'CRON', '1597686936000', '0', null, '0', '');
+INSERT INTO `qrtz_triggers` VALUES ('ZjmzxfzhlScheduler', 'TASK_CLASS_NAME4', '测试4', 'TASK_CLASS_NAME4', '测试4', null, '1597686945000', '-1', '5', 'PAUSED', 'CRON', '1597686936000', '0', null, '0', '');
 
 -- ----------------------------
 -- Table structure for t_app_user
@@ -5526,7 +5563,7 @@ CREATE TABLE `t_sys_config` (
 -- ----------------------------
 -- Records of t_sys_config
 -- ----------------------------
-INSERT INTO `t_sys_config` VALUES ('defaultPassword', '新建用户默认密码', '1', '1', '', 'admin', '2019-09-11', '2019-09-11 23:03:25', 'admin', '2020-06-20', '2020-06-20 21:59:29');
+INSERT INTO `t_sys_config` VALUES ('defaultPassword', '新建用户默认密码', '1', '1', '', 'admin', '2019-09-11', '2019-09-11 23:03:25', 'admin', '2020-08-16', '2020-08-16 18:47:25');
 
 -- ----------------------------
 -- Table structure for t_sys_data_permission
@@ -5828,9 +5865,13 @@ CREATE TABLE `t_sys_oauth_client_details` (
 -- ----------------------------
 -- Records of t_sys_oauth_client_details
 -- ----------------------------
-INSERT INTO `t_sys_oauth_client_details` VALUES ('app', '', '$2a$10$POF129GDIaOFfTblCA8d1OKo9xVq/YCzQ7ERAhtIbURC7FYtv6iNC', 'app', 'authorization_code,password,refresh_token,client_credentials', 'http://localhost:9001/callback', '', '1000', '2000', '{\"remoteUserInfoService\":\"remoteAppUserService\"}', 'false', '1', null, null, null, 'admin', '2020-07-26', '2020-07-26 17:33:39');
-INSERT INTO `t_sys_oauth_client_details` VALUES ('clientDemo', '', '$2a$10$lD3TWQ1Xvxdj62qgVhr1ZuqwDIVBUclKJXMyWwctFLk.0siises1e', 'clientDemo', 'refresh_token,client_credentials', '', '', '1000', '2000', '{}', 'true', '1', null, null, null, null, null, null);
-INSERT INTO `t_sys_oauth_client_details` VALUES ('zjmzxfzhl', '', '$2a$10$ZhtWyQbZxrJjzxhXQIW63udVnX277XfyKOQ55wHMwxziSs5a8AXjO', 'admin', 'authorization_code,password,refresh_token,client_credentials', 'http://localhost:9001/callback', '', '1000', '2000', '{}', 'true', '1', null, null, null, 'admin', '2020-06-30', '2020-06-30 23:02:20');
+INSERT INTO `t_sys_oauth_client_details` VALUES ('app', '', '$2a$10$bSvZxjqzG9lB4nyBmSjCpunTMcc0gr6bg2FdYPE4mmEbpzhb6ggSO', 'app', 'authorization_code,password,refresh_token,client_credentials', 'http://localhost:9001/callback', '', '1000', '2000', '{\"remoteUserInfoService\":\"remoteAppUserService\"}', 'false', '1', null, null, null, 'admin', '2020-08-18', '2020-08-18 02:15:19');
+INSERT INTO `t_sys_oauth_client_details` VALUES ('clientDemo', '', '$2a$10$eOpZS9n2bD/ptKmz.ae0n.fbZGS1rl0IIOZxW7uZro3aYz9nVcgTC', 'clientDemo', 'refresh_token,client_credentials', '', '', '1000', '2000', '{}', 'true', '1', null, null, null, 'admin', '2020-08-18', '2020-08-18 02:15:25');
+INSERT INTO `t_sys_oauth_client_details` VALUES ('zjmzxfzhl', '', '$2a$10$UQSUsVuGVM9MjNEQnIHK9eAPi7.ePMDV1Dt95xTa4KkHzBrWMor9q', 'admin', 'authorization_code,password,refresh_token,client_credentials', 'http://localhost:9001/callback', '', '1000', '2000', '{}', 'true', '1', null, null, null, 'admin', '2020-08-18', '2020-08-18 02:15:32');
+INSERT INTO `t_sys_oauth_client_details` VALUES ('zjmzxfzhl-app', '', '$2a$10$PhZ7jOaHWwkyWJtDX3oMHeZakPdchN324UypC.zawP9HBDnE8zzvy', 'server', 'client_credentials', '', '', '1', '1', '{}', 'false', '1', 'admin', '2020-08-16', '2020-08-16 17:11:33', 'admin', '2020-08-18', '2020-08-18 02:15:39');
+INSERT INTO `t_sys_oauth_client_details` VALUES ('zjmzxfzhl-auth', '', '$2a$10$GXof1a/8.1jDtbZsRAC4t.p4ax2km9i3IDKobdRm7goxKQWJlamu6', 'server', 'client_credentials', '', '', '1', '1', '{}', 'false', '1', 'admin', '2020-08-16', '2020-08-16 17:11:33', 'admin', '2020-08-18', '2020-08-18 02:15:45');
+INSERT INTO `t_sys_oauth_client_details` VALUES ('zjmzxfzhl-flowable', '', '$2a$10$IIV459ZwSq/JG644Boad/eodtDVs/pKS2Cnd.ZJRfRkuu3TFrolNm', 'server', 'client_credentials', '', '', '1', '1', '{}', 'false', '1', 'admin', '2020-08-16', '2020-08-16 17:11:33', 'admin', '2020-08-18', '2020-08-18 02:15:50');
+INSERT INTO `t_sys_oauth_client_details` VALUES ('zjmzxfzhl-sys', '', '$2a$10$J4tVXdAaOn.ub9FIaFZp3u2P2Sc.8CLj1ED4jl7tKH0pF0.KgWwrq', 'server', 'client_credentials', '', '', '1', '1', '{}', 'false', '1', 'admin', '2020-08-16', '2020-08-16 17:11:33', 'admin', '2020-08-18', '2020-08-18 02:15:56');
 
 -- ----------------------------
 -- Table structure for t_sys_org
