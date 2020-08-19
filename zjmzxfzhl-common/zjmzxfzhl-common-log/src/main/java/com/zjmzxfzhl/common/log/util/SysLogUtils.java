@@ -1,5 +1,6 @@
 package com.zjmzxfzhl.common.log.util;
 
+import com.zjmzxfzhl.common.core.util.DateUtil;
 import com.zjmzxfzhl.common.core.util.IpUtils;
 import com.zjmzxfzhl.common.core.util.SecurityUtils;
 import com.zjmzxfzhl.modules.sys.entity.SysLog;
@@ -19,12 +20,16 @@ public class SysLogUtils {
         HttpServletRequest request =
                 ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
         SysLog sysLog = new SysLog();
-        sysLog.setUserId(SecurityUtils.getUserId());
+        String userId = SecurityUtils.getUserId();
+        sysLog.setUserId(userId);
         sysLog.setIp(IpUtils.getIpAddr(request));
         sysLog.setRequestUrl(request.getRequestURI());
         sysLog.setRequestType(request.getMethod());
         sysLog.setUserAgent(request.getHeader("user-agent"));
         sysLog.setClientId(getClientId());
+        sysLog.setCreateBy(userId);
+        sysLog.setCreateDate(DateUtil.getNow());
+        sysLog.setCreateTime(DateUtil.getNow());
         return sysLog;
     }
 
