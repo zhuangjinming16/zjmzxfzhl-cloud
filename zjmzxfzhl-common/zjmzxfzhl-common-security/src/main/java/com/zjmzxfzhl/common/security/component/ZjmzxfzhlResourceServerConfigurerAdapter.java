@@ -1,11 +1,14 @@
 package com.zjmzxfzhl.common.security.component;
 
+import com.google.common.base.Joiner;
+import com.zjmzxfzhl.common.core.util.CommonUtil;
 import com.zjmzxfzhl.common.core.util.SpringContextUtils;
 import com.zjmzxfzhl.common.security.annotation.AnonymousAccess;
 import com.zjmzxfzhl.common.security.annotation.Inner;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
@@ -18,9 +21,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author 庄金明
@@ -40,6 +41,9 @@ public class ZjmzxfzhlResourceServerConfigurerAdapter extends ResourceServerConf
 
     @Autowired
     private PermitAllUrlProperties permitAllUrl;
+
+    @Value("${zjmzxfzhl.has-any-scope}")
+    private List<String> hasAnyScope;
 
     @Override
     @SneakyThrows
@@ -67,7 +71,13 @@ public class ZjmzxfzhlResourceServerConfigurerAdapter extends ResourceServerConf
         permitAllUrl.getUrls().forEach(url -> registry.antMatchers(url).permitAll());
         anonymousUrls.forEach(url -> registry.antMatchers(url).permitAll());
         innerUrls.forEach(url -> registry.antMatchers(url).permitAll());
-        registry.anyRequest().authenticated().and().csrf().disable();
+        if (CommonUtil.isNotEmptyObject(hasAnyScope)) {
+            String hasAnyScopeParam = String.format("'%s'", Joiner.on("','").join(hasAnyScope));
+            registry.anyRequest().access("#oauth2.hasAnyScope(" + hasAnyScopeParam + ")");
+        } else {
+            registry.anyRequest().authenticated();
+        }
+        registry.and().csrf().disable();
     }
 
     @Override
