@@ -99,13 +99,13 @@ public class ZjmzxfzhlTokenServices implements AuthorizationServerTokenServices,
 
         OAuth2AccessToken existingAccessToken = tokenStore.getAccessToken(authentication);
 
-        // 1 若存在旧的token，则让原token更新后10秒内仍有效
+        // 1 若存在旧的token，则让原token更新后 n 秒内仍有效
         if (existingAccessToken != null) {
             // 1.1 先删除refreshToken
             if (existingAccessToken.getRefreshToken() != null) {
                 tokenStore.removeRefreshToken(existingAccessToken.getRefreshToken());
             }
-            // 1.2 设置原token 10秒后仍有效，但不关联原refreshToken
+            // 1.2 设置原token n 秒后仍有效，但不关联原refreshToken
             DefaultOAuth2AccessToken existingDefaultOAuth2AccessToken = (DefaultOAuth2AccessToken) existingAccessToken;
             existingDefaultOAuth2AccessToken.setRefreshToken(null);
             existingDefaultOAuth2AccessToken.setExpiration(new Date(System.currentTimeMillis() + oldAccessTokenValiditySeconds * 1000L));
@@ -116,11 +116,7 @@ public class ZjmzxfzhlTokenServices implements AuthorizationServerTokenServices,
         OAuth2RefreshToken refreshToken = createRefreshToken(authentication);
         OAuth2AccessToken accessToken = createAccessToken(authentication, refreshToken);
         tokenStore.storeAccessToken(accessToken, authentication);
-        // In case it was modified
-        refreshToken = accessToken.getRefreshToken();
-        if (refreshToken != null) {
-            tokenStore.storeRefreshToken(refreshToken, authentication);
-        }
+        tokenStore.storeRefreshToken(refreshToken, authentication);
         return accessToken;
 
     }
@@ -159,7 +155,7 @@ public class ZjmzxfzhlTokenServices implements AuthorizationServerTokenServices,
         // token.
         // tokenStore.removeAccessTokenUsingRefreshToken(refreshToken);
 
-        // 2 设置原token 10秒后仍有效，但不关联原refreshToken
+        // 2 设置原token n 秒后仍有效，但不关联原refreshToken
         OAuth2AccessToken existingAccessToken = tokenStore.getAccessToken(authentication);
         if (existingAccessToken != null && !existingAccessToken.isExpired()) {
             DefaultOAuth2AccessToken existingDefaultOAuth2AccessToken = (DefaultOAuth2AccessToken) existingAccessToken;
