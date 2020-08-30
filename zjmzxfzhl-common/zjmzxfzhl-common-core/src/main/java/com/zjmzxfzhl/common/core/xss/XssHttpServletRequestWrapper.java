@@ -122,7 +122,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
             return input;
         }
         if (!Jsoup.isValid(input, Whitelist.basicWithImages())) {
-            throw new SysException("包含XSS非法字符!");
+            // throw new SysException("包含XSS非法字符!");
         }
         return input;
     }
