@@ -1,5 +1,6 @@
 import ErrorPlugin from './errorPlugin'
 import Vue from 'vue'
+import VueClipboard from 'vue-clipboard2'
 import Cookies from 'js-cookie'
 
 import 'normalize.css/normalize.css'
@@ -22,7 +23,6 @@ import {formatDictText, getDicts} from '@/utils/util'
 import permission from "./directive/permission/permission";
 
 Vue.use(ErrorPlugin)
-
 // import FormMaking from 'form-making-advanced'
 // import 'form-making-advanced/dist/FormMaking.css'
 
@@ -33,6 +33,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 let size = Cookies.get('size') || 'mini';
+Vue.use(VueClipboard)
 Vue.use(ElementUI, {locale, size})
 Vue.use(FormMaking)
 Vue.directive('permission', permission)
