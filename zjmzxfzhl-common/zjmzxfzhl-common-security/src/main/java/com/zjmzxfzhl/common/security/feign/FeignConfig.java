@@ -35,7 +35,7 @@ public class FeignConfig {
                 String clientInfo = oAuth2ClientProperties.getClientId() + ":" + oAuth2ClientProperties.getClientSecret();
                 String secret = Base64.encode(clientInfo.getBytes(StandardCharsets.UTF_8));
                 requestTemplate.header(HttpHeaders.AUTHORIZATION, String.format("%s %s",
-                        SecurityConstants.X_ZJMZXFZHL_APPLICATION_TOKEN_TYPE, secret));
+                        SecurityConstants.X_ZJMZXFZHL_INNER_APP_TOKEN_TYPE, secret));
             } else {
                 SecurityContext securityContext = SecurityContextHolder.getContext();
                 Authentication authentication = securityContext.getAuthentication();

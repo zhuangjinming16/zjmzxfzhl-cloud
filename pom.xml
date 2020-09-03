@@ -37,7 +37,7 @@
         <commons.version>2.6</commons.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <security-oauth2.version>2.3.6.RELEASE</security-oauth2.version>
-        <jsoup.version>1.12.1</jsoup.version>
+        <!--<jsoup.version>1.12.1</jsoup.version>-->
         <swagger.version>2.9.2</swagger.version>
         <redisson.version>3.11.1</redisson.version>
         <flowable.version>6.4.1</flowable.version>
@@ -45,6 +45,7 @@
         <easyexcel.version>2.2.0-beta1</easyexcel.version>
         <httpclient.version>4.5.7</httpclient.version>
         <hutool.version>5.3.8</hutool.version>
+        <esapi.version>2.1.0</esapi.version>
     </properties>
 
     <modules>
@@ -226,11 +227,23 @@
             </dependency>-->
 
             <!-- jsoup HTML parser library @ https://jsoup.org/ -->
-            <dependency>
+            <!--<dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>${jsoup.version}</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>org.owasp.esapi</groupId>
+                <artifactId>esapi</artifactId>
+                <version>${esapi.version}</version>
             </dependency>
+
+            <!--<dependency>
+                <groupId>org.owasp.esapi</groupId>
+                <artifactId>esapi</artifactId>
+                <version>${esapi.version}</version>
+            </dependency>-->
 
             <!-- Swagger2 API文档 -->
             <dependency>

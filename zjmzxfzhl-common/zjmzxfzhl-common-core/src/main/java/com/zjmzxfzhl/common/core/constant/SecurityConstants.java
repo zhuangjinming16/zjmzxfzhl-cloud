@@ -22,7 +22,7 @@ public class SecurityConstants {
     /**
      * 令牌类型
      */
-    public static final String X_ZJMZXFZHL_APPLICATION_TOKEN_TYPE = "X-ZJMZXFZHL-APPLICATION ";
+    public static final String X_ZJMZXFZHL_INNER_APP_TOKEN_TYPE = "X-ZJMZXFZHL-INNER-APP ";
     /**
      * 授权token url
      */

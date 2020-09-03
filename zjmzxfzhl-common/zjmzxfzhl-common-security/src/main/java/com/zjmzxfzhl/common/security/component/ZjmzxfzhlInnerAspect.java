@@ -64,8 +64,8 @@ public class ZjmzxfzhlInnerAspect implements Ordered {
         if (SecurityConstants.INNER_TRUE.equals(innerValue)) {
             String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
             String[] clientInfo =
-                    WebUtils.getClientInfo(authorization.replace(SecurityConstants.X_ZJMZXFZHL_APPLICATION_TOKEN_TYPE
-                            , ""));
+                    WebUtils.getClientInfo(authorization.replace(SecurityConstants.X_ZJMZXFZHL_INNER_APP_TOKEN_TYPE,
+                            ""));
             String clientId = clientInfo[0];
             String clientSecret = clientInfo[1];
             ClientDetails clientDetails = redisClientDetailsService.loadClientByClientId(clientId);
