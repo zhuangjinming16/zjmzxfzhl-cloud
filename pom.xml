@@ -41,6 +41,7 @@
         <swagger.version>2.9.2</swagger.version>
         <redisson.version>3.11.1</redisson.version>
         <flowable.version>6.4.1</flowable.version>
+        <xerces.version>2.12.0</xerces.version>
         <oshi.version>3.9.1</oshi.version>
         <easyexcel.version>2.2.0-beta1</easyexcel.version>
         <httpclient.version>4.5.7</httpclient.version>
@@ -308,6 +309,11 @@
                 <groupId>org.flowable</groupId>
                 <artifactId>flowable-json-converter</artifactId>
                 <version>${flowable.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xerces</groupId>
+                <artifactId>xercesImpl</artifactId>
+                <version>${xerces.version}</version>
             </dependency>
 
             <!-- 获取系统信息 -->
