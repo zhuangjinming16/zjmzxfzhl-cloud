@@ -1,11 +1,12 @@
 <template>
-    <fm-making-form ref="makingFrom" style="height:500px;" preview generate-json>
-        <template slot="action">
-            <el-button v-permission="'flowable:form:save,flowable:form:update'" type="text" icon="el-icon-upload"
-                       @click="btnSave">保存
-            </el-button>
-        </template>
-    </fm-making-form>
+    <div class="form-making-height">
+        <fm-making-form ref="makingFrom" preview generate-json>
+            <template slot="action">
+                <el-button v-permission="'flowable:form:save,flowable:form:update'" type="text" icon="el-icon-upload" @click="btnSave">保存
+                </el-button>
+            </template>
+        </fm-making-form>
+    </div>
 </template>
 <script>
     import {getAction, putAction} from '@/api/manage'
@@ -54,3 +55,9 @@
         }
     }
 </script>
+
+<style lang="scss">
+    .form-making-height {
+        height: calc(100vh - 84px);
+    }
+</style>
