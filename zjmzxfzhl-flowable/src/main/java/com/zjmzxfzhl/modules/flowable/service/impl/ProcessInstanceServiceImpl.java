@@ -95,7 +95,7 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
         ProcessInstanceBuilder processInstanceBuilder = runtimeService.createProcessInstanceBuilder();
         processInstanceBuilder.processDefinitionId(definition.getId());
         // 流程实例标题
-        processInstanceBuilder.name(user.getUsername() + definition.getName());
+        processInstanceBuilder.name(user.getUserRealName() + definition.getName());
         // 业务key
         processInstanceBuilder.businessKey(processInstanceRequest.getBusinessKey());
         processInstanceBuilder.variables(startVariables);

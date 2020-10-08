@@ -9,6 +9,7 @@ import org.flowable.idm.engine.impl.persistence.entity.GroupEntityManagerImpl;
 import org.flowable.idm.engine.impl.persistence.entity.data.GroupDataManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
  * @date 2020年3月24日
  */
 public class CustomGroupEntityManager extends GroupEntityManagerImpl {
-    @Autowired
+    @Resource
     private FlowableCommonMapper flowableCommonMapper;
 
     public CustomGroupEntityManager(IdmEngineConfiguration idmEngineConfiguration, GroupDataManager groupDataManager) {

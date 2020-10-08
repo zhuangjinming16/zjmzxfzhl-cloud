@@ -27,9 +27,9 @@ public class FlowableUtils {
         SecurityUser securityUser = (SecurityUser) SecurityUtils.getUserDetails();
         User currentUser = new UserEntityImpl();
         currentUser.setId(securityUser.getUsername());
-        currentUser.setFirstName(securityUser.getUsername());
-        currentUser.setLastName(securityUser.getUsername());
-        currentUser.setDisplayName(securityUser.getUsername());
+        currentUser.setFirstName(securityUser.getUserRealName());
+        currentUser.setLastName(securityUser.getUserRealName());
+        currentUser.setDisplayName(securityUser.getUserRealName());
         return currentUser;
     }
 
