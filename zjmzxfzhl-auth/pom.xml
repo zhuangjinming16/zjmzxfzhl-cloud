@@ -43,5 +43,10 @@
             <groupId>com.zjmzxfzhl</groupId>
             <artifactId>zjmzxfzhl-common-security</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.zjmzxfzhl</groupId>
+            <artifactId>zjmzxfzhl-common-remote</artifactId>
+        </dependency>
     </dependencies>
 </project>
