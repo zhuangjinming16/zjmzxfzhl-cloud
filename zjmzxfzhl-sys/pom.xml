@@ -14,9 +14,6 @@
 
     <description>zjmzxfzhl系统管理</description>
     <modules>
-        <!--<module>zjmzxfzhl-sys-api</module>
-        <module>zjmzxfzhl-sys-biz</module>-->
-        <module>zjmzxfzhl-sys-api</module>
         <module>zjmzxfzhl-sys-biz</module>
         <module>zjmzxfzhl-sys-job</module>
     </modules>

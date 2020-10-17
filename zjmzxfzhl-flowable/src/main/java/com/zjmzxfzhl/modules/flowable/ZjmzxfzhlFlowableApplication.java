@@ -1,6 +1,6 @@
 package com.zjmzxfzhl.modules.flowable;
 
-import com.zjmzxfzhl.common.security.annotation.EnableZjmzxfzhlFeignClients;
+import com.zjmzxfzhl.common.remote.feign.annotation.EnableZjmzxfzhlFeignClients;
 import com.zjmzxfzhl.common.security.annotation.EnableZjmzxfzhlResourceServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;

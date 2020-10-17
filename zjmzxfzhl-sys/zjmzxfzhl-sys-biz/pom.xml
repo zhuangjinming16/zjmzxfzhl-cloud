@@ -54,6 +54,10 @@
             <groupId>com.zjmzxfzhl</groupId>
             <artifactId>zjmzxfzhl-common-log</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zjmzxfzhl</groupId>
+            <artifactId>zjmzxfzhl-common-remote</artifactId>
+        </dependency>
 
         <!-- flowable -->
         <dependency>

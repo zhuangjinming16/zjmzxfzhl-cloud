@@ -42,6 +42,11 @@
             <groupId>com.zjmzxfzhl</groupId>
             <artifactId>zjmzxfzhl-common-mybatis</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.zjmzxfzhl</groupId>
+            <artifactId>zjmzxfzhl-common-remote</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

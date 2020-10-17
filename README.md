@@ -55,11 +55,11 @@ zjmzxfzhl-cloud
 │     ├── zjmzxfzhl-common-redis                      // Redis缓存模块
 │     ├── zjmzxfzhl-common-remote                     // Feign远端交易模块
 │     ├── zjmzxfzhl-common-security                   // 安全模块
+│     ├── zjmzxfzhl-common-sys-api                    // 系统Api模块
 ├── zjmzxfzhl-demo            // 示例模块 [8050]
 ├── zjmzxfzhl-flowable        // 工作流模块 [8030]
 ├── zjmzxfzhl-gateway         // 网关模块 [8080]
 ├── zjmzxfzhl-sys             // 系统模块 [8010]
-│     ├── zjmzxfzhl-sys-api                           // 系统Api模块
 │     ├── zjmzxfzhl-sys-biz                           // 系统业务模块
 │     ├── zjmzxfzhl-sys-job                           // 系统定时任务模块
 ├── zjmzxfzhl-visual          // 图形化管理模块

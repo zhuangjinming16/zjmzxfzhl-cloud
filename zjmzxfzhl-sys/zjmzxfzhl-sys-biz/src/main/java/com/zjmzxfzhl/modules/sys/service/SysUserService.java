@@ -2,7 +2,6 @@ package com.zjmzxfzhl.modules.sys.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zjmzxfzhl.common.core.base.BaseService;
-import com.zjmzxfzhl.common.core.base.UserInfo;
 import com.zjmzxfzhl.modules.sys.entity.SysRole;
 import com.zjmzxfzhl.modules.sys.entity.SysUser;
 import com.zjmzxfzhl.modules.sys.entity.vo.Route;
@@ -53,14 +52,6 @@ public interface SysUserService extends BaseService<SysUser> {
      * @return
      */
     SysUserInfo saveGetUserInfo(String userId, String roleId);
-
-    /**
-     * 获取用户简单信息
-     *
-     * @param userId
-     * @return
-     */
-    UserInfo saveSingleGetUserInfo(String userId);
 
     /**
      * 加载用户按钮权限

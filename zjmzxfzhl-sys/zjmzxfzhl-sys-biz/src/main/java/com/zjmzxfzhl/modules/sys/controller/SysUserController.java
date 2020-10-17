@@ -7,13 +7,14 @@ import com.zjmzxfzhl.common.core.Result;
 import com.zjmzxfzhl.common.core.base.BaseController;
 import com.zjmzxfzhl.common.core.base.UserInfo;
 import com.zjmzxfzhl.common.core.exception.SysException;
+import com.zjmzxfzhl.common.core.util.SecurityUtils;
 import com.zjmzxfzhl.common.log.annotation.Log;
-import com.zjmzxfzhl.common.security.annotation.AnonymousAccess;
 import com.zjmzxfzhl.common.security.annotation.Inner;
 import com.zjmzxfzhl.modules.sys.entity.SysUser;
 import com.zjmzxfzhl.modules.sys.entity.vo.SysPasswordForm;
 import com.zjmzxfzhl.modules.sys.entity.vo.SysUserInfo;
 import com.zjmzxfzhl.modules.sys.service.SysUserService;
+import com.zjmzxfzhl.modules.sys.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -112,15 +113,14 @@ public class SysUserController extends BaseController {
     @Log(value = "获取用户信息")
     @GetMapping(value = "/getUserInfo")
     public Result getUserInfo(@RequestParam(required = false) String roleId, HttpServletRequest request) {
-        SysUserInfo sysUserInfo = sysUserService.saveGetUserInfo(null, roleId);
+        SysUserInfo sysUserInfo = sysUserService.saveGetUserInfo(SecurityUtils.getUserId(), roleId);
         return Result.ok(sysUserInfo);
     }
 
     @Inner
     @GetMapping(value = "/info")
     public Result<UserInfo> info(@RequestParam String userId) {
-        UserInfo userInfo = sysUserService.saveSingleGetUserInfo(userId);
-        return Result.ok(userInfo);
+        return ((UserInfoService) sysUserService).info(userId,null);
     }
 
     @PostMapping(value = "/updatePassword")

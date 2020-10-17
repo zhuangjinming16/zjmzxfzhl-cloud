@@ -47,10 +47,10 @@
         <httpclient.version>4.5.7</httpclient.version>
         <hutool.version>5.3.8</hutool.version>
         <esapi.version>2.1.0</esapi.version>
+        <zjmzxfzhl-common.version>2.0.0-SNAPSHOT</zjmzxfzhl-common.version>
     </properties>
 
     <modules>
-        <module>zjmzxfzhl-common</module>
         <module>zjmzxfzhl-sys</module>
         <module>zjmzxfzhl-auth</module>
         <module>zjmzxfzhl-app</module>
@@ -334,37 +334,37 @@
             <dependency>
                 <groupId>com.zjmzxfzhl</groupId>
                 <artifactId>zjmzxfzhl-common-core</artifactId>
-                <version>${project.version}</version>
+                <version>${zjmzxfzhl-common.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.zjmzxfzhl</groupId>
                 <artifactId>zjmzxfzhl-common-redis</artifactId>
-                <version>${project.version}</version>
+                <version>${zjmzxfzhl-common.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.zjmzxfzhl</groupId>
                 <artifactId>zjmzxfzhl-common-log</artifactId>
-                <version>${project.version}</version>
+                <version>${zjmzxfzhl-common.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.zjmzxfzhl</groupId>
                 <artifactId>zjmzxfzhl-common-security</artifactId>
-                <version>${project.version}</version>
+                <version>${zjmzxfzhl-common.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.zjmzxfzhl</groupId>
                 <artifactId>zjmzxfzhl-common-mybatis</artifactId>
-                <version>${project.version}</version>
+                <version>${zjmzxfzhl-common.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.zjmzxfzhl</groupId>
-                <artifactId>zjmzxfzhl-sys-api</artifactId>
-                <version>${project.version}</version>
+                <artifactId>zjmzxfzhl-common-sys-api</artifactId>
+                <version>${zjmzxfzhl-common.version}</version>
             </dependency>
 
             <dependency>
@@ -376,7 +376,7 @@
             <dependency>
                 <groupId>com.zjmzxfzhl</groupId>
                 <artifactId>zjmzxfzhl-common-remote</artifactId>
-                <version>${project.version}</version>
+                <version>${zjmzxfzhl-common.version}</version>
             </dependency>
 
             <dependency>
