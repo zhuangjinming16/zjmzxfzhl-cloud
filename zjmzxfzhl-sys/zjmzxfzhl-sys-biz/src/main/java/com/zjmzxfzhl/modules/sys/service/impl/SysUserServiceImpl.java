@@ -113,7 +113,6 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserMapper, SysUser> 
             SecurityUser newSecurityUser = new SecurityUser(sysRole.getRoleId(), sysUser.getOrgId(),
                     sysUser.getUserName(), securityUser.getAdditionalInformation(), sysUser.getUserId(), "", true,
                     true, true, true, sysUserInfo.getAuthorities());
-            OAuth2AccessToken token = tokenStore.getAccessToken(authentication);
             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
                     new UsernamePasswordAuthenticationToken(newSecurityUser, authentication.getCredentials(),
                             newSecurityUser.getAuthorities());
@@ -121,6 +120,10 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserMapper, SysUser> 
             OAuth2Authentication newAuthentication = new OAuth2Authentication(authentication.getOAuth2Request(),
                     usernamePasswordAuthenticationToken);
             newAuthentication.setDetails(authentication.getDetails());
+            OAuth2AccessToken token = tokenStore.getAccessToken(authentication);
+            if (CommonUtil.isNotEmptyObject(token.getAdditionalInformation())) {
+                token.getAdditionalInformation().put("roleId", roleId);
+            }
             tokenStore.storeAccessToken(token, newAuthentication);
         }
 
