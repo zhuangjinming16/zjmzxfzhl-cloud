@@ -1,7 +1,5 @@
 package com.zjmzxfzhl.modules.flowable.common.cmd;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.zjmzxfzhl.common.core.util.SpringContextUtils;
 import com.zjmzxfzhl.modules.flowable.entity.FlowableForm;
 import com.zjmzxfzhl.modules.flowable.service.FlowableFormService;
@@ -14,7 +12,6 @@ import org.flowable.common.engine.api.FlowableException;
 import org.flowable.common.engine.api.FlowableObjectNotFoundException;
 import org.flowable.common.engine.impl.interceptor.Command;
 import org.flowable.common.engine.impl.interceptor.CommandContext;
-import org.flowable.editor.language.json.converter.BpmnJsonConverter;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.impl.util.CommandContextUtil;
 import org.flowable.engine.repository.Deployment;
@@ -39,7 +36,7 @@ import java.util.Map;
 public class DeployModelCmd implements Command<Deployment>, Serializable {
 
     private static final long serialVersionUID = 1L;
-    private String modelId;
+    protected String modelId;
 
     public DeployModelCmd(String modelId) {
         this.modelId = modelId;
@@ -68,8 +65,7 @@ public class DeployModelCmd implements Command<Deployment>, Serializable {
             ByteArrayInputStream bis = new ByteArrayInputStream(bpmnBytes);
             deploymentBuilder.addInputStream(fileName, bis);
             deploymentBuilder.name(fileName);
-            // modelId设置为部署的分类字段作为后续关联的需要
-            deploymentBuilder.category(model.getId());
+            deploymentBuilder.category(model.getCategory());
 
             XMLInputFactory xif = XMLInputFactory.newInstance();
             InputStreamReader xmlIn = new InputStreamReader(new ByteArrayInputStream(bpmnBytes), "UTF-8");
@@ -115,7 +111,9 @@ public class DeployModelCmd implements Command<Deployment>, Serializable {
                 deploymentBuilder.tenantId(model.getTenantId());
             }
             deployment = deploymentBuilder.deploy();
-            model.setDeploymentId(deployment.getId());
+            if(deployment!=null){
+                model.setDeploymentId(deployment.getId());
+            }
         } catch (Exception e) {
             if (e instanceof FlowableException) {
                 throw (FlowableException) e;

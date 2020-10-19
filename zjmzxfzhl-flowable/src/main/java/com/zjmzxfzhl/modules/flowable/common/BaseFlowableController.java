@@ -1,6 +1,5 @@
 package com.zjmzxfzhl.modules.flowable.common;
 
-import com.zjmzxfzhl.common.core.constant.Constants;
 import com.zjmzxfzhl.common.core.util.ObjectUtils;
 import com.zjmzxfzhl.common.core.util.SpringContextUtils;
 import com.zjmzxfzhl.common.core.xss.SqlFilter;
@@ -8,7 +7,10 @@ import com.zjmzxfzhl.modules.flowable.common.FlowablePage.Direction;
 import com.zjmzxfzhl.modules.flowable.common.FlowablePage.Order;
 import com.zjmzxfzhl.modules.flowable.service.FlowableTaskService;
 import com.zjmzxfzhl.modules.flowable.service.PermissionService;
+import com.zjmzxfzhl.modules.flowable.vo.query.BaseQueryVo;
 import com.zjmzxfzhl.modules.flowable.wapper.IListWrapper;
+import org.flowable.bpmn.model.ExtensionElement;
+import org.flowable.bpmn.model.Process;
 import org.flowable.bpmn.model.ValuedDataObject;
 import org.flowable.common.engine.api.FlowableIllegalArgumentException;
 import org.flowable.common.engine.api.query.Query;
@@ -46,23 +48,17 @@ public abstract class BaseFlowableController {
     @Autowired
     protected TaskService taskService;
 
-    protected FlowablePage getFlowablePage(Map<String, String> requestParams) {
-        int current = -1;
-        if (ObjectUtils.isNotEmpty(requestParams.get(Constants.CURRENT))) {
-            current = ObjectUtils.convertToInteger(requestParams.get(Constants.CURRENT), 1);
-        }
-        int size = 10;
-        if (ObjectUtils.isNotEmpty(requestParams.containsKey(Constants.SIZE))) {
-            size = ObjectUtils.convertToInteger(requestParams.get(Constants.SIZE), 10);
-        }
+    protected FlowablePage getFlowablePage(BaseQueryVo baseQueryVo) {
+        int current = baseQueryVo.getCurrent() ;
+        int size = baseQueryVo.getSize();
         if (current < 0) {
             return null;
         }
         List<Order> orders = null;
-        if (ObjectUtils.isNotEmpty(requestParams.get(Constants.ORDER_RULE))) {
+        if (ObjectUtils.isNotEmpty(baseQueryVo.getOrderRule())) {
             // orderRule=column1|asc,column2|desc
             orders = new ArrayList<>();
-            String orderRule = requestParams.get(Constants.ORDER_RULE);
+            String orderRule = baseQueryVo.getOrderRule();
             // 处理排序
             if (orderRule != null && orderRule.length() > 0) {
                 String[] orderColumnRules = orderRule.split(",");
@@ -90,17 +86,17 @@ public abstract class BaseFlowableController {
         }
     }
 
-    protected FlowablePage pageList(Map<String, String> requestParams, Query query,
+    protected FlowablePage pageList(BaseQueryVo baseQueryVo, Query query,
                                     Class<? extends IListWrapper> listWrapperClass,
                                     Map<String, QueryProperty> allowedSortProperties) {
-        return pageList(getFlowablePage(requestParams), query, listWrapperClass, allowedSortProperties);
+        return pageList(getFlowablePage(baseQueryVo), query, listWrapperClass, allowedSortProperties);
     }
 
-    protected FlowablePage pageList(Map<String, String> requestParams, Query query,
+    protected FlowablePage pageList(BaseQueryVo baseQueryVo, Query query,
                                     Class<? extends IListWrapper> listWrapperClass,
                                     Map<String, QueryProperty> allowedSortProperties,
                                     QueryProperty defaultDescSortProperty) {
-        return pageList(getFlowablePage(requestParams), query, listWrapperClass, allowedSortProperties,
+        return pageList(getFlowablePage(baseQueryVo), query, listWrapperClass, allowedSortProperties,
                 defaultDescSortProperty);
     }
 
@@ -176,6 +172,29 @@ public abstract class BaseFlowableController {
     protected boolean isShowBusinessKey(String processDefinitionId) {
         List<ValuedDataObject> dataObjects =
                 repositoryService.getBpmnModel(processDefinitionId).getMainProcess().getDataObjects();
+
+        Process process = repositoryService.getBpmnModel(processDefinitionId).getMainProcess();
+
+        Map<String, List<ExtensionElement>> extensionElements = process.getExtensionElements();
+        if (extensionElements != null && !extensionElements.isEmpty() && extensionElements.get("properties") != null && extensionElements.get("properties").size() > 0) {
+            List<ExtensionElement> properties = extensionElements.get("properties");
+            for (ExtensionElement extensionElement : properties) {
+                List<ExtensionElement> property = extensionElement.getChildElements().get("property");
+                if (property != null && property.size() > 0) {
+                    for (ExtensionElement propertyElement : property) {
+                        String name = propertyElement.getAttributeValue(null, "name");
+                        String value = propertyElement.getAttributeValue(null, "value");
+                        if ("showBusinessKey".equals(name)) {
+                            if (Boolean.valueOf(value)) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         if (dataObjects != null && dataObjects.size() > 0) {
             for (ValuedDataObject valuedDataObject : dataObjects) {
                 if ("showBusinessKey".equals(valuedDataObject.getId())) {

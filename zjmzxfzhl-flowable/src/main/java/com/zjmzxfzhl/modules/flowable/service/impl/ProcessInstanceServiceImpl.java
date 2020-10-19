@@ -6,9 +6,14 @@ import com.zjmzxfzhl.common.core.util.ObjectUtils;
 import com.zjmzxfzhl.common.core.util.SecurityUtils;
 import com.zjmzxfzhl.modules.flowable.common.CommentTypeEnum;
 import com.zjmzxfzhl.modules.flowable.common.ResponseFactory;
+import com.zjmzxfzhl.modules.flowable.common.cmd.AddCcIdentityLinkCmd;
 import com.zjmzxfzhl.modules.flowable.constant.FlowableConstant;
+import com.zjmzxfzhl.modules.flowable.mapper.FlowableCommonMapper;
 import com.zjmzxfzhl.modules.flowable.service.ProcessInstanceService;
+import com.zjmzxfzhl.modules.flowable.vo.CategoryVo;
+import com.zjmzxfzhl.modules.flowable.vo.ProcessDefinitionVo;
 import com.zjmzxfzhl.modules.flowable.vo.ProcessInstanceRequest;
+import com.zjmzxfzhl.modules.flowable.vo.query.ProcessInstanceQueryVo;
 import org.flowable.common.engine.api.FlowableException;
 import org.flowable.common.engine.api.FlowableObjectNotFoundException;
 import org.flowable.common.engine.impl.identity.Authentication;
@@ -26,6 +31,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,6 +57,8 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
     protected FlowableTaskServiceImpl flowableTaskService;
     @Autowired
     protected TaskService taskService;
+    @Resource
+    private FlowableCommonMapper flowableCommonMapper;
 
     @Override
     public ProcessInstance getProcessInstanceById(String processInstanceId) {
@@ -111,6 +121,10 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
                     taskService.setAssignee(task.getId(), userId);
                 }
                 taskService.complete(task.getId());
+                if (CommonUtil.isNotEmptyObject(processInstanceRequest.getCcToVos())) {
+                    managementService.executeCommand(new AddCcIdentityLinkCmd(processInstanceId, task.getId(), userId
+                            , processInstanceRequest.getCcToVos()));
+                }
             }
         }
     }
@@ -151,5 +165,25 @@ public class ProcessInstanceServiceImpl implements ProcessInstanceService {
             throw new FlowableException("Process instance is already suspended with id {0}" + processInstanceId);
         }
         runtimeService.suspendProcessInstanceById(processInstance.getId());
+    }
+
+    @Override
+    public List listMyInvolvedSummary(ProcessInstanceQueryVo processInstanceQueryVo){
+        List<ProcessDefinitionVo> vos = flowableCommonMapper.listMyInvolvedSummary(processInstanceQueryVo);
+        List<CategoryVo> result = new ArrayList<>();
+        Map<String, List<ProcessDefinitionVo>> categorysByParent = new HashMap<>();
+        for (ProcessDefinitionVo vo : vos) {
+            List<ProcessDefinitionVo> childs = categorysByParent.computeIfAbsent(vo.getCategory(), k -> new ArrayList<>());
+            childs.add(vo);
+        }
+        for (Map.Entry<String, List<ProcessDefinitionVo>> entry : categorysByParent.entrySet()){
+            CategoryVo aCategoryVo = new CategoryVo();
+            aCategoryVo.setCategory(entry.getKey());
+            aCategoryVo.setProcessDefinitionVoList(entry.getValue());
+            String categoryName = entry.getValue().iterator().next().getCategoryName();
+            aCategoryVo.setCategoryName(categoryName);
+            result.add(aCategoryVo);
+        }
+        return result;
     }
 }

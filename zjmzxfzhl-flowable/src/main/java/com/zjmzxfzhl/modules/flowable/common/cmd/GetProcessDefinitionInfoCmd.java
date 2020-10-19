@@ -1,6 +1,7 @@
 package com.zjmzxfzhl.modules.flowable.common.cmd;
 
-import com.zjmzxfzhl.common.core.util.CommonUtil;
+import java.io.Serializable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.flowable.common.engine.api.FlowableIllegalArgumentException;
 import org.flowable.common.engine.api.FlowableObjectNotFoundException;
@@ -11,7 +12,7 @@ import org.flowable.engine.impl.persistence.entity.ProcessDefinitionEntityManage
 import org.flowable.engine.impl.util.CommandContextUtil;
 import org.flowable.engine.repository.ProcessDefinition;
 
-import java.io.Serializable;
+import com.zjmzxfzhl.common.core.util.CommonUtil;
 
 /**
  * @author 庄金明

@@ -1,5 +1,7 @@
 package com.zjmzxfzhl.modules.flowable.mapper;
 
+import com.zjmzxfzhl.modules.flowable.vo.ProcessDefinitionVo;
+import com.zjmzxfzhl.modules.flowable.vo.query.ProcessInstanceQueryVo;
 import org.flowable.idm.api.Group;
 import org.flowable.idm.api.User;
 import org.flowable.idm.engine.impl.GroupQueryImpl;
@@ -44,4 +46,11 @@ public interface FlowableCommonMapper {
      * @return
      */
     long selectGroupCountByQueryCriteria(GroupQueryImpl query);
+
+    /**
+     * 查询我的流程汇总信息
+     * @param processInstanceQueryVo
+     * @return
+     */
+    List<ProcessDefinitionVo> listMyInvolvedSummary(ProcessInstanceQueryVo processInstanceQueryVo);
 }

@@ -1,12 +1,13 @@
 package com.zjmzxfzhl.modules.flowable.config;
 
-import com.zjmzxfzhl.modules.flowable.identity.CustomGroupEntityManager;
-import com.zjmzxfzhl.modules.flowable.identity.CustomUserEntityManager;
 import org.flowable.idm.engine.IdmEngineConfiguration;
 import org.flowable.idm.spring.SpringIdmEngineConfiguration;
 import org.flowable.spring.boot.EngineConfigurationConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.zjmzxfzhl.modules.flowable.identity.CustomGroupEntityManager;
+import com.zjmzxfzhl.modules.flowable.identity.CustomUserEntityManager;
 
 /**
  * @author 庄金明

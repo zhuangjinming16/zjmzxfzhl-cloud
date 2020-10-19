@@ -9,6 +9,7 @@ import org.flowable.idm.engine.impl.persistence.entity.UserEntityManagerImpl;
 import org.flowable.idm.engine.impl.persistence.entity.data.UserDataManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ import java.util.List;
  * @date 2020年3月24日
  */
 public class CustomUserEntityManager extends UserEntityManagerImpl {
-    @Autowired
+    @Resource
     private FlowableCommonMapper flowableCommonMapper;
 
     public CustomUserEntityManager(IdmEngineConfiguration idmEngineConfiguration, UserDataManager userDataManager) {

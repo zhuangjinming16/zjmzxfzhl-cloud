@@ -1,11 +1,12 @@
 package com.zjmzxfzhl.modules.flowable.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zjmzxfzhl.modules.flowable.entity.FlowableForm;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 /**
  * 流程表单Mapper
@@ -20,5 +21,5 @@ public interface FlowableFormMapper extends BaseMapper<FlowableForm> {
      * @param entity
      * @return
      */
-    List<FlowableForm> list(IPage<FlowableForm> page, @Param("entity") FlowableForm entity);
+    public List<FlowableForm> list(IPage<FlowableForm> page, @Param("entity") FlowableForm entity);
 }

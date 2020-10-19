@@ -1,8 +1,8 @@
 package com.zjmzxfzhl.modules.flowable.vo;
 
-import lombok.Data;
-
 import java.util.Map;
+
+import lombok.Data;
 
 /**
  * @author 庄金明
@@ -16,4 +16,6 @@ public class TaskRequest {
     private String activityId;
     private String activityName;
     private Map<String, Object> values;
+    private CcToVo[] ccToVos;
+    private String[] taskIds;
 }

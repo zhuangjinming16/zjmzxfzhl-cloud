@@ -1,9 +1,15 @@
 package com.zjmzxfzhl.modules.flowable.common;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zjmzxfzhl.common.core.util.CommonUtil;
-import com.zjmzxfzhl.modules.flowable.constant.FlowableConstant;
 import com.zjmzxfzhl.modules.flowable.vo.*;
 import org.flowable.engine.FormService;
 import org.flowable.engine.HistoryService;
@@ -24,8 +30,8 @@ import org.flowable.task.api.TaskInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.util.*;
+import com.zjmzxfzhl.common.core.util.CommonUtil;
+import com.zjmzxfzhl.modules.flowable.constant.FlowableConstant;
 
 /**
  * @author 庄金明
@@ -39,8 +45,7 @@ public class ResponseFactory {
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public ResponseFactory(IdentityService identityService, FormService formService, HistoryService historyService,
-                           ObjectMapper objectMapper) {
+    public ResponseFactory(IdentityService identityService, FormService formService, HistoryService historyService,ObjectMapper objectMapper) {
         this.identityService = identityService;
         this.formService = formService;
         this.historyService = historyService;
@@ -227,7 +232,9 @@ public class ResponseFactory {
     public List<CommentResponse> createCommentResponseList(List<Comment> comments) {
         List<CommentResponse> responseList = new ArrayList<>();
         for (Comment comment : comments) {
-            responseList.add(createCommentResponse(comment));
+            if(CommonUtil.isNotEmptyAfterTrim(comment.getTaskId())){
+                responseList.add(createCommentResponse(comment));
+            }
         }
         return responseList;
     }

@@ -5,7 +5,9 @@ import com.zjmzxfzhl.common.core.util.ObjectUtils;
 import com.zjmzxfzhl.common.core.util.SecurityUtils;
 import com.zjmzxfzhl.modules.flowable.common.CommentTypeEnum;
 import com.zjmzxfzhl.modules.flowable.common.ResponseFactory;
+import com.zjmzxfzhl.modules.flowable.common.cmd.AddCcIdentityLinkCmd;
 import com.zjmzxfzhl.modules.flowable.common.cmd.BackUserTaskCmd;
+import com.zjmzxfzhl.modules.flowable.common.cmd.CompleteTaskReadCmd;
 import com.zjmzxfzhl.modules.flowable.common.exception.FlowableNoPermissionException;
 import com.zjmzxfzhl.modules.flowable.constant.FlowableConstant;
 import com.zjmzxfzhl.modules.flowable.service.FlowableTaskService;
@@ -209,12 +211,19 @@ public class FlowableTaskServiceImpl implements FlowableTaskService {
         if (!userId.equals(task.getAssignee())) {
             throw new FlowableNoPermissionException("User does not have permission");
         }
+        if (FlowableConstant.CATEGORY_TO_READ.equals(task.getCategory())) {
+            throw new FlowableNoPermissionException("User cannot unclaim the read task");
+        }
         if (FlowableConstant.INITIATOR.equals(task.getTaskDefinitionKey())) {
             throw new FlowableNoPermissionException("Initiator cannot unclaim the task");
         }
 
         this.addComment(taskId, task.getProcessInstanceId(), userId, CommentTypeEnum.QXRL, taskRequest.getMessage());
         taskService.unclaim(taskId);
+        // 判断是否是协办取消认领
+        if (permissionService.isTaskPending((Task) task)) {
+            taskService.resolveTask(taskId, null);
+        }
     }
 
     @Override
@@ -285,6 +294,12 @@ public class FlowableTaskServiceImpl implements FlowableTaskService {
         this.addComment(taskId, task.getProcessInstanceId(), currUserId,
                 FlowableConstant.INITIATOR.equals(task.getTaskDefinitionKey()) ? CommentTypeEnum.CXTJ :
                         CommentTypeEnum.WC, taskRequest.getMessage());
+
+        // 处理抄送
+        if (CommonUtil.isNotEmptyObject(taskRequest.getCcToVos())) {
+            managementService.executeCommand(new AddCcIdentityLinkCmd(task.getProcessInstanceId(), task.getId(),
+                    currUserId, taskRequest.getCcToVos()));
+        }
 
         if (task.getAssignee() == null || !task.getAssignee().equals(currUserId)) {
             taskService.setAssignee(taskId, currUserId);
@@ -570,6 +585,19 @@ public class FlowableTaskServiceImpl implements FlowableTaskService {
             taskService.deleteGroupIdentityLink(task.getId(), identityId, IdentityLinkType.CANDIDATE);
         } else if (FlowableConstant.IDENTITY_USER.equals(identityType)) {
             taskService.deleteUserIdentityLink(task.getId(), identityId, IdentityLinkType.CANDIDATE);
+        }
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void readTask(TaskRequest taskRequest) {
+        String[] taskIds = taskRequest.getTaskIds();
+        if (taskIds == null || taskIds.length == 0) {
+            throw new FlowableException("taskIds is null or empty");
+        }
+        String userId = SecurityUtils.getUserId();
+        for (String taskId : taskIds) {
+            managementService.executeCommand(new CompleteTaskReadCmd(taskId, userId));
         }
     }
 }

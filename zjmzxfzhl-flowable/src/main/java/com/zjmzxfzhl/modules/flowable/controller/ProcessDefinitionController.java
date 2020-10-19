@@ -1,18 +1,14 @@
 package com.zjmzxfzhl.modules.flowable.controller;
 
-import com.google.common.collect.ImmutableMap;
-import com.zjmzxfzhl.common.core.Result;
-import com.zjmzxfzhl.common.core.util.ObjectUtils;
-import com.zjmzxfzhl.common.core.util.SecurityUtils;
-import com.zjmzxfzhl.common.log.annotation.Log;
-import com.zjmzxfzhl.modules.flowable.common.BaseFlowableController;
-import com.zjmzxfzhl.modules.flowable.common.FlowablePage;
-import com.zjmzxfzhl.modules.flowable.constant.FlowableConstant;
-import com.zjmzxfzhl.modules.flowable.service.ProcessDefinitionService;
-import com.zjmzxfzhl.modules.flowable.vo.ProcessDefinitionRequest;
-import com.zjmzxfzhl.modules.flowable.vo.ProcessDefinitionResponse;
-import com.zjmzxfzhl.modules.flowable.wapper.ProcDefListWrapper;
-import lombok.extern.slf4j.Slf4j;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.zjmzxfzhl.common.core.util.CommonUtil;
+import com.zjmzxfzhl.modules.flowable.vo.query.ProcessDefinitionQueryVo;
 import org.apache.commons.io.IOUtils;
 import org.flowable.common.engine.api.FlowableException;
 import org.flowable.common.engine.api.query.QueryProperty;
@@ -26,13 +22,29 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.google.common.collect.ImmutableMap;
+import com.zjmzxfzhl.common.core.Result;
+import com.zjmzxfzhl.common.core.util.ObjectUtils;
+import com.zjmzxfzhl.common.log.annotation.Log;
+import com.zjmzxfzhl.common.core.util.SecurityUtils;
+import com.zjmzxfzhl.modules.flowable.common.BaseFlowableController;
+import com.zjmzxfzhl.modules.flowable.common.FlowablePage;
+import com.zjmzxfzhl.modules.flowable.constant.FlowableConstant;
+import com.zjmzxfzhl.modules.flowable.service.ProcessDefinitionService;
+import com.zjmzxfzhl.modules.flowable.vo.ProcessDefinitionRequest;
+import com.zjmzxfzhl.modules.flowable.vo.ProcessDefinitionResponse;
+import com.zjmzxfzhl.modules.flowable.wapper.ProcDefListWrapper;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author 庄金明
@@ -60,56 +72,56 @@ public class ProcessDefinitionController extends BaseFlowableController {
 
     @PreAuthorize("@elp.single('flowable:processDefinition:list')")
     @GetMapping(value = "/list")
-    public Result list(@RequestParam Map<String, String> requestParams) {
+    public Result list(ProcessDefinitionQueryVo processDefinitionQueryVo) {
         ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery();
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.ID))) {
-            processDefinitionQuery.processDefinitionId(requestParams.get(FlowableConstant.ID));
+        if (ObjectUtils.isNotEmpty(processDefinitionQueryVo.getProcessDefinitionId())) {
+            processDefinitionQuery.processDefinitionId(processDefinitionQueryVo.getProcessDefinitionId());
         }
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.CATEGORY))) {
-            processDefinitionQuery.processDefinitionCategoryLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.CATEGORY)));
+        if (ObjectUtils.isNotEmpty(processDefinitionQueryVo.getProcessDefinitionCategory())) {
+            processDefinitionQuery.processDefinitionCategoryLike(ObjectUtils.convertToLike(processDefinitionQueryVo.getProcessDefinitionCategory()));
         }
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.KEY))) {
-            processDefinitionQuery.processDefinitionKeyLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.KEY)));
+        if (ObjectUtils.isNotEmpty(processDefinitionQueryVo.getProcessDefinitionKey())) {
+            processDefinitionQuery.processDefinitionKeyLike(ObjectUtils.convertToLike(processDefinitionQueryVo.getProcessDefinitionKey()));
         }
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.NAME))) {
-            processDefinitionQuery.processDefinitionNameLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.NAME)));
+        if (ObjectUtils.isNotEmpty(processDefinitionQueryVo.getProcessDefinitionName())) {
+            processDefinitionQuery.processDefinitionNameLike(ObjectUtils.convertToLike(processDefinitionQueryVo.getProcessDefinitionName()));
         }
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.VERSION))) {
-            processDefinitionQuery.processDefinitionVersion(ObjectUtils.convertToInteger(requestParams.get(FlowableConstant.VERSION)));
+        if (ObjectUtils.isNotEmpty(processDefinitionQueryVo.getProcessDefinitionVersion())) {
+            processDefinitionQuery.processDefinitionVersion(processDefinitionQueryVo.getProcessDefinitionVersion());
         }
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.SUSPENDED))) {
-            boolean suspended = ObjectUtils.convertToBoolean(requestParams.get(FlowableConstant.SUSPENDED));
+
+        Boolean suspended = CommonUtil.isEmptyDefault(processDefinitionQueryVo.getSuspended(), false);
+        Boolean active = CommonUtil.isEmptyDefault(processDefinitionQueryVo.getActive(), false);
+        if (!suspended.equals(active)) {
             if (suspended) {
                 processDefinitionQuery.suspended();
-            } else {
+            }
+            if (active) {
                 processDefinitionQuery.active();
             }
         }
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.LATEST_VERSION))) {
-            boolean latest = ObjectUtils.convertToBoolean(requestParams.get(FlowableConstant.LATEST_VERSION));
-            if (latest) {
-                processDefinitionQuery.latestVersion();
-            }
+        if (processDefinitionQueryVo.getLatestVersion()) {
+            processDefinitionQuery.latestVersion();
         }
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.STARTABLE_BY_USER))) {
-            processDefinitionQuery.startableByUser(requestParams.get(FlowableConstant.STARTABLE_BY_USER));
+        if (ObjectUtils.isNotEmpty(processDefinitionQueryVo.getStartableByUser())) {
+            processDefinitionQuery.startableByUser(processDefinitionQueryVo.getStartableByUser());
         }
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.TENANT_ID))) {
-            processDefinitionQuery.processDefinitionTenantId(requestParams.get(FlowableConstant.TENANT_ID));
+        if (ObjectUtils.isNotEmpty(processDefinitionQueryVo.getTenantId())) {
+            processDefinitionQuery.processDefinitionTenantId(processDefinitionQueryVo.getTenantId());
         }
-        FlowablePage page = this.pageList(requestParams, processDefinitionQuery, ProcDefListWrapper.class,
+        FlowablePage page = this.pageList(processDefinitionQueryVo, processDefinitionQuery, ProcDefListWrapper.class,
                 ALLOWED_SORT_PROPERTIES);
         return Result.ok(page);
     }
 
     @GetMapping(value = "/listMyself")
-    public Result listMyself(@RequestParam Map<String, String> requestParams) {
+    public Result listMyself(ProcessDefinitionQueryVo processDefinitionQueryVo) {
         ProcessDefinitionQuery processDefinitionQuery = repositoryService.createProcessDefinitionQuery();
-        if (ObjectUtils.isNotEmpty(requestParams.get(FlowableConstant.NAME))) {
-            processDefinitionQuery.processDefinitionNameLike(ObjectUtils.convertToLike(requestParams.get(FlowableConstant.NAME)));
+        if (ObjectUtils.isNotEmpty(processDefinitionQueryVo.getProcessDefinitionName())) {
+            processDefinitionQuery.processDefinitionNameLike(ObjectUtils.convertToLike(processDefinitionQueryVo.getProcessDefinitionName()));
         }
         processDefinitionQuery.latestVersion().active().startableByUser(SecurityUtils.getUserId());
-        FlowablePage page = this.pageList(requestParams, processDefinitionQuery, ProcDefListWrapper.class,
+        FlowablePage page = this.pageList(processDefinitionQueryVo, processDefinitionQuery, ProcDefListWrapper.class,
                 ALLOWED_SORT_PROPERTIES);
         return Result.ok(page);
     }

@@ -1,8 +1,11 @@
 package com.zjmzxfzhl.modules.flowable.service;
 
+import com.zjmzxfzhl.modules.flowable.vo.query.ProcessInstanceQueryVo;
 import com.zjmzxfzhl.modules.flowable.vo.ProcessInstanceRequest;
 import org.flowable.engine.history.HistoricProcessInstance;
 import org.flowable.engine.runtime.ProcessInstance;
+
+import java.util.List;
 
 /**
  * @author 庄金明
@@ -54,4 +57,11 @@ public interface ProcessInstanceService {
      * @param processInstanceId
      */
     void suspend(String processInstanceId);
+
+    /**
+     * 查询我的流程汇总信息
+     *
+     * @param processInstanceQueryVo
+     */
+    List listMyInvolvedSummary(ProcessInstanceQueryVo processInstanceQueryVo);
 }

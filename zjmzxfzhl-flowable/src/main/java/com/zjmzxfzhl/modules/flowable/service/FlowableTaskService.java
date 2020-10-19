@@ -1,12 +1,17 @@
 package com.zjmzxfzhl.modules.flowable.service;
 
-import com.zjmzxfzhl.modules.flowable.common.CommentTypeEnum;
-import com.zjmzxfzhl.modules.flowable.vo.*;
+import java.util.List;
+
 import org.flowable.engine.task.Comment;
 import org.flowable.task.api.Task;
 import org.flowable.task.api.history.HistoricTaskInstance;
 
-import java.util.List;
+import com.zjmzxfzhl.modules.flowable.common.CommentTypeEnum;
+import com.zjmzxfzhl.modules.flowable.vo.FlowNodeResponse;
+import com.zjmzxfzhl.modules.flowable.vo.IdentityRequest;
+import com.zjmzxfzhl.modules.flowable.vo.TaskRequest;
+import com.zjmzxfzhl.modules.flowable.vo.TaskResponse;
+import com.zjmzxfzhl.modules.flowable.vo.TaskUpdateRequest;
 
 /**
  * @author 庄金明
@@ -179,4 +184,10 @@ public interface FlowableTaskService {
      * @param identityType
      */
     void deleteTaskIdentityLink(String taskId, String identityId, String identityType);
+
+    /**
+     * 任务已阅
+     * @param taskRequest
+     */
+    void readTask(TaskRequest taskRequest);
 }

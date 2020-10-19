@@ -1,12 +1,13 @@
 package com.zjmzxfzhl.modules.flowable.entity;
 
+import javax.validation.constraints.NotNull;
+
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.zjmzxfzhl.common.core.base.BaseEntity;
 import com.zjmzxfzhl.common.core.validator.constraints.LengthForUtf8;
-import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import lombok.Data;
 
 /**
  * @author 庄金明

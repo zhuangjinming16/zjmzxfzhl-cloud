@@ -1,8 +1,8 @@
 package com.zjmzxfzhl.modules.flowable.vo;
 
-import lombok.Data;
-
 import java.util.Date;
+
+import lombok.Data;
 
 /**
  * @author 庄金明

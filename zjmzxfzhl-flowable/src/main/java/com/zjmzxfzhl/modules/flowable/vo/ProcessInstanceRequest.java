@@ -1,8 +1,8 @@
 package com.zjmzxfzhl.modules.flowable.vo;
 
-import lombok.Data;
-
 import java.util.Map;
+
+import lombok.Data;
 
 /**
  * @author 庄金明
@@ -16,4 +16,5 @@ public class ProcessInstanceRequest {
     private String businessKey;
     private Map<String, Object> values;
     private String processInstanceId;
+    private CcToVo[] ccToVos;
 }

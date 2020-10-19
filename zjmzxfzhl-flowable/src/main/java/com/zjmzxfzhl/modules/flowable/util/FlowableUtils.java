@@ -24,7 +24,7 @@ import java.util.stream.Stream;
 public class FlowableUtils {
 
     public static User getFlowableUser() {
-        SecurityUser securityUser = (SecurityUser) SecurityUtils.getUserDetails();
+        SecurityUser securityUser = ((SecurityUser) SecurityUtils.getUserDetails());
         User currentUser = new UserEntityImpl();
         currentUser.setId(securityUser.getUsername());
         currentUser.setFirstName(securityUser.getUserRealName());
@@ -176,12 +176,12 @@ public class FlowableUtils {
             targetElement = (FlowNode) ((SequenceFlow) targetFlowElement).getTargetFlowElement();
         }
         if (sourceElement == null) {
-            throw new FlowableException("Invalid sourceElementId '" + sourceElementId + "': no element found for " +
-                    "this" + " id n process definition '" + processDefinitionId + "'");
+            throw new FlowableException("Invalid sourceElementId '" + sourceElementId + "': no element found for this" +
+                    " id n process definition '" + processDefinitionId + "'");
         }
         if (targetElement == null) {
-            throw new FlowableException("Invalid targetElementId '" + targetElementId + "': no element found for " +
-                    "this" + " id n process definition '" + processDefinitionId + "'");
+            throw new FlowableException("Invalid targetElementId '" + targetElementId + "': no element found for this" +
+                    " id n process definition '" + processDefinitionId + "'");
         }
         Set<String> visitedElements = new HashSet<>();
         return isReachable(process, sourceElement, targetElement, visitedElements);
