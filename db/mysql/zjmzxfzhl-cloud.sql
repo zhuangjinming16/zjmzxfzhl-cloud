@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80019
 File Encoding         : 65001
 
-Date: 2020-10-19 22:57:33
+Date: 2020-11-01 10:23:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -89,19 +89,19 @@ CREATE TABLE `act_ge_property` (
 -- ----------------------------
 -- Records of act_ge_property
 -- ----------------------------
-INSERT INTO `act_ge_property` VALUES ('batch.schema.version', '6.5.1.6', '1');
+INSERT INTO `act_ge_property` VALUES ('batch.schema.version', '6.6.0.0', '1');
 INSERT INTO `act_ge_property` VALUES ('cfg.execution-related-entities-count', 'true', '1');
 INSERT INTO `act_ge_property` VALUES ('cfg.task-related-entities-count', 'true', '1');
-INSERT INTO `act_ge_property` VALUES ('common.schema.version', '6.5.1.6', '1');
-INSERT INTO `act_ge_property` VALUES ('entitylink.schema.version', '6.5.1.6', '1');
-INSERT INTO `act_ge_property` VALUES ('eventsubscription.schema.version', '6.5.1.6', '1');
-INSERT INTO `act_ge_property` VALUES ('identitylink.schema.version', '6.5.1.6', '1');
-INSERT INTO `act_ge_property` VALUES ('job.schema.version', '6.5.1.6', '1');
+INSERT INTO `act_ge_property` VALUES ('common.schema.version', '6.6.0.0', '1');
+INSERT INTO `act_ge_property` VALUES ('entitylink.schema.version', '6.6.0.0', '1');
+INSERT INTO `act_ge_property` VALUES ('eventsubscription.schema.version', '6.6.0.0', '1');
+INSERT INTO `act_ge_property` VALUES ('identitylink.schema.version', '6.6.0.0', '1');
+INSERT INTO `act_ge_property` VALUES ('job.schema.version', '6.6.0.0', '1');
 INSERT INTO `act_ge_property` VALUES ('next.dbid', '1', '1');
-INSERT INTO `act_ge_property` VALUES ('schema.history', 'upgrade(6.4.1.3->6.5.1.6)', '2');
-INSERT INTO `act_ge_property` VALUES ('schema.version', '6.5.1.6', '2');
-INSERT INTO `act_ge_property` VALUES ('task.schema.version', '6.5.1.6', '1');
-INSERT INTO `act_ge_property` VALUES ('variable.schema.version', '6.5.1.6', '1');
+INSERT INTO `act_ge_property` VALUES ('schema.history', 'upgrade(6.5.1.6->6.6.0.0)', '3');
+INSERT INTO `act_ge_property` VALUES ('schema.version', '6.6.0.0', '3');
+INSERT INTO `act_ge_property` VALUES ('task.schema.version', '6.6.0.0', '1');
+INSERT INTO `act_ge_property` VALUES ('variable.schema.version', '6.6.0.0', '1');
 
 -- ----------------------------
 -- Table structure for act_hi_actinst
@@ -3562,7 +3562,7 @@ CREATE TABLE `act_id_property` (
 -- ----------------------------
 -- Records of act_id_property
 -- ----------------------------
-INSERT INTO `act_id_property` VALUES ('schema.version', '6.5.1.6', '1');
+INSERT INTO `act_id_property` VALUES ('schema.version', '6.6.0.0', '1');
 
 -- ----------------------------
 -- Table structure for act_id_token
