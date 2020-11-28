@@ -1,7 +1,6 @@
 package com.zjmzxfzhl.modules.flowable.service;
 
-import java.util.List;
-
+import com.zjmzxfzhl.modules.flowable.common.enums.ButtonsEnum;
 import org.flowable.engine.history.HistoricProcessInstance;
 import org.flowable.engine.repository.ProcessDefinition;
 import org.flowable.engine.runtime.ProcessInstance;
@@ -9,6 +8,8 @@ import org.flowable.identitylink.api.IdentityLink;
 import org.flowable.task.api.Task;
 import org.flowable.task.api.TaskInfo;
 import org.flowable.task.api.history.HistoricTaskInstance;
+
+import java.util.List;
 
 /**
  * @author 庄金明
@@ -26,8 +27,7 @@ public interface PermissionService {
      * @return
      */
     HistoricTaskInstance validateReadPermissionOnTask(String taskId, String userId,
-                                                      boolean validateReadProcessInstance,
-                                                      boolean validateReadParentTask);
+                                                      boolean validateReadProcessInstance, boolean validateReadParentTask);
 
     /**
      * 校验用户是否有权限读取任务
@@ -123,8 +123,7 @@ public interface PermissionService {
      * @param tenantId
      * @return
      */
-    ProcessDefinition validateReadPermissionOnProcessDefinition(String userId, String processDefinitionId,
-                                                                String processDefinitionKey, String tenantId);
+    ProcessDefinition validateReadPermissionOnProcessDefinition(String userId, String processDefinitionId, String processDefinitionKey, String tenantId);
 
     /**
      * 校验用户是否有权限读取该流程定义
@@ -215,4 +214,11 @@ public interface PermissionService {
      * @return
      */
     boolean isAdmin(String userId);
+
+    /**
+     * 验证任务节点是否有指定的按钮权限
+     * @param task
+     * @param buttonsEnum
+     */
+    public void validateTaskHasButtonPermission(Task task, ButtonsEnum buttonsEnum);
 }

@@ -1,10 +1,9 @@
 package com.zjmzxfzhl.modules.flowable.config;
 
-import java.awt.Paint;
-import java.awt.Stroke;
-import java.awt.geom.RoundRectangle2D;
-
 import org.flowable.image.impl.DefaultProcessDiagramCanvas;
+
+import java.awt.*;
+import java.awt.geom.RoundRectangle2D;
 
 /**
  * @author 庄金明
