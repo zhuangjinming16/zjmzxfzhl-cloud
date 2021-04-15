@@ -127,7 +127,11 @@ zjmzxfzhl-cloud
 请假流程详见`zjmzxfzhl/src/main/resources/processes_test/leave.bpmn20.xml`或者`zjmzxfzhl/src/main/resources/processes_test/leaveBusinessKey.bpmn20.xml`
 
 ## 技术交流
-QQ群 : 913659692
+QQ群 : 
+
+913659692 (已满)
+
+758367761
 
 ## 界面展示
 
