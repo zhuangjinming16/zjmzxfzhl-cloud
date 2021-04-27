@@ -1,6 +1,6 @@
 # Zjmzxfzhl-Cloud
 
-## 开源不易，如果 `Zjmzxfzhl-Cloud` 对您有帮助，请点右上角 `Star`或者 `Fork` 支持一下。
+## 开源不易，如果 `Zjmzxfzhl-Cloud` 对您有帮助，请点右上角 `Star` && `Fork` 支持一下。
 
 ## 您的支持，是我继续做开源项目的动力，谢谢！
 
@@ -16,6 +16,20 @@ gitee: https://gitee.com/zjm16/zjmzxfzhl-cloud
 github: https://github.com/zhuangjinming16/zjmzxfzhl-cloud
 
 若需要使用 Spring Boot 架构请移步: https://gitee.com/zjm16/zjmzxfzhl
+
+特别提醒：
+
+1. `zjmzxfzhl-common` 已独立管理，可以同时用于 `zjmzxfzhl` 和 `zjmzxfzhl-cloud` ，欢迎 star && fork 支持，谢谢！！！
+
+   [Gitee:zjmzxfzhl-common](https://gitee.com/zjm16/zjmzxfzhl-common) [Github:zjmzxfzhl-common](https://github.com/zhuangjinming16/zjmzxfzhl-common)
+
+2. `zjmzxfzhl-vue` 已独立管理，可以同时用于 `zjmzxfzhl` 和 `zjmzxfzhl-cloud` ，欢迎 star && fork 支持，谢谢！！！
+
+   [Gitee:zjmzxfzhl-vue](https://gitee.com/zjm16/zjmzxfzhl-vue) [Github:zjmzxfzhl-vue](https://github.com/zhuangjinming16/zjmzxfzhl-vue)
+
+3. `zjmzxfzhl-bpmn` 已独立管理，可以同时用于 `zjmzxfzhl` 和 `zjmzxfzhl-cloud` ，欢迎 star && fork 支持，谢谢！！！
+
+   [Gitee:zjmzxfzhl-bpmn](https://gitee.com/zjm16/zjmzxfzhl-bpmn) [Github:zjmzxfzhl-bpmn](https://github.com/zhuangjinming16/zjmzxfzhl-bpmn)
 
 ## 感谢
 
@@ -111,6 +125,8 @@ zjmzxfzhl-cloud
 
 ## 文档及演示环境
 文档地址：[https://zjm16.gitee.io/zjmzxfzhl-doc/zjmzxfzhl-cloud/](https://zjm16.gitee.io/zjmzxfzhl-doc/zjmzxfzhl-cloud/)
+
+流程设计器在线体验：[https://zjm16.gitee.io/zjmzxfzhl-doc/zjmzxfzhl-bpmn](https://zjm16.gitee.io/zjmzxfzhl-doc/zjmzxfzhl-bpmn)
 
 演示环境：暂无 `Zjmzxfzhl-Cloud` 微服务演示环境，可先查看`Zjmzxfzhl`演示环境 ：[http://118.190.100.3:8080/zjmzxfzhl](http://118.190.100.3:8080/zjmzxfzhl) 
 
