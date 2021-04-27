@@ -1,15 +1,8 @@
 package com.zjmzxfzhl.modules.flowable.common;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zjmzxfzhl.common.core.util.CommonUtil;
+import com.zjmzxfzhl.modules.flowable.constant.FlowableConstant;
 import com.zjmzxfzhl.modules.flowable.vo.*;
 import org.flowable.engine.FormService;
 import org.flowable.engine.HistoryService;
@@ -30,8 +23,7 @@ import org.flowable.task.api.TaskInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.zjmzxfzhl.common.core.util.CommonUtil;
-import com.zjmzxfzhl.modules.flowable.constant.FlowableConstant;
+import java.util.*;
 
 /**
  * @author 庄金明
@@ -45,7 +37,7 @@ public class ResponseFactory {
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public ResponseFactory(IdentityService identityService, FormService formService, HistoryService historyService,ObjectMapper objectMapper) {
+    public ResponseFactory(IdentityService identityService, FormService formService, HistoryService historyService, ObjectMapper objectMapper) {
         this.identityService = identityService;
         this.formService = formService;
         this.historyService = historyService;
@@ -292,12 +284,7 @@ public class ResponseFactory {
         response.setId(model.getId());
         response.setKey(model.getKey());
         response.setLastUpdateTime(model.getLastUpdateTime());
-        try {
-            JsonNode modelNode = objectMapper.readTree(model.getMetaInfo());
-            response.setDescription(modelNode.get("description").asText());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        response.setDescription(model.getMetaInfo());
         response.setName(model.getName());
         response.setVersion(model.getVersion());
         if (model.getDeploymentId() != null) {
